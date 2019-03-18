@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="this is a demo meta description">
+    <meta name="keywords" content="this is a demo meta keywords">
+    <title>{% block title %}Kobe - Multi Store eCommerce Bootstrap 4 Template{% endblock %}</title>
+    {% block stylesheets %}
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
+        <link rel="apple-touch-icon" href="{{ asset('img/icon.png') }}">
+
+
+
+        <!-- ************************* CSS ************************* -->
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+
+        <!-- All Plugins CSS css -->
+        <link rel="stylesheet" href="{{ asset('/css/plugins.css') }}">
+
+        <!-- style css -->
+        <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
+
+        <!-- modernizr JS
+        ============================================ -->
+        <script src="public/js/modernizr-2.8.3.min.js"></script>
+    {% endblock %}
+
+
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+
+<!-- Main Wrapper Start -->
+
+<div class="wrapper bg--gray-4">
+
+    <!-- Header area Start -->
+
+    <header class="header header-3">
+        <div class="header-top header-3--top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-lg-right">
+
+                        <!-- Header Top Nav Start -->
+                        <div class="header-top__nav header-top__nav--3 d-flex justify-content-lg-end justify-content-center">
+                            <div class="user-info header-top__nav--item">
+                                <div class="dropdown header-top__dropdown">
+                                    <a class="dropdown-toggle" id="userID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        My Account
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="userID">
+                                        <a class="dropdown-item" href="my-account.html">My Account</a>
+                                        <a class="dropdown-item" href="checkout.html">Checkout</a>
+                                        <a class="dropdown-item" href="login.html">Sign In</a>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Header Top Nav End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-middle header-3--middle">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-sm-4">
+                        <div class="header-middle__left">
+                            <!-- Logo Start -->
+                            <a href="{{ path('home_page') }}" class="logo-box">
+                                <img src="{{ asset('/img/logo-2.jpg.png') }}" alt="logo" class="img-fluid">
+                            </a>
+                            <!-- Logo End -->
+
+                        </div>
+                    </div>
+                    <div class="col-lg-7 order-3 order-lg-2">
+                        <!-- Search Form Start -->
+                        <form action="#" class="search-form search-form--3">
+                            <input type="text" class="search-form__input" placeholder="Я ищу...">
+                            <div class="search-form__group search-form__group--select">
+                                <select name="category" id="searchCategory" class="search-form__select">
+                                    <option value="all">All Categories</option>
+                                    <option value="3">Toys &amp; Hobbies</option>
+                                    <option value="3">- -  Books &amp; Board Games</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">Toys &amp; Hobbies</option>
+                                    <option value="3">- -  Books &amp; Board Games</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">Toys &amp; Hobbies</option>
+                                    <option value="3">- -  Books &amp; Board Games</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">Toys &amp; Hobbies</option>
+                                    <option value="3">- -  Books &amp; Board Games</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">- - - -  Arts &amp; Crafts</option>
+                                    <option value="3">Toys &amp; Hobbies</option>
+                                    <option value="3">Toys &amp; Hobbies</option>
+                                    <option value="3">Toys &amp; Hobbies</option>
+                                    <option value="3">Toys &amp; Hobbies</option>
+                                    <option value="3">Toys &amp; Hobbies</option>
+                                </select>
+                            </div>
+                            <button class="search-form__submit form-btn form-btn--3">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                        <!-- Search Form End -->
+                    </div>
+                    <div class="col-lg-2 col-sm-8 order-2 order-lg-3">
+                        <!-- Header Cart Start -->
+                        <div class="header-cart header-cart--3">
+                            <a class="header-cart__dropdown-toggle" id="cartDropdown">
+                                <i class="fa fa-shopping-cart header-cart__icon"></i>
+                                <sup class="header-cart__count">0</sup>
+                                <span class="header-cart__ammount">0.00</span>
+                            </a>
+                            <div class="header-cart__dropdown-menu">
+                                <div class="header-cart__content">
+                                    <a class="header-cart__close-btn" id="cart-close" href=""><i class="fa fa-times"></i></a>
+                                    <div class="header-cart__item">
+                                        <div class="header-cart__item--image">
+                                            <img src="public/img/printed-summer-dress-1.jpg" alt="product">
+                                            <span class="header-cart__item--quantity">1x</span>
+                                        </div>
+                                        <div class="header-cart__item--content">
+                                            <h4><a href="single-product.html">Printed Summer Dress</a> </h4>
+                                            <p>&dollar;28.98</p>
+                                            <span>Size: S</span>
+                                            <span>Color: Yello</span>
+                                        </div>
+                                    </div>
+                                    <ul class="header-cart__list">
+                                        <li class="header-cart__single">
+                                            <span class="header-cart__single--title">Subtotal</span>
+                                            <span class="header-cart__single--ammount">$0.00</span>
+                                        </li>
+                                        <li class="header-cart__single">
+                                            <span class="header-cart__single--title">Shipping</span>
+                                            <span class="header-cart__single--ammount">Free</span>
+                                        </li>
+                                        <li class="header-cart__single">
+                                            <span class="header-cart__single--title">Taxes</span>
+                                            <span class="header-cart__single--ammount">$0.00</span>
+                                        </li>
+                                        <li class="header-cart__single">
+                                            <span class="header-cart__single--title">Total</span>
+                                            <span class="header-cart__single--ammount">$0.00</span>
+                                        </li>
+                                    </ul>
+                                    <div class="header-cart__btn">
+                                        <a href="checkout.html" class="btn btn-checkout btn-style-6">Checkout</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Header Cart End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom header-3--bottom fixed-header">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <nav class="main-navigation">
+                            <!-- Mainmenu Start -->
+                            <ul class="mainmenu mainmenu--3">
+                                <li class="mainmenu__item">
+                                    <a href="{{ path('home_page') }}" class="mainmenu__link">Home</a>
+
+                                <li class="mainmenu__item menu-item-has-children">
+                                    <a href="shop.html" class="mainmenu__link">Shop</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item-has-children">
+                                            <a href="shop.html">Shop Grid</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="shop.html">Shop Left Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-grid-view-3-col.html">Shop 3 Column</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-grid-view-4-col.html">Shop 4 Column</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="shop-list-view.html">Shop List</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="shop-list-view.html">Shop List View Left Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-list-view-right-sidebar.html">Shop List View Right Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://demo.devitems.com/kobe-preview/kobe/shop-list-view-right-fullwidth.html">Shop List View Fullwidth</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="single-product.html" class="mainmenu-sub__link">Single Products</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="single-product.html">Product Details</a>
+                                                </li>
+                                                <li>
+                                                    <a href="single-product-group.html">Group Product Details</a>
+                                                </li>
+                                                <li>
+                                                    <a href="single-product-link.html">Link Product Details</a>
+                                                </li>
+                                                <li>
+                                                    <a href="single-product-variable.html">Variable Product Details</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="mainmenu__item menu-item-has-children">
+                                    <a href="legal-notice.html" class="mainmenu__link">Pages</a>
+                                    <ul class="megamenu three-column">
+                                        <li>
+                                            <a href="index-3.html#">Column One</a>
+                                            <ul>
+                                                <li class="">
+                                                    <a href="about-us.html" class="">About Us</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="best-sales.html" class="">Best Products</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="cart.html" class="">Cart</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="checkout.html" class="">Checkout</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="index-3.html#">Column Two</a>
+                                            <ul>
+                                                <li class="">
+                                                    <a href="compare.html" class="">Compare</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="login.html" class="">Login</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="register.html" class="">Register</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="stores.html" class="">Stores</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="index-3.html#">Column Three</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="wishlist.html">Wishlist</a>
+                                                </li>
+                                                <li>
+                                                    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                                                </li>
+                                                <li>
+                                                    <a href="legal-notice.html">Legal Notice</a>
+                                                </li>
+                                                <li>
+                                                    <a href="payment.html">Secure Payment</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="mainmenu__item menu-item-has-children">
+                                    <a href="blog-2-column-left-sidebar.html" class="mainmenu__link">Blog</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="blog-2-column-left-sidebar.html">Blog Two Column Left Sidebar</a>
+                                        </li>
+                                        <li>
+                                            <a href="blog-2-column-right-sidebar.html">Blog Two Column right Sidebar</a>
+                                        </li>
+                                        <li>
+                                            <a href="blog-3-column.html">Blog Three Column</a>
+                                        </li>
+                                        <li>
+                                            <a href="single-blog-left-sidebar.html">Blog Details Left Sidebar</a>
+                                        </li>
+                                        <li>
+                                            <a href="single-blog-right-sidebar.html">Blog Details Right Sidebar</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="mainmenu__item"><a href="{{ path('contact_us') }}" class="mainmenu__link">Contact Us</a></li>
+                            </ul>
+                            <!-- Mainmenu End -->
+                        </nav>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Main Mobile Menu Start -->
+                        <div class="mobile-menu mobile-menu--3"></div>
+                        <!-- Main Mobile Menu End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header area End -->
+        {% block body %}{% endblock %}
+
+    {% block footer %}
+    <!-- Clients area Start -->
+    <div class="clients-area pt--40 pb--80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="client-carousel client-carousel--3 owl-carousel">
+                        <div class="single-client">
+                            <img src="assets/img/1.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/2.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/3.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/4.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/5.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/6.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/4.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/5.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/6.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/4.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/5.jpg" alt="client">
+                        </div>
+                        <div class="single-client">
+                            <img src="assets/img/6.jpg" alt="client">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Clients area End -->
+
+    <!-- Footer area Start -->
+    <footer class="footer footer--3">
+        <div class="footer-top footer--3-top">
+            <div class="container">
+                <div class="row pb--30 footer-method-box-row">
+                    <!-- Method Box Start -->
+                    <div class="col-md-3">
+                        <div class="method-box method-box--2">
+                            <div class="method-box__icon">
+                                <i class="fa fa-paper-plane-o"></i>
+                            </div>
+                            <div class="method-box__content">
+                                <h4>Free Delivery</h4>
+                                <p>On Orders Of $200+</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Method Box End -->
+
+                    <!-- Method Box Start -->
+                    <div class="col-md-3">
+                        <div class="method-box method-box--2">
+                            <div class="method-box__icon">
+                                <i class="fa fa-credit-card"></i>
+                            </div>
+                            <div class="method-box__content">
+                                <h4>Cod</h4>
+                                <p>Cash On Delivery</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Method Box End -->
+
+                    <!-- Method Box Start -->
+                    <div class="col-md-3">
+                        <div class="method-box method-box--2">
+                            <div class="method-box__icon">
+                                <i class="fa fa-gift"></i>
+                            </div>
+                            <div class="method-box__content">
+                                <h4>Free Gift Box</h4>
+                                <p>Buy A Gift</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Method Box End -->
+
+                    <!-- Method Box Start -->
+                    <div class="col-md-3">
+                        <div class="method-box method-box--2">
+                            <div class="method-box__icon">
+                                <i class="fa fa-support"></i>
+                            </div>
+                            <div class="method-box__content">
+                                <h4>Free Support 24/7</h4>
+                                <p>Online 24hrs A Day</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Method Box End -->
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <hr class="line line-black">
+                    </div>
+                </div>
+                <div class="row ptb--30 justify-content-center">
+                    <div class="col-xl-9 col-md-8">
+                        <!-- Newsletter Form Start -->
+                        <div class="newsletter newsletter--2">
+                            <p class="newsletter__desc text-center mb--30">
+                                Trade Alert - Delivering the latest product trends and industry news straight to your inbox. We’ll never share your email address with a third-party.
+                            </p>
+                            <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="newsletter-form popup-subscribe-form validate newsletter-form--2" target="_blank" novalidate="">
+                                <div class="newsletter-form__group">
+                                    <input type="email" name="email" id="email" class="newsletter-form__input" placeholder="Your Email Address">
+                                    <button type="submit" class="newsletter-form__btn form-btn form-btn--3">
+                                        <i class="fa fa-envelope"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Newsletter Form End -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <hr class="line line-black">
+                    </div>
+                </div>
+                <div class="row ptb--30 footer-widget-row">
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-4">
+                        <div class="footer-widget">
+                            <h3 class="widget-title widget-title--2">Contact Us</h3>
+                            <div class="address-widget address-widget--2">
+                                <p><i class="fa fa-map-marker"></i> The Barn, Ullenhall, Henley-in-Arden B578 5CC, England</p>
+                                <p><i class="fa fa-phone"></i> +123.456.789 +123.456.678</p>
+                                <p><i class="fa fa-phone"></i> <a href="mailo:demo@posthemes.com">demo@posthemes.com</a></p>
+                            </div>
+                            <ul class="social borderd-social mt--20">
+                                <li class="social__item"><a href="http://demo.devitems.com/kobe-preview/kobe/facebook.com" class="social__link social__link--2"><i class="fa fa-facebook"></i></a></li>
+                                <li class="social__item"><a href="http://demo.devitems.com/kobe-preview/kobe/twitter.com" class="social__link social__link--2"><i class="fa fa-twitter"></i></a></li>
+                                <li class="social__item"><a href="http://demo.devitems.com/kobe-preview/kobe/youtube.com" class="social__link social__link--2"><i class="fa fa-youtube"></i></a></li>
+                                <li class="social__item"><a href="http://demo.devitems.com/kobe-preview/kobe/plus.google.com" class="social__link social__link--2"><i class="fa fa-google-plus"></i></a></li>
+                                <li class="social__item"><a href="http://demo.devitems.com/kobe-preview/kobe/instagram.com" class="social__link social__link--2"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-3 col-md-4">
+                        <div class="footer-widget">
+                            <h3 class="widget-title widget-title--2">Products</h3>
+                            <div class="menu-widget menu-widget--2">
+                                <ul>
+                                    <li><a href="on-sale.html">Prices Drop</a></li>
+                                    <li><a href="new-products.html">New Products</a></li>
+                                    <li><a href="stores.html">Stores</a></li>
+                                    <li><a href="best-sales.html">Best Sales</a></li>
+                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="my-account.html">My Account</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-3 col-md-4">
+                        <div class="footer-widget">
+                            <h3 class="widget-title widget-title--2">Our Company</h3>
+                            <div class="menu-widget menu-widget--2">
+                                <ul>
+                                    <li><a href="legal-notice.html">Legal Notice</a></li>
+                                    <li><a href="terms-and-conditions.html">Terms And Conditions Of Use</a></li>
+                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="payment.html">Secure Payment</a></li>
+                                    <li><a href="terms-and-conditions.html">Delivery</a></li>
+                                    <li><a href="contact-us.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-2 col-md-4">
+                        <div class="footer-widget">
+                            <h3 class="widget-title widget-title--2">Your Account</h3>
+                            <div class="menu-widget menu-widget--2">
+                                <ul>
+                                    <li><a href="my-account.html">Addresses</a></li>
+                                    <li><a href="my-account.html">Credit Slips</a></li>
+                                    <li><a href="my-account.html">Orders</a></li>
+                                    <li><a href="my-account.html">Personal Info</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <hr class="line line-black">
+                    </div>
+                </div>
+                <div class="row ptb--30">
+                    <div class="col-12 text-center">
+                        <ul class="footer-menu">
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Online Shopping</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Promotions</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">My Orders</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Service</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Support</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Most Populars</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">New Arrivals</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Special Products</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Manufacturers</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Our Stores</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Shipping</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Payments</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Warantee</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Refunds</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Checkout</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Discount</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Terms &amp; Conditions</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Policy</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Policy</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Shipping</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Payments</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Warantee</a></li>
+                            <li class="footer-menu__item"><a href="" class="footer-menu__link">Refunds</a></li>
+                        </ul>
+                        <div class="payment">
+                            <img src="assets/img/payment.png" alt="payment">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom footer--3-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <!-- Copyright Text Start -->
+                        <p class="copyright-text copyright-text--3">
+                            Copyright <a href="">HasTech</a>. All rights reserved
+                        </p>
+                        <!-- Copyright Text End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer area End -->
+
+</div>
+
+<!-- Main Wrapper End -->
+
+<!-- Scroll To Top -->
+
+<a class="scroll-to-top" href=""><i class="fa fa-angle-double-up"></i></a>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="tab-content product-thumb-large">
+                            <div id="thumb1" class="tab-pane active show fade">
+                                <img src="assets/img/printed-summer-dress.jpg" alt="product thumb">
+                            </div>
+                            <div id="thumb2" class="tab-pane fade">
+                                <img src="assets/img/printed-summer-dress-1.jpg" alt="product thumb">
+                            </div>
+                            <div id="thumb3" class="tab-pane fade">
+                                <img src="assets/img/printed-summer-dress-2.jpg" alt="product thumb">
+                            </div>
+                            <div id="thumb4" class="tab-pane fade">
+                                <img src="assets/img/printed-summer-dress-3.jpg" alt="product thumb">
+                            </div>
+                        </div>
+                        <div class="product-thumbnail">
+                            <div class="thumb-menu owl-carousel" id="thumbmenu">
+                                <div class="thumb-menu-item">
+                                    <a href="index-3.html#thumb1" data-toggle="tab" class="nav-link active">
+                                        <img src="assets/img/printed-summer-dress.jpg" alt="product thumb">
+                                    </a>
+                                </div>
+                                <div class="thumb-menu-item">
+                                    <a href="index-3.html#thumb2" data-toggle="tab" class="nav-link">
+                                        <img src="assets/img/printed-summer-dress-1.jpg" alt="product thumb">
+                                    </a>
+                                </div>
+                                <div class="thumb-menu-item">
+                                    <a href="index-3.html#thumb3" data-toggle="tab" class="nav-link">
+                                        <img src="assets/img/printed-summer-dress-2.jpg" alt="product thumb">
+                                    </a>
+                                </div>
+                                <div class="thumb-menu-item">
+                                    <a href="index-3.html#thumb4" data-toggle="tab" class="nav-link">
+                                        <img src="assets/img/printed-summer-dress-3.jpg" alt="product thumb">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h3 class="product-title">Printed Summer Dress</h3>
+                        <div class="product-price">
+                            <span class="regular-price">&dollar; 30.50</span>
+                            <span class="sale-price">&dollar; 28.98</span>
+                            <span class="discount-badge">save 5%</span>
+                        </div>
+                        <p class="product-desc">Long printed dress with thin adjustable straps. V-neckline and wiring under the bust with ruffles at the bottom of the dress.</p>
+                        <div class="product-varients">
+                            <div class="product-varients__size pb--30">
+                                <p class="product-varients__label">Size</p>
+                                <select class="product-varients__select">
+                                    <option value="1">S</option>
+                                    <option value="2">M</option>
+                                    <option value="3">L</option>
+                                </select>
+                            </div>
+                            <div class="product-varients__color pb--40">
+                                <p class="product-varients__label">Color</p>
+                                <ul class="product-varients__color--group">
+                                    <li>
+                                        <input type="radio" id="dark" name="varient-color" class="product-varients__color--input">
+                                        <label for="dark" class="product-varients__color--label dark-color"></label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="yellow-light" name="varient-color" class="product-varients__color--input">
+                                        <label for="yellow-light" class="product-varients__color--label yellow-light-color"></label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="blue-light" name="varient-color" class="product-varients__color--input">
+                                        <label for="blue-light" class="product-varients__color--label blue-light-color"></label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="yellow" name="varient-color" class="product-varients__color--input">
+                                        <label for="yellow" class="product-varients__color--label yellow-color"></label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product-action-wrapper pb--30">
+                            <div class="quantity">
+                                <input type="number" class="quantity-input" name="qty" id="qty" value="1">
+                            </div>
+                            <a href="" class="btn add-to-cart btn-style-2">
+                                Add To Cart
+                            </a>
+                        </div>
+                        <p class="product-availability"><i class="fa fa-check"></i> In Stock</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="social-share">
+                    <span>Share</span>
+                    <ul class="social ml--30">
+                        <li class="social__item"><a href="" class="social__link"><i class="fa fa-facebook social__icon"></i></a></li>
+                        <li class="social__item"><a href="" class="social__link"><i class="fa fa-twitter social__icon"></i></a></li>
+                        <li class="social__item"><a href="" class="social__link"><i class="fa fa-google-plus social__icon"></i></a></li>
+                        <li class="social__item"><a href="" class="social__link"><i class="fa fa-pinterest social__icon"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endblock %}
+    
+        {% block javascripts %}
+
+    <!-- jQuery JS -->
+    <script src="public/js/vendor/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="public/js/popper.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="public/js/bootstrap.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="public/js/plugins.js"></script>
+
+    <!-- Main JS -->
+    <script src="public/js/main.js"></script></body>
+    {% endblock %}
+    </body>
+</html>

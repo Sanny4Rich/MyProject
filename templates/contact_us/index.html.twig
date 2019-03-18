@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Обратная связь{% endblock %}
+
+{% block body %}
+    <h1> Форма обратной связи</h1>
+    {% for massage in app.flashes('info') %}
+        <div class="alert alert-success">
+            {{ massage }}
+        </div>
+    {% endfor %}
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    <div class="row">
+        <div class="col-sm">
+            {{ form_row(form.name, {'label': 'Имя'}) }}
+            {{ form_row(form.Email, {'label': 'Email'}) }}
+            {{ form_row(form.massage, {'label': 'Сообщение'}) }}
+
+        </div>
+    </div>
+    {{ form_widget(form) }}
+    <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
