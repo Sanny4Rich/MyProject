@@ -3,14 +3,13 @@
 namespace App\Admin;
 
 
-use App\Entity\Products;
+use App\Entity\Product;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Sonata\Form\Type\CollectionType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProductAdmin extends AbstractAdmin
@@ -41,7 +40,7 @@ class ProductAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $filter)
     {
         $filter
-            ->add('id')
+            ->add('id', null , ['label' => 'Название'])
             ->add('name')
             ->add('description')
             ->add('price');
@@ -55,10 +54,10 @@ class ProductAdmin extends AbstractAdmin
             ->add('name')
             ->add('description')
             ->add('price')
-            ->add('is_top')
+            ->add('isTop')
             ->add('image', VichImageType::class, [
                 'required' => false,
-                'image_uri' => function (Products $product, $resolverdUri) use ($cacheManager) {
+                'image_uri' => function (Product $product, $resolverdUri) use ($cacheManager) {
                     // $cacheManager is LiipImagine cache Manager
                     if (!$resolverdUri) {
                         return null;
@@ -66,5 +65,11 @@ class ProductAdmin extends AbstractAdmin
                     return $cacheManager->getBrowserPath($resolverdUri, 'squared_thumbnail');
                 }
             ]);
+    }
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->add('attributes', $this->getRouterIdParameter() . '/attributes', [
+            '_controller' => $this->getBaseControllerName() . ':editAction',
+        ]);
     }
 }

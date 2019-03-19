@@ -1,29 +1,90 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Обратная связь{% endblock %}
-
 {% block body %}
-    <h1> Форма обратной связи</h1>
-    {% for massage in app.flashes('info') %}
-        <div class="alert alert-success">
-            {{ massage }}
-        </div>
-    {% endfor %}
+<!-- Page Header Start -->
+<section class="page-header">
+    <h2 class="page-title color--white">СВЯЖИТЕСЬ С НАМИ</h2>
+</section>
+<!-- Page Header End -->
 
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-    <div class="row">
-        <div class="col-sm">
-            {{ form_row(form.name, {'label': 'Имя'}) }}
-            {{ form_row(form.Email, {'label': 'Email'}) }}
-            {{ form_row(form.massage, {'label': 'Сообщение'}) }}
-
+<!-- Breadcumb area Start -->
+<div class="breadcumb-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="breadcumb">
+                    <li class="breadcumb__list"><a class="breadcumb__link" href="{{ path('home_page') }}">Главная страница</a></li>
+                    <li class="breadcumb__list"><a class="breadcumb__link current" href="{{ path('contact_us') }}">Свяжитесь с нами</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-    {{ form_widget(form) }}
-    <div class="form-group row">
-        <div class="col-sm-10 offset-sm-2">
-            <button type="submit" class="btn btn-primary">Отправить</button>
+</div>
+<!-- Breadcumb area End -->
+
+<!-- Main content wrapper Start -->
+
+<div class="main-content-wrapper">
+    <!-- Contact Us area Start -->
+    <section class="contact-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="store-info">
+                        <h4>Информация о магазине</h4>
+                        <div class="store-info__item">
+                            <i class="fa fa-map-marker"></i>
+                            <div class="store-info__data">
+                                <p>Kobe - Responsive Prestashop Theme <br> United States</p>
+                            </div>
+                        </div>
+                        <div class="store-info__item">
+                            <i class="fa fa-phone"></i>
+                            <div class="store-info__data">
+                                <p>Позвоните нам: <br> <a href="tel:+123.456.789">+123.456.789</a></p>
+                            </div>
+                        </div>
+                        <div class="store-info__item">
+                            <i class="fa fa-envelope"></i>
+                            <div class="store-info__data">
+                                <p>Email: <br> <a href="mailto:demo@posthemes.com">demo@posthemes.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <div class="form-box">
+                        <div class="section-title">
+                            <h2>Свяжитесь с нами</h2>
+                        </div>
+                            {% for massage in app.flashes('info') %}
+                                <div class="form__group row">
+                                    {{ massage }}
+                                </div>
+                            {% endfor %}
+
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                            <div class="row">
+                                <div class=col-12">
+                                    {{ form_row(form.name, {'label': 'Имя'}) }}
+                                    {{ form_row(form.Email, {'label': 'Email'}) }}
+                                    {{ form_row(form.subject, {'label': 'Товар'}) }}
+                                    {{ form_row(form.massage, {'label': 'Сообщение'}) }}
+                                </div>
+                            </div>
+                            {{ form_widget(form) }}
+                            <div class="form-group row">
+                            <div class="col-sm-10 offset-sm-2">
+                                <button type="submit" class="btn btn-primary">Отправить</button>
+                            </div>
+
+                            {{ form_end(form) }}
+                            </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    {{ form_end(form) }}
+    </section>
+</div>
 {% endblock %}

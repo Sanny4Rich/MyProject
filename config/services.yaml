@@ -31,12 +31,32 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    App\Admin\ProductAdmin:
-        arguments: [~, App\Entity\Products, ~, '@liip_imagine.cache.manager']
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Товары}
-
     App\Admin\CategoryAdmin:
         arguments: [~, App\Entity\Categories, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Категории}
+
+    App\Admin\ProductAdmin:
+        arguments: [~, App\Entity\Product, ~, '@liip_imagine.cache.manager']
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Товары}
+
+    App\Admin\OrderAdmin:
+        arguments: [~, App\Entity\Order,~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Заказы}
+
+    App\Admin\OrderItemAdmin:
+        arguments: [~,App\Entity\OrderItem,~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false}
+
+    App\Admin\AttributeAdmin:
+        arguments: [~,App\Entity\Atributes,~]
+        tags:
+            - {name: sonata.admin, manager_type: orm, label: Атрибуты}
+
+    App\Admin\AttributeValueAdmin:
+        arguments: [~,App\Entity\AttributeValue,~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false}

@@ -14,6 +14,7 @@ class ContactUsType extends AbstractType
         $builder
             ->add('name')
             ->add('Email')
+            ->add('subject')
             ->add('massage')
         ;
     }
