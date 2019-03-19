@@ -1,0 +1,33 @@
+<section class="banner-area pb--40">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="quick-links">
+                    <span>Быстрый переход</span>
+                    <a href="">Trending Grocery ,</a>
+                    <a href="">Exotics ,</a>
+                    <a href="">Herbs ,</a>
+                    <a href="">Atta ,</a>
+                    <a href="">Olive Oils ,</a>
+                    <a href="">Salt ,</a>
+                    <a href="">Sugar &amp; Spices ,</a>
+                    <a href="">Juices Gift Packs ,</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="banner-slide-wrapper">
+                    <div class="row">
+                        <div class="col-lg-3">
+
+<!-- Category Nav Start -->
+<div class="category-nav category-nav--3">
+    <h2 class="category-nav__title" id="js-cat-nav-title"><i class="fa fa-bars"></i> <span>Категории</span></h2>
+    <ul class="category-nav__menu hide-in-default-md" id="js-cat-nav">
+        {% for category in categories %}
+        <li class="category-nav__menu__item">
+            <a href="">{{ category.name }}</a>
+            {% endfor %}
+    </ul>
+</div>

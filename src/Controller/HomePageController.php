@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\CategoryBanner;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,4 +17,5 @@ class HomePageController extends AbstractController
             'controller_name' => 'HomePageController',
         ]);
     }
+
 }

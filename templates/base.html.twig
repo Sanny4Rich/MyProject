@@ -85,6 +85,7 @@
                             <a href="{{ path('home_page') }}" class="logo-box">
                                 <img src="{{ asset('/img/logo-2.jpg.png') }}" alt="logo" class="img-fluid">
                             </a>
+                            {% block categoryHeader %} 11111{% endblock %}
                             <!-- Logo End -->
 
                         </div>
@@ -348,7 +349,17 @@
     </header>
 
     <!-- Header area End -->
-        {% block body %}{% endblock %}
+
+    <!-- Category area Start -->
+        {% block Categories %}
+
+        {% endblock %}
+    <!-- Category area Start -->
+
+    <!-- Body area Start -->
+        {% block body %}
+        {% endblock %}
+    <!-- Body area Start -->
 
     {% block footer %}
     <!-- Clients area Start -->

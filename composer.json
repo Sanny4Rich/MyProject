@@ -5,7 +5,11 @@
         "php": "^7.1.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "friendsofsymfony/user-bundle": "^2.1",
+        "liip/imagine-bundle": "^2.1",
         "sensio/framework-extra-bundle": "^5.1",
+        "sonata-project/admin-bundle": "^3.47",
+        "sonata-project/doctrine-orm-admin-bundle": "^3.8",
         "symfony/asset": "4.2.*",
         "symfony/console": "4.2.*",
         "symfony/dotenv": "4.2.*",
@@ -23,7 +27,8 @@
         "symfony/twig-bundle": "4.2.*",
         "symfony/validator": "4.2.*",
         "symfony/web-link": "4.2.*",
-        "symfony/yaml": "4.2.*"
+        "symfony/yaml": "4.2.*",
+        "vich/uploader-bundle": "^1.9"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
