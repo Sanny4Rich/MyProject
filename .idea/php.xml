@@ -123,21 +123,9 @@
       <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle" />
+      <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
-  <component name="PhpStepFilterConfiguration">
-    <skipped_functions>
-      <skipped_function name="Symfony\Component\Debug\DebugClassLoader-&gt;loadClass" />
-      <skipped_function name="Symfony\Component\DependencyInjection\Loader\YamlFileLoader-&gt;load" />
-      <skipped_function name="Symfony\Component\DependencyInjection\Loader\GlobFileLoader-&gt;doImport" />
-    </skipped_functions>
-    <option name="skippedFunctions">
-      <list>
-        <option value="Symfony\Component\Debug\DebugClassLoader-&gt;loadClass" />
-        <option value="Symfony\Component\DependencyInjection\Loader\YamlFileLoader-&gt;load" />
-        <option value="Symfony\Component\DependencyInjection\Loader\GlobFileLoader-&gt;doImport" />
-      </list>
-    </option>
-  </component>
 </project>

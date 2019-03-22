@@ -25,8 +25,8 @@ class AttributeAdmin extends AbstractAdmin{
             ->add('id')
             ->add('type', null, [], ChoiceType::class, [
                 'choices' => [
-                    'attribute.type.' . Atributes::TYPE_INT => Atributes::TYPE_INT,
-                    'attribute.type.' . Atributes::TYPE_LIST => Atributes::TYPE_LIST,
+                    'atribute.type.' . Atributes::TYPE_INT => Atributes::TYPE_INT,
+                    'atribute.type.' . Atributes::TYPE_LIST => Atributes::TYPE_LIST,
                 ]
             ]);
     }
@@ -37,8 +37,8 @@ class AttributeAdmin extends AbstractAdmin{
             ->add('name')
             ->add('type', ChoiceType:: class, [
                 'choices' => [
-                    'attribute.type.' .Atributes::TYPE_INT => Atributes::TYPE_INT,
-                    'attribute.type.' .Atributes::TYPE_LIST => Atributes::TYPE_LIST,
+                    'atribute.type.' .Atributes::TYPE_INT => Atributes::TYPE_INT,
+                    'atribute.type.' .Atributes::TYPE_LIST => Atributes::TYPE_LIST,
                 ]
             ]);
     }

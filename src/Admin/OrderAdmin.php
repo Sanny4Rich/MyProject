@@ -20,11 +20,10 @@ class OrderAdmin extends AbstractAdmin
             ->addIdentifier('createdAt')
             ->addIdentifier('status')
             ->addIdentifier('PayStatus')
-            ->addIdentifier('firstName')
-            ->addIdentifier('lastName')
+            ->addIdentifier('name')
             ->addIdentifier('OrderPrice', null, ['template' => 'admin/order/_amount.html.twig'])
             ->addIdentifier('user')
-            ->addIdentifier('PhoneNumber')
+            ->addIdentifier('phoneNumber')
             ->addIdentifier('adress');
 
     }
@@ -44,11 +43,10 @@ class OrderAdmin extends AbstractAdmin
             ->add('createdAt')
             ->add('status')
             ->add('PayStatus')
-            ->add('firstName')
-            ->add('lastName')
+            ->add('name')
             ->add('OrderPrice', TextType::class)
             ->add('user')
-            ->add('PhoneNumber')
+            ->add('phoneNumber')
             ->add('adress')
             ->add('items', CollectionType::class, ['by_reference' => false], [
                     'edit' => 'inline',

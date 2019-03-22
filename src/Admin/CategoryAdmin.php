@@ -8,25 +8,34 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class CategoryAdmin extends AbstractAdmin{
 
+    protected $datagridValues = [
+        '_sort_by' => 'left',
+    ];
+
     protected function configureListFields(ListMapper $list)
     {
         $list
             ->addIdentifier('id')
-            ->addIdentifier('name');
+            ->addIdentifier('name')
+            ->add('parent');
     }
 
     protected function configureDatagridFilters(DatagridMapper $filter)
     {
         $filter
             ->add('id')
-            ->add('name');
+            ->add('parent')
+            ->add('name')
+            ->add('clickable');
     }
 
     protected function configureFormFields(FormMapper $form)
     {
         $form
             ->add('name')
-            ->add('attributes');
+            ->add('parent')
+            ->add('attributes')
+            ->add('clickable');
     }
 
 
