@@ -4,37 +4,62 @@
 
 
 {% block body %}
-<section class="banner-area pb--40">
+    <section class="banner-area pb--40">
     <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <div class="quick-links">
-                    <span>Go Quick To</span>
-                    <a href="">Trending Grocery ,</a>
-                    <a href="">Exotics ,</a>
-                    <a href="">Herbs ,</a>
-                    <a href="">Atta ,</a>
-                    <a href="">Olive Oils ,</a>
-                    <a href="">Salt ,</a>
-                    <a href="">Sugar &amp; Spices ,</a>
-                    <a href="">Juices Gift Packs ,</a>
-                </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="quick-links">
+                <span>Go Quick To</span>
+                <a href="">Trending Grocery ,</a>
+                <a href="">Exotics ,</a>
+                <a href="">Herbs ,</a>
+                <a href="">Atta ,</a>
+                <a href="">Olive Oils ,</a>
+                <a href="">Salt ,</a>
+                <a href="">Sugar &amp; Spices ,</a>
+                <a href="">Juices Gift Packs ,</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="banner-slide-wrapper">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <!-- Category Nav Start -->
-                            <div class="category-nav category-nav--3">
-                                <h2 class="category-nav__title" id="js-cat-nav-title"><i class="fa fa-bars"></i> <span>Categories</span></h2>
-                                    <ul class="category-nav__menu hide-in-default-md" id="js-cat-nav">
-                                    <li class="category-nav__menu__item has-children">
-                                    <a href="shop.html">cosmetic</a>
-                                    <div class="category-nav__submenu">
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="banner-slide-wrapper">
+                <div class="row">
+                    <div class="col-lg-3">
+    <!-- Category Nav Start -->
+        <div class="category-nav category-nav--3">
+            <h2 class="category-nav__title" id="js-cat-nav-title"><i class="fa fa-bars"></i> <span>Categories</span></h2>
+                <ul class="category-nav__menu hide-in-default-md" id="js-cat-nav">
+                    {% for category in categories %}
+                        {% if category.level == 0 and category.left != (category.right-1)%}
+                        <li class="category-nav__menu__item has-children">
+                            <a href="{{ category.id }}">{{ category.name }}</a>
+                            <div class="category-nav__submenu">
+                            {% for subMenu in categories %}
+                                {% if subMenu.left > category.left and subMenu.right < category.right and subMenu.level == 1 %}
                                         <div class="category-nav__submenu--inner">
-                                            {% set category = {'name':"Cameras"} %}
-                                            {{ tree|raw }}
-
+                                            <h3 class="category-nav__submenu__title">{{ subMenu.name }}</h3>
+                                            {% for subCats in categories  %}
+                                            {% if subCats.left> subMenu.left and subCats.right < subMenu.right and subCats.level == 2 %}
+                                            <ul>
+                                                <li><a href="shop.html">{{ subCats.name }}</a></li>
+                                            </ul>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                            {% endfor %}
+                            </div>
+                        {% endif %}
+                        {% if category.left == (category.right-1) and category.level==0%}
+                            <li class="category-nav__menu__item">
+                                <a href="{{ category.id }}">{{ category.name }}</a>
+                                <div class="category-nav__submenu">
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+            </ul>
+        </div>
+    <!-- Category navEnd
 {% endblock %}

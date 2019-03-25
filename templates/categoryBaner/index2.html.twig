@@ -1,0 +1,8 @@
+{% for category in categories %}
+    <li>
+    {% if category.level == 2 %}
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    {% endif %}
+    {{ category.name }}
+    <>
+{% endfor %}
