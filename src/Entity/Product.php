@@ -5,13 +5,15 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  *  Class Product
  *
- * @property ArrayCollection orderItems
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  * @ORM\Table(name="products")
+ * @Vich\Uploadable()
  */
 class Product
 {
@@ -60,12 +62,18 @@ class Product
     private $categories;
 
     /**
-     * @var Images[]|ArrayCollection
+     * @var File
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Images", mappedBy="product", orphanRemoval=true
-     *     , indexBy="image.id", cascade={"all"}))
+     * @Vich\UploadableField(mapping="products", fileNameProperty="imageFileName")
      */
-    private $images;
+    private $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageFileName;
 
 
     public function __construct()
@@ -73,7 +81,6 @@ class Product
         $this->isTop = false;
         $this->orderItems = new ArrayCollection();
         $this->attributeValues = new ArrayCollection();
-        $this->images = new ArrayCollection();
     }
 
     public function __toString()
@@ -224,33 +231,28 @@ class Product
         return $this;
     }
 
-    /**
-     * @return Collection|Images[]
-     */
-    public function getImages(): Collection
+    public function getImage(): ?File
     {
-        return $this->images;
+        return $this->image;
     }
 
-    public function addImages(Images $images): self
+    public function setImage(?File $image): self
     {
-        if (!$this->images->contains($images)) {
-            $this->images[] = $images;
-            $images->setProduct($this);
+        $this->image = $image;
+        if($image !== null) {
+            $this->updatedAt = new \DateTime();
         }
-
         return $this;
     }
 
-    public function removeImages(Images $images): self
+    public function getImageFileName(): ?string
     {
-        if ($this->images->contains($images)) {
-            $this->images->removeElement($images);
-            // set the owning side to null (unless already changed)
-            if ($images->getProduct() === $this) {
-                $images->setProduct(null);
-            }
-        }
+        return $this->imageFileName;
+    }
+
+    public function setImageFileName(?string $imageFileName): self
+    {
+        $this->imageFileName = $imageFileName;
 
         return $this;
     }

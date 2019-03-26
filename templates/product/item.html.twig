@@ -15,32 +15,32 @@
                             <div class="tab-content product-thumb-large" id="myTabContent-3">
                                 <div class="tab-pane fade show active" id="product-large-one">
                                     <div class="single-product__img">
-                                        <img src="assets/img/printed-summer-dress-big-1.jpg" alt="product">
-                                        <a href="assets/img/printed-summer-dress-big-1.jpg" class="single-product__img--popup popup-link">
+                                        <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product">
+                                        <a href="{{ vich_uploader_asset(product, 'image') }}" class="single-product__img--popup popup-link">
                                             <i class="fa fa-search-plus"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="product-large-two">
                                     <div class="single-product__img">
-                                        <img src="assets/img/printed-summer-dress-big-2.jpg" alt="product">
-                                        <a href="assets/img/printed-summer-dress-big-2.jpg" class="single-product__img--popup popup-link">
+                                        <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product">
+                                        <a href="{{ vich_uploader_asset(product, 'image') }}" class="single-product__img--popup popup-link">
                                             <i class="fa fa-search-plus"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="product-large-three">
                                     <div class="single-product__img">
-                                        <img src="assets/img/printed-summer-dress-big-3.jpg" alt="product">
-                                        <a href="assets/img/printed-summer-dress-big-3.jpg" class="single-product__img--popup popup-link">
+                                        <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product">
+                                        <a href="{{ vich_uploader_asset(product, 'image') }}" class="single-product__img--popup popup-link">
                                             <i class="fa fa-search-plus"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="product-large-four">
                                     <div class="single-product__img">
-                                        <img src="assets/img/printed-summer-dress-big-4.jpg" alt="product">
-                                        <a href="assets/img/printed-summer-dress-big-4.jpg" class="single-product__img--popup popup-link">
+                                        <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product">
+                                        <a href="{{ vich_uploader_asset(product, 'image') }}" class="single-product__img--popup popup-link">
                                             <i class="fa fa-search-plus"></i>
                                         </a>
                                     </div>
@@ -53,22 +53,22 @@
                                 <div class="thumb-menu owl-carousel" id="thumbmenu2">
                                     <div class="thumb-menu-item">
                                         <a href="single-product.html#product-large-one" data-toggle="tab" class="nav-link active">
-                                            <img src="assets/img/printed-summer-dress.jpg" alt="product thumb">
+                                            <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="single-product.html#product-large-two" data-toggle="tab" class="nav-link">
-                                            <img src="assets/img/printed-summer-dress-1.jpg" alt="product thumb">
+                                            <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="single-product.html#product-large-three" data-toggle="tab" class="nav-link">
-                                            <img src="assets/img/printed-summer-dress-3.jpg" alt="product thumb">
+                                            <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="single-product.html#product-large-four" data-toggle="tab" class="nav-link">
-                                            <img src="assets/img/printed-summer-dress-6.jpg" alt="product thumb">
+                                            <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product thumb">
                                         </a>
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                                 <p class="single-product__referance">Reference: demo_5</p>
                                 <a class="single-product__review-btn" data-toggle="modal" data-target="#reviewModal"><i class="fa fa-pencil"></i> Write a review</a>
                                 <div class="single-product__price">
-                                    <span class="regular-price">&dollar;30.50</span>
+                                    <span class="regular-price">{{ product.realPrice|localizedcurrency('uah') }}</span>
                                     <span class="sale-price">&dollar;28.98</span>
                                     <span class="discount-badge">Save 5%</span>
                                 </div>
