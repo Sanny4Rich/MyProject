@@ -25,17 +25,14 @@ class CategoryAdmin extends AbstractAdmin{
         $filter
             ->add('id')
             ->add('parent')
-            ->add('name')
-            ->add('clickable');
+            ->add('name');
     }
 
     protected function configureFormFields(FormMapper $form)
     {
         $form
             ->add('name')
-            ->add('parent')
-            ->add('attributes')
-            ->add('clickable');
+            ->add('parent');
     }
 
 

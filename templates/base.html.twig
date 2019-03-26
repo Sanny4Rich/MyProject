@@ -30,7 +30,7 @@
 
         <!-- modernizr JS
         ============================================ -->
-        <script src="public/js/modernizr-2.8.3.min.js"></script>
+        <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
     {% endblock %}
 
 
@@ -86,7 +86,7 @@
                             <a href="{{ path('home_page') }}" class="logo-box">
                                 <img src="{{ asset('/img/logo-2.jpg.png') }}" alt="logo" class="img-fluid">
                             </a>
-                            {% block categoryHeader %} 11111{% endblock %}
+                            {% block categoryHeader %}{% endblock %}
                             <!-- Logo End -->
 
                         </div>
@@ -193,14 +193,14 @@
             </div>
         </div>
         <div class="header-bottom header-3--bottom fixed-header">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col">
                         <nav class="main-navigation">
                             <!-- Mainmenu Start -->
                             <ul class="mainmenu mainmenu--3">
                                 <li class="mainmenu__item">
-                                    <a href="{{ path('home_page') }}" class="mainmenu__link">Home</a>
+                                    <a href='{{ path('home_page') }}' class="mainmenu__link">Home</a>
 
                                 <li class="mainmenu__item menu-item-has-children">
                                     <a href="shop.html" class="mainmenu__link">Shop</a>
@@ -760,18 +760,18 @@
         {% block javascripts %}
 
     <!-- jQuery JS -->
-    <script src="public/js/vendor/jquery.min.js"></script>
+    <script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
 
     <!-- Popper JS -->
-    <script src="public/js/popper.min.js"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
 
     <!-- Bootstrap JS -->
-    <script src="public/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
     <!-- Plugins JS -->
-    <script src="public/js/plugins.js"></script>
+    <script src="{{ asset('js/plugins.js') }}"></script>
 
     <!-- Main JS -->
-    <script src="public/js/main.js"></script></body>
+    <script src="{{ asset('js/main.js') }}"></script></body>
     {% endblock %}
 </html>

@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Repository\CategoriesRepository;
 use App\Repository\ProductRepository;
-use App\Service\CategoryBanner;
+use Entity\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 

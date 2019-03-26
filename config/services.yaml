@@ -40,6 +40,8 @@ services:
         arguments: [~, App\Entity\Product, ~, '@liip_imagine.cache.manager']
         tags:
             - { name: sonata.admin, manager_type: orm, label: Товары}
+        calls:
+            - ['addChild', ['@App\Admin\AttributeValueAdmin']]
 
     App\Admin\OrderAdmin:
         arguments: [~, App\Entity\Order,~]
@@ -52,6 +54,6 @@ services:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false}
 
     App\Admin\AttributeValueAdmin:
-        arguments: [~,App\Entity\AttributeValue,~]
+        arguments: [~,App\Entity\AttributeValues,~]
         tags:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false}

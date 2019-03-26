@@ -10,6 +10,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\Form\Type\CollectionType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProductAdmin extends AbstractAdmin
@@ -34,6 +35,7 @@ class ProductAdmin extends AbstractAdmin
             ->addIdentifier('name')
             ->addIdentifier('description')
             ->addIdentifier('price')
+            ->addIdentifier('categories')
             ->addIdentifier('image');
     }
 
@@ -43,6 +45,7 @@ class ProductAdmin extends AbstractAdmin
             ->add('id', null , ['label' => 'Название'])
             ->add('name')
             ->add('description')
+            ->add('categories')
             ->add('price');
     }
 
@@ -55,8 +58,19 @@ class ProductAdmin extends AbstractAdmin
             ->add('description')
             ->add('price')
             ->add('isTop')
+            ->add('categories')
+            ->add('attributeValues',
+                CollectionType::class,
+                ['by_reference' => false
+                ],
+                [
+                    'edit' => 'inline',
+                    'inline' => 'table'
+                ]
+            )
             ->add('image', VichImageType::class, [
                 'required' => false,
+                'allow_delete'=> true,
                 'image_uri' => function (Product $product, $resolverdUri) use ($cacheManager) {
                     // $cacheManager is LiipImagine cache Manager
                     if (!$resolverdUri) {
