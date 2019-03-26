@@ -1,0 +1,362 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+    <!-- Main Content Wrapper Start -->
+    <div class="main-content-wrapper">
+        <div class="single-products-area section-padding">
+            <!-- Single Product Start -->
+            <section class="single-product pb--40">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <!-- Tab Content Start -->
+                            <div class="tab-content product-thumb-large" id="myTabContent-3">
+                                <div class="tab-pane fade show active" id="product-large-one">
+                                    <div class="single-product__img">
+                                        <img src="assets/img/printed-summer-dress-big-1.jpg" alt="product">
+                                        <a href="assets/img/printed-summer-dress-big-1.jpg" class="single-product__img--popup popup-link">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="product-large-two">
+                                    <div class="single-product__img">
+                                        <img src="assets/img/printed-summer-dress-big-2.jpg" alt="product">
+                                        <a href="assets/img/printed-summer-dress-big-2.jpg" class="single-product__img--popup popup-link">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="product-large-three">
+                                    <div class="single-product__img">
+                                        <img src="assets/img/printed-summer-dress-big-3.jpg" alt="product">
+                                        <a href="assets/img/printed-summer-dress-big-3.jpg" class="single-product__img--popup popup-link">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="product-large-four">
+                                    <div class="single-product__img">
+                                        <img src="assets/img/printed-summer-dress-big-4.jpg" alt="product">
+                                        <a href="assets/img/printed-summer-dress-big-4.jpg" class="single-product__img--popup popup-link">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tab Content End -->
+
+                            <!-- Product Thumbnail Carousel Start -->
+                            <div class="product-thumbnail">
+                                <div class="thumb-menu owl-carousel" id="thumbmenu2">
+                                    <div class="thumb-menu-item">
+                                        <a href="single-product.html#product-large-one" data-toggle="tab" class="nav-link active">
+                                            <img src="assets/img/printed-summer-dress.jpg" alt="product thumb">
+                                        </a>
+                                    </div>
+                                    <div class="thumb-menu-item">
+                                        <a href="single-product.html#product-large-two" data-toggle="tab" class="nav-link">
+                                            <img src="assets/img/printed-summer-dress-1.jpg" alt="product thumb">
+                                        </a>
+                                    </div>
+                                    <div class="thumb-menu-item">
+                                        <a href="single-product.html#product-large-three" data-toggle="tab" class="nav-link">
+                                            <img src="assets/img/printed-summer-dress-3.jpg" alt="product thumb">
+                                        </a>
+                                    </div>
+                                    <div class="thumb-menu-item">
+                                        <a href="single-product.html#product-large-four" data-toggle="tab" class="nav-link">
+                                            <img src="assets/img/printed-summer-dress-6.jpg" alt="product thumb">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product Thumbnail Carousel End -->
+                        </div>
+                        <div class="col-lg-7">
+                            <!-- Single Product Content Start -->
+                            <div class="single-product__content">
+                                <h2 class="single-product__name">Printed Summer Dress</h2>
+                                <p class="single-product__referance">Reference: demo_5</p>
+                                <a class="single-product__review-btn" data-toggle="modal" data-target="#reviewModal"><i class="fa fa-pencil"></i> Write a review</a>
+                                <div class="single-product__price">
+                                    <span class="regular-price">&dollar;30.50</span>
+                                    <span class="sale-price">&dollar;28.98</span>
+                                    <span class="discount-badge">Save 5%</span>
+                                </div>
+                                <p class="single-product__short-desc">Long printed dress with thin adjustable straps. V-neckline and wiring under the bust with ruffles at the bottom of the dress.</p>
+
+                                <div class="product-action-wrapper pb--30">
+                                    <div class="quantity">
+                                        <input type="number" class="quantity-input" name="qty" id="qty1" value="1">
+                                    </div>
+                                    <a href="" class="btn add-to-cart btn-style-2">
+                                        Add To Cart
+                                    </a>
+                                </div>
+                                <p class="product-availability"><i class="fa fa-check"></i> In Stock</p>
+                                <div class="social-share">
+                                    <span>Share</span>
+                                    <ul class="social ml--30">
+                                        <li class="social__item"><a href="http://demo.devitems.com/kobe-preview/kobe/facebook.com" class="social__link"><i class="fa fa-facebook social__icon"></i></a></li>
+                                        <li class="social__item"><a href="http://demo.devitems.com/kobe-preview/kobe/twitter.com" class="social__link"><i class="fa fa-twitter social__icon"></i></a></li>
+                                        <li class="social__item"><a href="http://demo.devitems.com/kobe-preview/kobe/plus.google.com" class="social__link"><i class="fa fa-google-plus social__icon"></i></a></li>
+                                        <li class="social__item"><a href="http://demo.devitems.com/kobe-preview/kobe/pinterest.com" class="social__link"><i class="fa fa-pinterest social__icon"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="block-reassurance">
+                                    <ul>
+                                        <li>
+                                            <div class="block-reassurance-item">
+                                                <img src="assets/img/ic_verified_user_black_36dp_1x.png" alt="reassurance">
+                                                <span>Security Policy (Edit With Customer Reassurance Module)</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block-reassurance-item">
+                                                <img src="assets/img/ic_local_shipping_black_36dp_1x.png" alt="reassurance">
+                                                <span>Delivery Policy (Edit With Customer Reassurance Module)</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block-reassurance-item">
+                                                <img src="assets/img/ic_swap_horiz_black_36dp_1x.png" alt="reassurance">
+                                                <span>Return Policy (Edit With Customer Reassurance Module)</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Single Product Content End -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Single Product End -->
+
+            <!-- Single Product Tab Start -->
+            <section class="single-product-tab pt--30 pb--30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="single-product-tab__head nav nav-tab" id="singleProductTab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-desc-tab" data-toggle="tab" href="single-product.html#nav-desc" role="tab" aria-controls="nav-desc" aria-selected="true">Description</a>
+                                <a class="nav-item nav-link" id="nav-details-tab" data-toggle="tab" href="single-product.html#nav-details" role="tab" aria-controls="nav-details" aria-selected="true">Product Details</a>
+                                <a class="nav-item nav-link" id="nav-review-tab" data-toggle="tab" href="single-product.html#nav-review" role="tab" aria-controls="nav-review" aria-selected="true">review Details</a>
+                            </div>
+                            <div class="single-product-tab__content tab-content">
+                                <div class="tab-pane fade show active" id="nav-desc" role="tabpanel" aria-labelledby="nav-desc-tab">
+                                    <p class="product-description">Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="nav-details" aria-labelledby="nav-details-tab">
+                                    <div class="product-details">
+                                        <div class="product-manufacturer">
+                                            <a href=""><img src="assets/img/manufacturer.jpg" alt="manufacturer"></a>
+                                        </div>
+                                        <div class="product-reference">
+                                            <label>Reference</label>
+                                            <span>demo_5</span>
+                                        </div>
+                                        <div class="product-quantities">
+                                            <label>In Stok</label>
+                                            <span>298 Items</span>
+                                        </div>
+                                        <div class="product-out-of-stock"></div>
+                                        <div class="product-features">
+                                            <h3>Data sheet</h3>
+                                            <ul class="data-sheet">
+                                                <li>Compositions</li>
+                                                <li>Viscose</li>
+                                                <li>Styles</li>
+                                                <li>Casual</li>
+                                                <li>Properties</li>
+                                                <li>Maxi Dress</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="nav-review" aria-labelledby="nav-review-tab">
+                                    <a class="review-btn" data-toggle="modal" data-target="#reviewModal">Be the first to write your review !</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Single Product Tab End -->
+
+            <!-- Related Product Area Start -->
+            <section class="related-product pt--30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title">
+                                <h2>Related Products</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="related-product__carousel owl-carousel js-related-product">
+                                <!-- Product Box Start -->
+                                <div class="product-box variable-product">
+                                    <div class="product-box__meta">
+                                        <a href="shop.html" class="product-box__category">manufacturer</a>
+                                        <span class="product-box__sticker product-box__sticker--discount">-5%</span>
+                                    </div>
+                                    <div class="product-box__image">
+                                        <img src="assets/img/printed-summer-dress.jpg" alt="product image" class="primary_image">
+                                        <img src="assets/img/printed-summer-dress-1.jpg" alt="product image" class="secondary_image">
+                                        <a href="" data-toggle="modal" data-target="#productModal" class="quick-view"> <i class="fa fa-eye"></i> </a>
+                                    </div>
+                                    <div class="product-box__footer">
+                                        <div class="product-box__desc">
+                                            <a href="single-product.html" class="product-box__title">Printed Summer Dress</a>
+                                            <p class="product-box__price">
+                                                <span class="sale-price">&dollar;17.43</span>
+                                                <span class="regular-price">&dollar;20.50</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-box__links">
+                                            <a href="" class="btn add-to-cart btn-style-2">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Product Box End -->
+                                <!-- Product Box Start -->
+                                <div class="product-box variable-product">
+                                    <div class="product-box__meta">
+                                        <a href="shop.html" class="product-box__category">manufacturer</a>
+                                        <span class="product-box__sticker product-box__sticker--new">new</span>
+                                    </div>
+                                    <div class="product-box__image">
+                                        <img src="assets/img/printed-summer-dress-2.jpg" alt="product image" class="primary_image">
+                                        <img src="assets/img/printed-summer-dress-3.jpg" alt="product image" class="secondary_image">
+                                        <a href="" data-toggle="modal" data-target="#productModal" class="quick-view"> <i class="fa fa-eye"></i> </a>
+                                    </div>
+                                    <div class="product-box__footer">
+                                        <div class="product-box__desc">
+                                            <a href="single-product.html" class="product-box__title">Printed Summer Dress</a>
+                                            <p class="product-box__price">
+                                                <span class="sale-price">&dollar;17.43</span>
+                                                <span class="regular-price">&dollar;20.50</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-box__links">
+                                            <a href="" class="btn add-to-cart btn-style-2">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Product Box End -->
+                                <!-- Product Box Start -->
+                                <div class="product-box variable-product">
+                                    <div class="product-box__meta">
+                                        <a href="shop.html" class="product-box__category">manufacturer</a>
+                                        <span class="product-box__sticker product-box__sticker--new">new</span>
+                                    </div>
+                                    <div class="product-box__image">
+                                        <img src="assets/img/printed-summer-dress-4.jpg" alt="product image" class="primary_image">
+                                        <img src="assets/img/printed-summer-dress-5.jpg" alt="product image" class="secondary_image">
+                                        <a href="" data-toggle="modal" data-target="#productModal" class="quick-view"> <i class="fa fa-eye"></i> </a>
+                                    </div>
+                                    <div class="product-box__footer">
+                                        <div class="product-box__desc">
+                                            <a href="single-product.html" class="product-box__title">Printed Summer Dress</a>
+                                            <p class="product-box__price">
+                                                <span class="sale-price">&dollar;17.43</span>
+                                                <span class="regular-price">&dollar;20.50</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-box__links">
+                                            <a href="" class="btn add-to-cart btn-style-2">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Product Box End -->
+                                <!-- Product Box Start -->
+                                <div class="product-box variable-product">
+                                    <div class="product-box__meta">
+                                        <a href="shop.html" class="product-box__category">manufacturer</a>
+                                        <span class="product-box__sticker product-box__sticker--new">new</span>
+                                    </div>
+                                    <div class="product-box__image">
+                                        <img src="assets/img/printed-summer-dress-6.jpg" alt="product image" class="primary_image">
+                                        <img src="assets/img/printed-summer-dress-7.jpg" alt="product image" class="secondary_image">
+                                        <a href="" data-toggle="modal" data-target="#productModal" class="quick-view"> <i class="fa fa-eye"></i> </a>
+                                    </div>
+                                    <div class="product-box__footer">
+                                        <div class="product-box__desc">
+                                            <a href="single-product.html" class="product-box__title">Printed Summer Dress</a>
+                                            <p class="product-box__price">
+                                                <span class="sale-price">&dollar;17.43</span>
+                                                <span class="regular-price">&dollar;20.50</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-box__links">
+                                            <a href="" class="btn add-to-cart btn-style-2">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Product Box End -->
+                                <!-- Product Box Start -->
+                                <div class="product-box variable-product">
+                                    <div class="product-box__meta">
+                                        <a href="shop.html" class="product-box__category">manufacturer</a>
+                                        <span class="product-box__sticker product-box__sticker--discount">-5%</span>
+                                    </div>
+                                    <div class="product-box__image">
+                                        <img src="assets/img/printed-summer-dress-8.jpg" alt="product image" class="primary_image">
+                                        <img src="assets/img/printed-summer-dress-9.jpg" alt="product image" class="secondary_image">
+                                        <a href="" data-toggle="modal" data-target="#productModal" class="quick-view"> <i class="fa fa-eye"></i> </a>
+                                    </div>
+                                    <div class="product-box__footer">
+                                        <div class="product-box__desc">
+                                            <a href="single-product.html" class="product-box__title">Printed Summer Dress</a>
+                                            <p class="product-box__price">
+                                                <span class="sale-price">&dollar;17.43</span>
+                                                <span class="regular-price">&dollar;20.50</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-box__links">
+                                            <a href="" class="btn add-to-cart btn-style-2">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Product Box End -->
+                                <!-- Product Box Start -->
+                                <div class="product-box variable-product">
+                                    <div class="product-box__meta">
+                                        <a href="shop.html" class="product-box__category">manufacturer</a>
+                                        <span class="product-box__sticker product-box__sticker--discount">-5%</span>
+                                    </div>
+                                    <div class="product-box__image">
+                                        <img src="assets/img/printed-summer-dress-10.jpg" alt="product image" class="primary_image">
+                                        <img src="assets/img/printed-summer-dress-11.jpg" alt="product image" class="secondary_image">
+                                        <a href="" data-toggle="modal" data-target="#productModal" class="quick-view"> <i class="fa fa-eye"></i> </a>
+                                    </div>
+                                    <div class="product-box__footer">
+                                        <div class="product-box__desc">
+                                            <a href="single-product.html" class="product-box__title">Printed Summer Dress</a>
+                                            <p class="product-box__price">
+                                                <span class="sale-price">&dollar;17.43</span>
+                                                <span class="regular-price">&dollar;20.50</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-box__links">
+                                            <a href="" class="btn add-to-cart btn-style-2">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Product Box End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Related Product Area End -->
+        </div>
+    </div>
+    <!-- Main Content Wrapper End -->
+{% endblock %}
