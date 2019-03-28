@@ -1,0 +1,12 @@
+Name: Название
+Description: Описание
+Price: Цена
+Is Top: В топе
+Type: Тип
+Attributes: Атрибуты
+Attribute Values: Значение атрибутов
+
+attribute:
+  type:
+    !php/const App\Entity\Atributes::TYPE_INT: Числовой
+    !php/const App\Entity\Atributes::TYPE_LIST: Список

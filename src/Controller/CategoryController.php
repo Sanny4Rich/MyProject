@@ -28,7 +28,7 @@ class CategoryController extends AbstractController
      */
 
     public function item(Categories $category){
-        return $this->render('categories/items.html.twig',
+        return $this->render('category/items.html.twig',
             ['category' => $category,
             ]);
 

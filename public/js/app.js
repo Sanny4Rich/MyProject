@@ -49,3 +49,30 @@ $('body').on('input','.js-item-count', function (event) {
 
     })
 });
+
+var headerSearchForm = $('#header-search-form');
+var headerSearchResults = $('#header-search-result');
+var resultClicked = false;
+
+headerSearchForm.find('input').on('input', function () {
+    var query = this.value;
+
+    if(query.length >= 2){
+        headerSearchForm.submit();
+    } else {
+        headerSearchResults.html('');
+    }
+    })
+    .on('blur',function () {
+        setTimeout(function () {
+            headerSearchResults.html('');
+        }, 1000);
+    });
+headerSearchForm.on('submit',function (event) {
+    event.preventDefault();
+
+    $.get(headerSearchForm.attr('action'), headerSearchForm.serialize(), function (data) {
+        headerSearchResults.html(data);
+    })
+
+});

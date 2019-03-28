@@ -4,6 +4,7 @@ namespace App\Admin;
 
 
 use App\Entity\Product;
+use Doctrine\Common\Collections\ArrayCollection;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -11,23 +12,14 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\Form\Type\CollectionType;
-use Vich\UploaderBundle\Form\Type\VichImageType;
+use Liip\ImagineBundle\Form\Type\ImageType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Entity\File;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class ProductAdmin extends AbstractAdmin
 {
-    /**
-     * @var CacheManager
-     *
-     */
-    private $cacheManager;
-
-    public function __construct(string $code, string $class, string $baseControllerName, CacheManager $cacheManager)
-    {
-        parent::__construct($code, $class, $baseControllerName);
-
-        $this->cacheManager = $cacheManager;
-    }
-
     protected function configureListFields(ListMapper $list)
     {
         $list
@@ -35,8 +27,7 @@ class ProductAdmin extends AbstractAdmin
             ->addIdentifier('name')
             ->addIdentifier('description')
             ->addIdentifier('price')
-            ->addIdentifier('categories')
-            ->addIdentifier('image');
+            ->addIdentifier('categories');
     }
 
     protected function configureDatagridFilters(DatagridMapper $filter)
@@ -51,8 +42,6 @@ class ProductAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $form)
     {
-        $cacheManager = $this->cacheManager;
-
         $form
             ->add('name')
             ->add('description')
@@ -68,17 +57,15 @@ class ProductAdmin extends AbstractAdmin
                     'inline' => 'table'
                 ]
             )
-            ->add('image', VichImageType::class, [
-                'required' => false,
-                'allow_delete'=> true,
-                'image_uri' => function (Product $product, $resolverdUri) use ($cacheManager) {
-                    // $cacheManager is LiipImagine cache Manager
-                    if (!$resolverdUri) {
-                        return null;
-                    }
-                    return $cacheManager->getBrowserPath($resolverdUri, 'squared_thumbnail');
-                }
-            ]);
+            ->add('images',
+                CollectionType::class,
+                ['by_reference' => false
+                ],
+                [
+                    'edit' => 'inline',
+                    'inline' => 'table'
+                ]
+            );
     }
     protected function configureRoutes(RouteCollection $collection)
     {

@@ -6,7 +6,7 @@
     <h1>{{ category }}</h1>
 
     <div class="row">
-        {{ include('products/_productList.html.twig', {'products': category.products}) }}
+        {{ include('product/_productList.html.twig', {'products': category.products }) }}
     </div>
 
 {% endblock %}

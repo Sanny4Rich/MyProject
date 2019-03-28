@@ -45,7 +45,7 @@ class Order
     private $OrderPrice;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="orders")
      */
     private $user;
 

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %} Оформление заказа {% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped">
+        <tr>
+            <th>Товар</th>
+            <th>Цена</th>
+            <th>Количество</th>
+            <th>Стоимость</th>
+            <th></th>
+        </tr>
+
+        {% for item in order.items %}
+        <tr>
+            <td>
+                <a href="{{ path('products_item', {'id': item.product.id}) }}">{{ item.product.name }}</a>
+            </td>
+            <td>{{ item.productPrice|money }}</td>
+            <td>{{ item.count }}</td>
+            <td>{{ item.summaryPrice }}</td>
+        </tr>
+        {% endfor %}
+
+        <tr>
+            <th colspan="3">Всего</th>
+            <th>{{ order.orderPrice|money }}</th>
+        </tr>
+    </table>
+
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col-sm">
+                {{ form_row(form.firstName, {'label': 'Имя'}) }}
+                {{ form_row(form.lastName, {'label': 'Фамилия'})  }}
+                {{ form_row(form.email, {'label': 'Email'})  }}
+                {{ form_row(form.PhoneNumber, {'label': 'Номер телефона'})  }}
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+                {{ form_label(form.adress, 'Адрес') }}
+                {{ form_widget(form.adress, {'attr': {'rows': 12}}) }}
+                {{ form_errors(form.adress) }}
+                </div>
+            </div>
+        </div>
+    <button class="btn btn-primary" type="submit">Отправить заказ</button>
+    {{ form_end(form) }}
+{% endblock %}

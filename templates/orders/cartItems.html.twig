@@ -1,0 +1,26 @@
+<table class="table table-striped">
+    <tr>
+        <th>Товар</th>
+        <th>Цена</th>
+        <th>Количество</th>
+        <th>Стоимость</th>
+        <th></th>
+    </tr>
+
+    {% for item in cart.items %}
+    <tr>
+        <td><a href="{{ path('products_item', {'id': item.product.id }) }}"> {{ item.product.name }} </a></td>
+        <td>{{ item.productPrice|money }}</td>
+        <td><input type="number" value="{{ item.count }}" min="1" class="js-item-count"
+                   data-href="{{ path('orders_set_item_count', {'id': item.id }) }}" ></td>
+        <td>{{ item.summaryPrice|money }}</td>
+        <td><a class="btn btn-default js-remove-item" href="{{ path('orders_remove_item', {'id': item.id}) }}"><span
+                        class="fas fa-minus"></span></a></td>
+        {% endfor %}
+
+    <tr>
+        <th colspan="3">Всего</th>
+        <th>{{ cart.orderPrice|money }}</th>
+        <th><a class="btn btn-dropbox"><span class="fas fa-times-circle"></span></a></th>
+    </tr>
+</table>

@@ -40,6 +40,11 @@ class Atributes
      */
     private $attributeValues;
 
+    /**
+     * @ORM\Column(type="simple_array", nullable=true)
+     */
+    private $choices = [];
+
     public function __construct()
     {
         $this->type = self::TYPE_INT;
@@ -88,7 +93,6 @@ class Atributes
     {
         return $this->attributeValues;
     }
-
     public function addAttributeValue(AttributeValues $attributeValue): self
     {
         if (!$this->attributeValues->contains($attributeValue)) {
@@ -97,8 +101,6 @@ class Atributes
         }
         return $this;
     }
-
-
     public function removeAttributeValue(AttributeValues $attributeValue): self
     {
         if ($this->attributeValues->contains($attributeValue)) {
@@ -108,7 +110,6 @@ class Atributes
                 $attributeValue->setAttribute(null);
             }
         }
-
         return $this;
     }
     /**
@@ -136,6 +137,17 @@ class Atributes
             $category->removeAttribute($this);
         }
 
+        return $this;
+    }
+
+
+    public function getChoices(): ?array
+    {
+        return $this->choices;
+    }
+    public function setChoices(?array $choices): self
+    {
+        $this->choices = $choices;
         return $this;
     }
 }

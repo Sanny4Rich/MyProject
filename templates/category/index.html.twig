@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Category{% endblock %}
 
 {% block body %}
-    {% set content %}
-    {% include 'categoryBaner/index.html.twig' with {'tree': tree } %}
-    {% endset %}
+    {{ dump(page) }}
 {% endblock %}

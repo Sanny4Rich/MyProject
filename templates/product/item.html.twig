@@ -15,32 +15,32 @@
                             <div class="tab-content product-thumb-large" id="myTabContent-3">
                                 <div class="tab-pane fade show active" id="product-large-one">
                                     <div class="single-product__img">
-                                        <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product">
-                                        <a href="{{ vich_uploader_asset(product, 'image') }}" class="single-product__img--popup popup-link">
+                                        <img src="" alt="product">
+                                        <a href="" class="single-product__img--popup popup-link">
                                             <i class="fa fa-search-plus"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="product-large-two">
                                     <div class="single-product__img">
-                                        <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product">
-                                        <a href="{{ vich_uploader_asset(product, 'image') }}" class="single-product__img--popup popup-link">
+                                        <img src="" alt="product">
+                                        <a href="" class="single-product__img--popup popup-link">
                                             <i class="fa fa-search-plus"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="product-large-three">
                                     <div class="single-product__img">
-                                        <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product">
-                                        <a href="{{ vich_uploader_asset(product, 'image') }}" class="single-product__img--popup popup-link">
+                                        <img src="" alt="product">
+                                        <a href="" class="single-product__img--popup popup-link">
                                             <i class="fa fa-search-plus"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="product-large-four">
                                     <div class="single-product__img">
-                                        <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product">
-                                        <a href="{{ vich_uploader_asset(product, 'image') }}" class="single-product__img--popup popup-link">
+                                        <img src="" alt="product">
+                                        <a href="" class="single-product__img--popup popup-link">
                                             <i class="fa fa-search-plus"></i>
                                         </a>
                                     </div>
@@ -53,22 +53,22 @@
                                 <div class="thumb-menu owl-carousel" id="thumbmenu2">
                                     <div class="thumb-menu-item">
                                         <a href="single-product.html#product-large-one" data-toggle="tab" class="nav-link active">
-                                            <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product thumb">
+                                            <img src="" alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="single-product.html#product-large-two" data-toggle="tab" class="nav-link">
-                                            <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product thumb">
+                                            <img src="" alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="single-product.html#product-large-three" data-toggle="tab" class="nav-link">
-                                            <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product thumb">
+                                            <img src="" alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="single-product.html#product-large-four" data-toggle="tab" class="nav-link">
-                                            <img src="{{ vich_uploader_asset(product, 'image') }}" alt="product thumb">
+                                            <img src="" alt="product thumb">
                                         </a>
                                     </div>
                                 </div>
@@ -82,11 +82,11 @@
                                 <p class="single-product__referance">Reference: demo_5</p>
                                 <a class="single-product__review-btn" data-toggle="modal" data-target="#reviewModal"><i class="fa fa-pencil"></i> Write a review</a>
                                 <div class="single-product__price">
-                                    <span class="regular-price">{{ product.realPrice|localizedcurrency('uah') }}</span>
+                                    <span class="regular-price">{{ product.realPrice }}</span>
                                     <span class="sale-price">&dollar;28.98</span>
                                     <span class="discount-badge">Save 5%</span>
                                 </div>
-                                <p class="single-product__short-desc">Long printed dress with thin adjustable straps. V-neckline and wiring under the bust with ruffles at the bottom of the dress.</p>
+                                <p class="single-product__short-desc">{{ product.description }}</p>
 
                                 <div class="product-action-wrapper pb--30">
                                     <div class="quantity">

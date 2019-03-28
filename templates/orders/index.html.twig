@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Корзина заказов{% endblock %}
+
+{% block body %}
+    <h1> Товары в корзине</h1>
+    <div id="cartItems">
+    {{ include('orders/cartItems.html.twig', {'cart': cart })}}
+    </div>
+    <a class="btn btn-primary" href="{{ path('orders_create_order') }}">Оформить заказ</a>
+{% endblock %}

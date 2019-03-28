@@ -9,6 +9,7 @@
         "friendsofsymfony/user-bundle": "^2.1",
         "liip/imagine-bundle": "^2.1",
         "sensio/framework-extra-bundle": "^5.1",
+        "snilius/twig-sort-by-field": "^0.1.5",
         "sonata-project/admin-bundle": "^3.47",
         "sonata-project/doctrine-orm-admin-bundle": "^3.8",
         "stof/doctrine-extensions-bundle": "^1.3",

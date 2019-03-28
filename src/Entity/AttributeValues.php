@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Annotations\Annotation\Attributes;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -34,6 +33,9 @@ class AttributeValues
      */
     private $value;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
@@ -51,15 +53,13 @@ class AttributeValues
         return $this;
     }
 
-    public function getAttribute(): ?Attributes
+    public function getAttribute(): ? Atributes
     {
         return $this->attribute;
     }
-
-    public function setAttribute(?Attributes $attribute): self
+    public function setAttribute(?Atributes $attribute): self
     {
         $this->attribute = $attribute;
-
         return $this;
     }
 

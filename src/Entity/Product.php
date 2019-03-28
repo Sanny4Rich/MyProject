@@ -5,15 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Imagine\Gd\Image;
 
 /**
  *  Class Product
  *
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  * @ORM\Table(name="products")
- * @Vich\Uploadable()
  */
 class Product
 {
@@ -62,18 +60,23 @@ class Product
     private $categories;
 
     /**
-     * @var File
+     * @var Images[]|ArrayCollection
      *
-     * @Vich\UploadableField(mapping="products", fileNameProperty="imageFileName")
+     * @ORM\OneToMany(targetEntity="App\Entity\Images", mappedBy="product", cascade={"persist"})
      */
-    private $image;
+    private $images;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $imageFileName;
+    private $salePrice;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\OrderItem", mappedBy="product")
+     */
+    private $orderItems;
+
+
 
 
     public function __construct()
@@ -81,6 +84,7 @@ class Product
         $this->isTop = false;
         $this->orderItems = new ArrayCollection();
         $this->attributeValues = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function __toString()
@@ -131,6 +135,10 @@ class Product
 
     public function realPrice(): ?float{
         return $this->getPrice()/100;
+    }
+
+    public function realSalePrice(): ?float{
+        return $this->getSalePrice()/100;
     }
 
     public function getIsTop(): ?bool
@@ -199,7 +207,7 @@ class Product
     public function addAttributeValue(AttributeValues $attributeValue): self
     {
         if (!$this->attributeValues->contains($attributeValue)) {
-            $this->attributeValues[] = $attributeValue;
+            $this->attributeValues[$attributeValue->getAttribute()->getId()] = $attributeValue;
             $attributeValue->setProduct($this);
         }
 
@@ -231,28 +239,52 @@ class Product
         return $this;
     }
 
-    public function getImage(): ?File
+    /**
+     * @return Images[]|ArrayCollection
+     */
+
+    public function getImages()
     {
-        return $this->image;
+        return $this->images;
     }
 
-    public function setImage(?File $image): self
+    /**
+     * Add image
+     *
+     * @param Images $image
+     *
+     * @return Product
+     */
+
+    public function addImage(Images $image)
     {
-        $this->image = $image;
-        if($image !== null) {
-            $this->updatedAt = new \DateTime();
-        }
+        $image->setProduct($this);
+        $this->images[] = $image;
+
+        dump($image);
+
         return $this;
     }
 
-    public function getImageFileName(): ?string
+    /**
+     * Remove image
+     *
+     * @param Images $image
+     */
+    public function removeImage(Images $image)
     {
-        return $this->imageFileName;
+        $image->setProduct(null);
+        $this->images->removeElement($image);
     }
 
-    public function setImageFileName(?string $imageFileName): self
+    public function getSalePrice(): ?int
     {
-        $this->imageFileName = $imageFileName;
+        return $this->salePrice;
+    }
+
+    public function setSalePrice(?int $salePrice): self
+    {
+        $this->salePrice = $salePrice;
 
         return $this;
     }

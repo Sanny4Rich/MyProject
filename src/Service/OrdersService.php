@@ -115,8 +115,7 @@ class OrdersService
     {
         $order = $this->getOrderFromRequest();
         if($user) {
-            $order->setFirstName($user->getFirstName());
-            $order->setLastName($user->getLastName());
+            $order->setName($user->getName());
             $order->setEmail($user->getEmail());
             $order->setPhoneNumber($user->getPhoneNumber());
             $order->setAdress($user->getAdress());
@@ -129,22 +128,5 @@ class OrdersService
         $order->setStatus(Order::STATUS_ORDERED);
         $this->entityManager->persist($order);
         $this->entityManager->flush();
-        $this->sendEmail($thibaners->parameters->get('adminEmail'), 'mail/newOrderForAdmin.html.twig', ['order' => $order]);
-        $this->sendEmail($order->getEmail(), 'mail/newOrderForUser.html.twig', ['order' => $order]);
-    }
-
-    private function sendEmail(string $to,$templateName, array $context)
-    {
-        $template = $this->twig->load($templateName);
-        $subject = $template->renderBlock('subject', $context);
-        $body =$template->renderBlock('body', $context);
-
-        $massage = new \Swift_Message();
-        $massage->setSubject($subject);
-        $massage->setBody($body, 'text/html');
-        $massage->setTo($to);
-        $massage->setFrom($this->parameters->get('fromEmail'), $this->parameters->get('fromName'));
-        $this->mailer->send($massage);
-
-    }
+        }
 }

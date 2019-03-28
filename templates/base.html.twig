@@ -31,6 +31,8 @@
         <!-- modernizr JS
         ============================================ -->
         <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
+
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {% endblock %}
 
 
@@ -86,56 +88,16 @@
                             <a href="{{ path('home_page') }}" class="logo-box">
                                 <img src="{{ asset('/img/logo-2.jpg.png') }}" alt="logo" class="img-fluid">
                             </a>
-                            {% block categoryHeader %}{% endblock %}
                             <!-- Logo End -->
 
                         </div>
                     </div>
                     <div class="col-lg-7 order-3 order-lg-2">
                         <!-- Search Form Start -->
-                        <form action="#" class="search-form search-form--3">
-                            <input type="text" class="search-form__input" placeholder="Я ищу...">
-                            <div class="search-form__group search-form__group--select">
-                                <select name="category" id="searchCategory" class="search-form__select">
-                                    <option value="all">All Categories</option>
-                                    <option value="3">Toys &amp; Hobbies</option>
-                                    <option value="3">- -  Books &amp; Board Games</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">Toys &amp; Hobbies</option>
-                                    <option value="3">- -  Books &amp; Board Games</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">Toys &amp; Hobbies</option>
-                                    <option value="3">- -  Books &amp; Board Games</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">Toys &amp; Hobbies</option>
-                                    <option value="3">- -  Books &amp; Board Games</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">- - - -  Arts &amp; Crafts</option>
-                                    <option value="3">Toys &amp; Hobbies</option>
-                                    <option value="3">Toys &amp; Hobbies</option>
-                                    <option value="3">Toys &amp; Hobbies</option>
-                                    <option value="3">Toys &amp; Hobbies</option>
-                                    <option value="3">Toys &amp; Hobbies</option>
-                                </select>
-                            </div>
-                            <button class="search-form__submit form-btn form-btn--3">
-                                <i class="fa fa-search"></i>
-                            </button>
+                        <form class="search-form--3 search-form" action="{{ path('search') }}" id="header-search-form">
+                            <input class="search-form__input" name="q" type="search" placeholder="Enter your search key" aria-label="Enter your search key" >
+                            <button class="search-form__submit form-btn form-btn--3" type="submit"><i class="fa fa-search"></i></button>
+                            <div id="header-search-result" class="list-group"></div>
                         </form>
                         <!-- Search Form End -->
                     </div>
@@ -147,43 +109,9 @@
                                 <sup class="header-cart__count">0</sup>
                                 <span class="header-cart__ammount">0.00</span>
                             </a>
-                            <div class="header-cart__dropdown-menu">
+                            <div class="header-cart ">
                                 <div class="header-cart__content">
-                                    <a class="header-cart__close-btn" id="cart-close" href=""><i class="fa fa-times"></i></a>
-                                    <div class="header-cart__item">
-                                        <div class="header-cart__item--image">
-                                            <img src="public/img/printed-summer-dress-1.jpg" alt="product">
-                                            <span class="header-cart__item--quantity">1x</span>
-                                        </div>
-                                        <div class="header-cart__item--content">
-                                            <h4><a href="single-product.html">Printed Summer Dress</a> </h4>
-                                            <p>&dollar;28.98</p>
-                                            <span>Size: S</span>
-                                            <span>Color: Yello</span>
-                                        </div>
-                                    </div>
-                                    <ul class="header-cart__list">
-                                        <li class="header-cart__single">
-                                            <span class="header-cart__single--title">Subtotal</span>
-                                            <span class="header-cart__single--ammount">$0.00</span>
-                                        </li>
-                                        <li class="header-cart__single">
-                                            <span class="header-cart__single--title">Shipping</span>
-                                            <span class="header-cart__single--ammount">Free</span>
-                                        </li>
-                                        <li class="header-cart__single">
-                                            <span class="header-cart__single--title">Taxes</span>
-                                            <span class="header-cart__single--ammount">$0.00</span>
-                                        </li>
-                                        <li class="header-cart__single">
-                                            <span class="header-cart__single--title">Total</span>
-                                            <span class="header-cart__single--ammount">$0.00</span>
-                                        </li>
-                                    </ul>
-                                    <div class="header-cart__btn">
-                                        <a href="checkout.html" class="btn btn-checkout btn-style-6">Checkout</a>
-                                    </div>
-
+                                    <a class="header-cart" id="cart-close" href=""><i class="fa fa-times"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -202,59 +130,8 @@
                                 <li class="mainmenu__item">
                                     <a href='{{ path('home_page') }}' class="mainmenu__link">Home</a>
 
-                                <li class="mainmenu__item menu-item-has-children">
-                                    <a href="shop.html" class="mainmenu__link">Shop</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item-has-children">
-                                            <a href="shop.html">Shop Grid</a>
-                                            <ul class="sub-menu">
-                                                <li>
-                                                    <a href="shop.html">Shop Left Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-view-3-col.html">Shop 3 Column</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-grid-view-4-col.html">Shop 4 Column</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="shop-list-view.html">Shop List</a>
-                                            <ul class="sub-menu">
-                                                <li>
-                                                    <a href="shop-list-view.html">Shop List View Left Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-list-view-right-sidebar.html">Shop List View Right Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="http://demo.devitems.com/kobe-preview/kobe/shop-list-view-right-fullwidth.html">Shop List View Fullwidth</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="single-product.html" class="mainmenu-sub__link">Single Products</a>
-                                            <ul class="sub-menu">
-                                                <li>
-                                                    <a href="single-product.html">Product Details</a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product-group.html">Group Product Details</a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product-link.html">Link Product Details</a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product-variable.html">Variable Product Details</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <li class="mainmenu__item menu-item">
+                                    <a href="{{ path('shop') }}" class="mainmenu__link">Shop</a>
                                 <li class="mainmenu__item menu-item-has-children">
                                     <a href="legal-notice.html" class="mainmenu__link">Pages</a>
                                     <ul class="megamenu three-column">
@@ -369,40 +246,22 @@
                 <div class="col-12">
                     <div class="client-carousel client-carousel--3 owl-carousel">
                         <div class="single-client">
-                            <img src="assets/img/1.jpg" alt="client">
+                            <img src="{{ asset('img/1.jpg') }}" alt="client">
                         </div>
                         <div class="single-client">
-                            <img src="assets/img/2.jpg" alt="client">
+                            <img src="{{ asset('img/2.jpg') }}" alt="client">
                         </div>
                         <div class="single-client">
-                            <img src="assets/img/3.jpg" alt="client">
+                            <img src="{{ asset('img/3.jpg') }}" alt="client">
                         </div>
                         <div class="single-client">
-                            <img src="assets/img/4.jpg" alt="client">
+                            <img src="{{ asset('img/3.jpg') }}" alt="client">
                         </div>
                         <div class="single-client">
-                            <img src="assets/img/5.jpg" alt="client">
+                            <img src="{{ asset('img/4.jpg') }}" alt="client">
                         </div>
                         <div class="single-client">
-                            <img src="assets/img/6.jpg" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="assets/img/4.jpg" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="assets/img/5.jpg" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="assets/img/6.jpg" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="assets/img/4.jpg" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="assets/img/5.jpg" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="assets/img/6.jpg" alt="client">
+                            <img src="{{ asset('img/5.jpg') }}" alt="client">
                         </div>
                     </div>
                 </div>
@@ -758,12 +617,12 @@
     {% endblock %}
     
         {% block javascripts %}
-
-    <!-- jQuery JS -->
-    <script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
-
-    <!-- Popper JS -->
-    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
 
     <!-- Bootstrap JS -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -772,6 +631,10 @@
     <script src="{{ asset('js/plugins.js') }}"></script>
 
     <!-- Main JS -->
-    <script src="{{ asset('js/main.js') }}"></script></body>
+    <script src="{{ asset('js/main.js') }}"></script>
+
+    <script src="{{ asset('/js/app.js') }}"></script>
+
+
     {% endblock %}
 </html>
