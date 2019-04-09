@@ -78,7 +78,11 @@ class OrderItem
 
     public function getProductPrice(): ?int
     {
-        return $this->ProductPrice;
+        $productPrices = $this->getProduct()->getPrice();
+        if($this->getProduct()->getSalePrice()){
+            $productPrices = $this->getProduct()->getSalePrice();
+        }
+        return $productPrices;
     }
 
     public function setProductPrice(?int $ProductPrice): self
@@ -132,4 +136,9 @@ class OrderItem
             $this->Orders->updateOrderPrice();
         }
     }
+
+    public function getImage(){
+        return $this->getProduct()->getImages();
+    }
 }
+

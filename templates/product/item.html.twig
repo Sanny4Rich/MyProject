@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 {% block body %}
+
+    {{ dump(product.attributeValues.values) }}
     <!-- Main Content Wrapper Start -->
     <div class="main-content-wrapper">
         <div class="single-products-area section-padding">
@@ -78,21 +80,23 @@
                         <div class="col-lg-7">
                             <!-- Single Product Content Start -->
                             <div class="single-product__content">
-                                <h2 class="single-product__name">Printed Summer Dress</h2>
-                                <p class="single-product__referance">Reference: demo_5</p>
+                                <h2 class="single-product__name">{{ product.name }}</h2>
                                 <a class="single-product__review-btn" data-toggle="modal" data-target="#reviewModal"><i class="fa fa-pencil"></i> Write a review</a>
                                 <div class="single-product__price">
+                                    {% if product.realSalePrice != null %}
                                     <span class="regular-price">{{ product.realPrice }}</span>
-                                    <span class="sale-price">&dollar;28.98</span>
-                                    <span class="discount-badge">Save 5%</span>
+                                    <span class="sale-price">{{ product.realSalePrice }}</span>
+                                        <span class="discount-badge">Save %</span>
+                                    {% endif %}
+                                    {% if product.realSalePrice == null %}
+                                    <span class="sale-price">{{ product.realPrice }}</span>
+                                    {% endif %}
                                 </div>
-                                <p class="single-product__short-desc">{{ product.description }}</p>
-
                                 <div class="product-action-wrapper pb--30">
                                     <div class="quantity">
                                         <input type="number" class="quantity-input" name="qty" id="qty1" value="1">
                                     </div>
-                                    <a href="" class="btn add-to-cart btn-style-2">
+                                    <a href="" class="btn btn-style-2 ">
                                         Add To Cart
                                     </a>
                                 </div>
@@ -148,7 +152,7 @@
                             </div>
                             <div class="single-product-tab__content tab-content">
                                 <div class="tab-pane fade show active" id="nav-desc" role="tabpanel" aria-labelledby="nav-desc-tab">
-                                    <p class="product-description">Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
+                                    <p class="product-description">{{ product.description }}</p>
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="nav-details" aria-labelledby="nav-details-tab">
                                     <div class="product-details">

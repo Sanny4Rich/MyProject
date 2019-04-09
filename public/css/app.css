@@ -203,6 +203,20 @@
     position: absolute;
     left: 0;
     top: 6rem;
-    background-color: white;
-    width: 60rem;
+    width: 100%;
+    margin: 0 auto;
+    background: white;
+}
+
+.form-check{
+    position: relative;
+    margin-right: revert;
+    line-height: 2rem;
+    text-align: justify;
+}
+
+.checkbox{
+    width: 25px;
+    margin: 20px 100px;
+    position: relative;
 }

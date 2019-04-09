@@ -1,7 +1,7 @@
 <?php
 namespace App\Admin;
 
-use App\Entity\Atributes;
+use App\Entity\Attribute;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -17,7 +17,7 @@ class AttributeAdmin extends AbstractAdmin
         $list
             ->addIdentifier('name')
             ->addIdentifier('type', null, [
-                'template' => '/admin/attribute/_type.html.twig',
+                'template' => 'admin/attribute/_type.html.twig',
             ]);
     }
     protected function configureDatagridFilters(DatagridMapper $filter)
@@ -26,8 +26,8 @@ class AttributeAdmin extends AbstractAdmin
             ->add('name')
             ->add('type', null, [], ChoiceType::class, [
                 'choices' => [
-                    'attribute.type.' . Atributes::TYPE_INT => Atributes::TYPE_INT,
-                    'attribute.type.' . Atributes::TYPE_LIST => Atributes::TYPE_LIST,
+                    'attribute.type.' . Attribute::TYPE_INT => Attribute::TYPE_INT,
+                    'attribute.type.' . Attribute::TYPE_LIST => Attribute::TYPE_LIST,
                 ]
             ]);
     }
@@ -37,11 +37,11 @@ class AttributeAdmin extends AbstractAdmin
             ->add('name')
             ->add('type', ChoiceType::class, [
                 'choices' => [
-                    'attribute.type.' . Atributes::TYPE_INT => Atributes::TYPE_INT,
-                    'attribute.type.' . Atributes::TYPE_LIST => Atributes::TYPE_LIST,
-                ]
+                    'attribute.type.' . Attribute::TYPE_INT => Attribute::TYPE_INT,
+                    'attribute.type.' . Attribute::TYPE_LIST => Attribute::TYPE_LIST,
+                ],
             ])
-            ->add('choices', TextareaType::class);
+            ->add('choices', TextareaType::class, ['required' => false]);
         $form->get('choices')->addModelTransformer(new CallbackTransformer(
             function ($array) {
                 return $array ? implode("\n", $array) : '';

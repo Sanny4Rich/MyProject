@@ -1,5 +1,6 @@
 <?php
 namespace App\Repository;
+
 use App\Entity\AttributeValues;
 use App\Entity\Categories;
 use App\Entity\Product;
@@ -17,20 +18,23 @@ class ProductRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Product::class);
     }
+
     /**
      * @return Product[] Returns an array of Product objects
      */
+
     public function findByName($query)
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.name LIKE :query')
-            ->setParameter('query', '%' . $query . '%')
+            ->setParameter('query', '%' . $query. '%')
             ->orderBy('p.name', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
             ;
     }
+
     public function findByAttributes(Categories $category, array $filter)
     {
         $attributeQueryBuilder = $this->_em->createQueryBuilder()
@@ -77,8 +81,8 @@ class ProductRepository extends ServiceEntityRepository
         $queryBuilder = $this->createQueryBuilder('p');
         return $queryBuilder
             ->where($queryBuilder->expr()->in('p.id', $productIds))
-            ->andWhere('p.category = :category')
-            ->setParameter('category', $category)
+            ->andWhere('p.categories = :categories')
+            ->setParameter('categories', $category)
             ->getQuery()
             ->getResult();
     }

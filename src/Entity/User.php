@@ -104,8 +104,10 @@ class User extends BaseUser
 
     public function setName(?string $name): self
     {
+        if($this->name)
         $this->name = $name;
-
+        else
+            $name = null;
         return $this;
     }
 

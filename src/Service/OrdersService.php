@@ -24,8 +24,6 @@ class OrdersService
 
     private $twig;
 
-    private $mailer;
-
     private $parameters;
 
     public function __construct(
@@ -33,14 +31,12 @@ class OrdersService
         OrderRepository $orderRepository,
         EntityManagerInterface $entityManager,
         Environment $twig,
-        \Swift_Mailer $mailer,
         ParameterBagInterface $parameters
     ) {
         $this->request = $requestStack->getCurrentRequest();
         $this->ordersRepository = $orderRepository;
         $this->entityManager = $entityManager;
         $this->twig = $twig;
-        $this->mailer = $mailer;
         $this->parameters = $parameters;
     }
 

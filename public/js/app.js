@@ -40,7 +40,9 @@ $('body').on('click', '.js-remove-item', function (event) {
     }
 });
 
-$('body').on('input','.js-item-count', function (event) {
+
+
+$('body').on('input', '.js-item-quantity', function(event) {
     var target = $(event.currentTarget);
 
     $.post(target.data('href'), {'count': target.val()}, function (data) {

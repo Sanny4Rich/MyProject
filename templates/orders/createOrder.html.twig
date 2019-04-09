@@ -20,7 +20,7 @@
             </td>
             <td>{{ item.productPrice|money }}</td>
             <td>{{ item.count }}</td>
-            <td>{{ item.summaryPrice }}</td>
+            <td>{{ item.summaryPrice }}</td>z
         </tr>
         {% endfor %}
 
@@ -33,10 +33,9 @@
     {{ form_start(form) }}
         <div class="row">
             <div class="col-sm">
-                {{ form_row(form.firstName, {'label': 'Имя'}) }}
-                {{ form_row(form.lastName, {'label': 'Фамилия'})  }}
+                {{ form_row(form.name, {'label': 'Имя'}) }}
                 {{ form_row(form.email, {'label': 'Email'})  }}
-                {{ form_row(form.PhoneNumber, {'label': 'Номер телефона'})  }}
+                {{ form_row(form.phoneNumber, {'label': 'Номер телефона'})  }}
             </div>
             <div class="col-sm">
                 <div class="form-group">

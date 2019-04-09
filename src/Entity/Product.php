@@ -85,6 +85,7 @@ class Product
         $this->orderItems = new ArrayCollection();
         $this->attributeValues = new ArrayCollection();
         $this->images = new ArrayCollection();
+        $this->updatedAt = new \DateTime('now');
     }
 
     public function __toString()
@@ -271,10 +272,18 @@ class Product
      *
      * @param Images $image
      */
-    public function removeImage(Images $image)
+
+    public function removeImage(Images $images): self
     {
-        $image->setProduct(null);
-        $this->images->removeElement($image);
+        if ($this->images->contains($images)) {
+            $this->images->removeElement($images);
+            // set the owning side to null (unless already changed)
+            if ($images->getProduct() === $this) {
+                $images->setProduct(null);
+            }
+        }
+
+        return $this;
     }
 
     public function getSalePrice(): ?int
@@ -288,5 +297,4 @@ class Product
 
         return $this;
     }
-
 }

@@ -1,12 +1,14 @@
 Name: Название
 Description: Описание
 Price: Цена
-Is Top: В топе
+Is Top:  В топе
+Category: Категория
+Product List: Список товаров
 Type: Тип
-Attributes: Атрибуты
-Attribute Values: Значение атрибутов
+Attribute Values: Значения Аттрибутов
+Images: Картинки
 
 attribute:
   type:
-    !php/const App\Entity\Atributes::TYPE_INT: Числовой
-    !php/const App\Entity\Atributes::TYPE_LIST: Список
+    !php/const App\Entity\Attribute::TYPE_INT: Числовой
+    !php/const App\Entity\Attribute::TYPE_LIST: Список

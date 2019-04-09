@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Atributes;
+use App\Entity\Attribute;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Atributes|null find($id, $lockMode = null, $lockVersion = null)
- * @method Atributes|null findOneBy(array $criteria, array $orderBy = null)
- * @method Atributes[]    findAll()
- * @method Atributes[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Attribute|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Attribute|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Attribute[]    findAll()
+ * @method Attribute[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class AtributesRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Atributes::class);
+        parent::__construct($registry, Attribute::class);
     }
 
     // /**
-    //  * @return Atributes[] Returns an array of Atributes objects
+    //  * @return Attribute[] Returns an array of Attribute objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class AtributesRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Atributes
+    public function findOneBySomeField($value): ?Attribute
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

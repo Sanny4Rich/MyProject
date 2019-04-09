@@ -1,0 +1,28 @@
+<div class="header-top__nav header-top__nav--3 d-flex justify-content-lg-end justify-content-center">
+    <div class="user-info header-top__nav--item">
+        <div class="dropdown header-top__dropdown">
+            {% if app.user %}
+                <a class="dropdown-toggle" id="userID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Аккаунт {{ app.user.name }}
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            {% else %}
+            <a class="dropdown-toggle" id="userID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Мой аккаунт
+                <i class="fa fa-angle-down"></i>
+            </a>
+            {% endif %}
+            <div class="dropdown-menu" aria-labelledby="userID">
+                <a class="dropdown-item" href="{{ path('fos_user_profile_show') }}">Мой аккаунт</a>
+                <a class="dropdown-item" href="{{ path('orders') }}">Оплата</a>
+                {% if app.user %}
+                <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">Выход</a>
+                {% else %}
+                <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">Вход</a>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+</div>

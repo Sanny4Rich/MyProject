@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AtributesRepository")
  */
-class Atributes
+class Attribute
 {
     const TYPE_INT = 1;
     const TYPE_LIST = 2;
@@ -86,6 +86,14 @@ class Atributes
         return $this;
     }
 
+    public function isInt(): bool {
+        return $this->type == self::TYPE_INT;
+    }
+
+    public function isList(): bool {
+        return $this->type == self::TYPE_LIST;
+}
+
     /**
      * @return Collection|AttributeValues[]
      */
@@ -140,14 +148,17 @@ class Atributes
         return $this;
     }
 
-
     public function getChoices(): ?array
     {
         return $this->choices;
     }
+
     public function setChoices(?array $choices): self
     {
         $this->choices = $choices;
+
         return $this;
     }
+
+
 }

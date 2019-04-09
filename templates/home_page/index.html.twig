@@ -9,15 +9,15 @@
     <div class="row">
         <div class="col-12 text-center">
             <div class="quick-links">
-                <span>Go Quick To</span>
-                <a href="">Trending Grocery ,</a>
-                <a href="">Exotics ,</a>
-                <a href="">Herbs ,</a>
-                <a href="">Atta ,</a>
-                <a href="">Olive Oils ,</a>
-                <a href="">Salt ,</a>
-                <a href="">Sugar &amp; Spices ,</a>
-                <a href="">Juices Gift Packs ,</a>
+                <span>Быстрый переход</span>
+                <a href="{{ path('shop') }}">Samsung, </a>
+                <a href="{{ path('shop') }}">Apple, </a>
+                <a href="{{ path('shop') }}">Huawei, </a>
+                <a href="{{ path('shop') }}">Sony, </a>
+                <a href="{{ path('shop') }}">Xiaomi, </a>
+                <a href="{{ path('shop') }}">ZTE, </a>
+                <a href="{{ path('shop') }}">LG, </a>
+                <a href="{{ path('shop') }}">etc.</a>
             </div>
         </div>
     </div>
@@ -74,7 +74,7 @@
                                             <div class="slider-content slider-content--2">
                                                 <h1 class="heading-primary heading-primary--2" data-animation="fadeInUp" data-delay=".2s" data-duration="1s">BAG FULL OF GROCERY PRODUCTS</h1>
                                                 <p class="slider-content__text" data-animation="fadeInLeft" data-delay=".4s" data-duration="1.2s">FROZEN &amp; CHILLED FOOD PRODUCTS FRESH FRUIT &amp; VEGETABLES</p>
-                                                <a href="" class="btn slider-btn btn-style-6" data-animation="fadeInDown" data-delay=".5s" data-duration="1.4s">Shop Now</a>
+                                                <a href="" class="btn slider-btn btn-style-6" data-animation="fadeInDown" data-delay=".5s" data-duration="1.4s">Магазин</a>
                                             </div>
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                                             <div class="slider-content slider-content--2">
                                                 <h1 class="heading-primary heading-primary--2" data-animation="fadeInUp" data-delay=".2s" data-duration="1s">BAG FULL OF GROCERY PRODUCTS</h1>
                                                 <p class="slider-content__text" data-animation="fadeInLeft" data-delay=".4s" data-duration="1.2s">FROZEN &amp; CHILLED FOOD PRODUCTS FRESH FRUIT &amp; VEGETABLES</p>
-                                                <a href="" class="btn slider-btn btn-style-6" data-animation="fadeInDown" data-delay=".5s" data-duration="1.4s">Shop Now</a>
+                                                <a href="" class="btn slider-btn btn-style-6" data-animation="fadeInDown" data-delay=".5s" data-duration="1.4s">Магазин</a>
                                             </div>
                                         </div>
                                     </div>
@@ -140,135 +140,51 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-title section-title--2">
-                        <h2>Hot Deals</h2>
+                    <div class="section-title">
+                        <h2>Популярные товары</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="trending-product__carousel trending-product__carousel--3 owl-carousel" id="tanding-product-2">
-
+                        {% for product in products %}
+                            {% if product.salePrice is not null %}
                         <!-- Tranding Product box Start -->
                         <div class="product-box variable-product product-box--3">
                             <div class="product-box__meta">
-                                <a href="shop.html" class="product-box__category">manufacturer</a>
-                                <span class="product-box__sticker product-box__sticker--discount">-5%</span>
+                                <a href="shop.html" class="product-box__category">Обзор</a>
+                                {% set discount = (100 - product.salePrice/product.realPrice)|round  %}
+                                <span class="product-box__sticker product-box__sticker--discount">-{{ discount }}%</span>
                             </div>
                             <div class="product-box__image">
-                                <img src="assets/img/printed-summer-dress-14.jpg" alt="product image" class="primary_image">
-                                <img src="assets/img/printed-summer-dress-13.jpg" alt="product image" class="secondary_image">
-                                <a href="" data-toggle="modal" data-target="#productModal" class="quick-view"> <i class="fa fa-eye"></i> </a>
+                                {% if product.images is not empty %}
+                                <a href="{{ path('products_item', {'id': product.id}) }}') }}">
+                                <img src="{{ vich_uploader_asset( product.images[0], 'imageFile')|imagine_filter('squared_thumbnail') }}" alt="product image" class="primary_image">
+                                <img src="{{ vich_uploader_asset( product.images[1], 'imageFile')|imagine_filter('squared_thumbnail') }}" alt="product image" class="secondary_image">
+                                </a>
+                                {% else %}
+                                <a href="{{ path('products_item', {'id': product.id}) }}') }}">
+                                <img src="{{ asset('img/No_image_available.jpg')|imagine_filter('squared_thumbnail') }}">
+                                </a>
+                                {% endif %}
                             </div>
                             <div class="product-box__footer">
                                 <div class="product-box__desc">
-                                    <a href="single-product.html" class="product-box__title">Printed Summer Dress</a>
+                                    <a href="single-product.html" class="product-box__title">{{ product.name }}</a>
                                     <p class="product-box__price">
-                                        <span class="sale-price">&dollar;17.43</span>
-                                        <span class="regular-price">&dollar;20.50</span>
+                                        <span class="sale-price">{{ product.realSalePrice }}</span>
+                                        <span class="regular-price">{{ product.realPrice }}</span>
                                     </p>
                                 </div>
                                 <div class="product-box__links">
-                                    <a href="cart.html" class="btn add-to-cart btn-style-7">Add to cart</a>
-                                </div>
-                            </div>
-                            <div class="product-box__countdown">
-                                <div class="product-countdown" data-countdown="2020/05/01">
+                                    <a href="{{ path('orders_add_to_cart', {'id': product.id}) }}" class="btn add-to-cart btn-style-7 ">Купить</a>
                                 </div>
                             </div>
                         </div>
+                            {% endif %}
+                        {% endfor %}
                         <!-- Tranding Product box End -->
-
-                        <!-- Tranding Product box Start -->
-                        <div class="product-box variable-product product-box--3">
-                            <div class="product-box__meta">
-                                <a href="shop.html" class="product-box__category">manufacturer</a>
-                                <span class="product-box__sticker product-box__sticker--discount">-5%</span>
-                            </div>
-                            <div class="product-box__image">
-                                <img src="assets/img/printed-summer-dress-16.jpg" alt="product image" class="primary_image">
-                                <img src="assets/img/printed-summer-dress-15.jpg" alt="product image" class="secondary_image">
-                                <a href="" data-toggle="modal" data-target="#productModal" class="quick-view"> <i class="fa fa-eye"></i> </a>
-                            </div>
-                            <div class="product-box__footer">
-                                <div class="product-box__desc">
-                                    <a href="single-product.html" class="product-box__title">Printed Summer Dress</a>
-                                    <p class="product-box__price">
-                                        <span class="sale-price">&dollar;17.43</span>
-                                        <span class="regular-price">&dollar;20.50</span>
-                                    </p>
-                                </div>
-                                <div class="product-box__links">
-                                    <a href="cart.html" class="btn add-to-cart btn-style-7">Add to cart</a>
-                                </div>
-                            </div>
-                            <div class="product-box__countdown">
-                                <div class="product-countdown" data-countdown="2020/05/01">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Tranding Product box End -->
-
-                        <!-- Tranding Product box Start -->
-                        <div class="product-box variable-product product-box--3">
-                            <div class="product-box__meta">
-                                <a href="shop.html" class="product-box__category">manufacturer</a>
-                                <span class="product-box__sticker product-box__sticker--discount">-5%</span>
-                            </div>
-                            <div class="product-box__image">
-                                <img src="assets/img/printed-chiffon-dress-3.jpg" alt="product image" class="primary_image">
-                                <img src="assets/img/printed-chiffon-dress-4.jpg" alt="product image" class="secondary_image">
-                                <a href="" data-toggle="modal" data-target="#productModal" class="quick-view"> <i class="fa fa-eye"></i> </a>
-                            </div>
-                            <div class="product-box__footer">
-                                <div class="product-box__desc">
-                                    <a href="single-product.html" class="product-box__title">Printed Summer Dress</a>
-                                    <p class="product-box__price">
-                                        <span class="sale-price">&dollar;17.43</span>
-                                        <span class="regular-price">&dollar;20.50</span>
-                                    </p>
-                                </div>
-                                <div class="product-box__links">
-                                    <a href="cart.html" class="btn add-to-cart btn-style-7">Add to cart</a>
-                                </div>
-                            </div>
-                            <div class="product-box__countdown">
-                                <div class="product-countdown" data-countdown="2020/05/01">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Tranding Product box End -->
-
-                        <!-- Tranding Product box Start -->
-                        <div class="product-box variable-product product-box--3">
-                            <div class="product-box__meta">
-                                <a href="shop.html" class="product-box__category">manufacturer</a>
-                                <span class="product-box__sticker product-box__sticker--discount">-5%</span>
-                            </div>
-                            <div class="product-box__image">
-                                <img src="assets/img/printed-chiffon-dress-4.jpg" alt="product image" class="primary_image">
-                                <img src="assets/img/printed-chiffon-dress-5.jpg" alt="product image" class="secondary_image">
-                                <a href="" data-toggle="modal" data-target="#productModal" class="quick-view"> <i class="fa fa-eye"></i> </a>
-                            </div>
-                            <div class="product-box__footer">
-                                <div class="product-box__desc">
-                                    <a href="single-product.html" class="product-box__title">Printed Summer Dress</a>
-                                    <p class="product-box__price">
-                                        <span class="sale-price">&dollar;17.43</span>
-                                        <span class="regular-price">&dollar;20.50</span>
-                                    </p>
-                                </div>
-                                <div class="product-box__links">
-                                    <a href="cart.html" class="btn add-to-cart btn-style-7">Add to cart</a>
-                                </div>
-                            </div>
-                            <div class="product-box__countdown">
-                                <div class="product-countdown" data-countdown="2020/05/01">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Tranding Product box End -->
-
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -84,6 +85,11 @@ class Order
      */
     private $items;
 
+    public function __toString()
+    {
+        return (string)$this->getName();
+    }
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -163,7 +169,7 @@ class Order
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -175,7 +181,7 @@ class Order
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -187,7 +193,7 @@ class Order
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(string $phoneNumber): self
+    public function setPhoneNumber(?string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
 
@@ -199,7 +205,7 @@ class Order
         return $this->adress;
     }
 
-    public function setAdress(string $adress): self
+    public function setAdress(?string $adress): self
     {
         $this->adress = $adress;
 
@@ -248,4 +254,5 @@ class Order
 
         $this->setOrderPrice($orderPrice);
     }
+
 }

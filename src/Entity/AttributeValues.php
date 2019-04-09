@@ -23,7 +23,7 @@ class AttributeValues
     private $product;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Atributes", inversedBy="attributesValues")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Attribute", inversedBy="attributesValues")
      * @ORM\JoinColumn(nullable=false)
      */
     private $attribute;
@@ -53,11 +53,11 @@ class AttributeValues
         return $this;
     }
 
-    public function getAttribute(): ? Atributes
+    public function getAttribute(): ? Attribute
     {
         return $this->attribute;
     }
-    public function setAttribute(?Atributes $attribute): self
+    public function setAttribute(?Attribute $attribute): self
     {
         $this->attribute = $attribute;
         return $this;

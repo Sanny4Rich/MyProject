@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="this is a demo meta description">
     <meta name="keywords" content="this is a demo meta keywords">
-    <title>{% block title %}Kobe - Multi Store eCommerce Bootstrap 4 Template{% endblock %}</title>
+    <title>{% block title %}KOBE{% endblock %}</title>
     {% block stylesheets %}
         <!-- Favicons -->
         <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
@@ -28,9 +28,7 @@
         <!-- style css -->
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
 
-        <!-- modernizr JS
-        ============================================ -->
-        <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
+
 
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {% endblock %}
@@ -56,21 +54,7 @@
                     <div class="col-lg-12 text-lg-right">
 
                         <!-- Header Top Nav Start -->
-                        <div class="header-top__nav header-top__nav--3 d-flex justify-content-lg-end justify-content-center">
-                            <div class="user-info header-top__nav--item">
-                                <div class="dropdown header-top__dropdown">
-                                    <a class="dropdown-toggle" id="userID" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        My Account
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="userID">
-                                        <a class="dropdown-item" href="my-account.html">My Account</a>
-                                        <a class="dropdown-item" href="checkout.html">Checkout</a>
-                                        <a class="dropdown-item" href="login.html">Sign In</a>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
+                        {{ include('user/_myAccountInHeader.html.twig') }}
                         </div>
                         <!-- Header Top Nav End -->
 
@@ -95,26 +79,27 @@
                     <div class="col-lg-7 order-3 order-lg-2">
                         <!-- Search Form Start -->
                         <form class="search-form--3 search-form" action="{{ path('search') }}" id="header-search-form">
-                            <input class="search-form__input" name="q" type="search" placeholder="Enter your search key" aria-label="Enter your search key" >
+                            <input class="search-form__input" name="q" type="search" placeholder="Поиск" aria-label="Enter your search key" >
                             <button class="search-form__submit form-btn form-btn--3" type="submit"><i class="fa fa-search"></i></button>
                             <div id="header-search-result" class="list-group"></div>
                         </form>
+
                         <!-- Search Form End -->
                     </div>
                     <div class="col-lg-2 col-sm-8 order-2 order-lg-3">
                         <!-- Header Cart Start -->
                         <div class="header-cart header-cart--3">
-                            <a class="header-cart__dropdown-toggle" id="cartDropdown">
+                            <a class="header-cart__dropdown-toggle" id="cartDropdown" href="{{ path('orders') }}">
                                 <i class="fa fa-shopping-cart header-cart__icon"></i>
-                                <sup class="header-cart__count">0</sup>
-                                <span class="header-cart__ammount">0.00</span>
+                                <ul class="navbar-nav">
+                                    <a href="{{ path('orders') }}" id="cart-in-header" class="navbar-text"
+                                       data-refresh-url="{{ path('orders_cart_in_header') }}">
+                                        {{ render(url('orders_cart_in_header')) }}
+                                    </a>
+                                </ul>
                             </a>
-                            <div class="header-cart ">
-                                <div class="header-cart__content">
-                                    <a class="header-cart" id="cart-close" href=""><i class="fa fa-times"></i></a>
-                                </div>
-                            </div>
                         </div>
+
                         <!-- Header Cart End -->
                     </div>
                 </div>
@@ -128,69 +113,12 @@
                             <!-- Mainmenu Start -->
                             <ul class="mainmenu mainmenu--3">
                                 <li class="mainmenu__item">
-                                    <a href='{{ path('home_page') }}' class="mainmenu__link">Home</a>
+                                    <a href='{{ path('home_page') }}' class="mainmenu__link">Главная</a>
 
                                 <li class="mainmenu__item menu-item">
-                                    <a href="{{ path('shop') }}" class="mainmenu__link">Shop</a>
+                                    <a href="{{ path('shop') }}" class="mainmenu__link">Магазин</a>
                                 <li class="mainmenu__item menu-item-has-children">
-                                    <a href="legal-notice.html" class="mainmenu__link">Pages</a>
-                                    <ul class="megamenu three-column">
-                                        <li>
-                                            <a href="index-3.html#">Column One</a>
-                                            <ul>
-                                                <li class="">
-                                                    <a href="about-us.html" class="">About Us</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="best-sales.html" class="">Best Products</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="cart.html" class="">Cart</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="checkout.html" class="">Checkout</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="index-3.html#">Column Two</a>
-                                            <ul>
-                                                <li class="">
-                                                    <a href="compare.html" class="">Compare</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="login.html" class="">Login</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="register.html" class="">Register</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="stores.html" class="">Stores</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="index-3.html#">Column Three</a>
-                                            <ul>
-                                                <li>
-                                                    <a href="wishlist.html">Wishlist</a>
-                                                </li>
-                                                <li>
-                                                    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
-                                                </li>
-                                                <li>
-                                                    <a href="legal-notice.html">Legal Notice</a>
-                                                </li>
-                                                <li>
-                                                    <a href="payment.html">Secure Payment</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li class="mainmenu__item menu-item-has-children">
-                                    <a href="blog-2-column-left-sidebar.html" class="mainmenu__link">Blog</a>
+                                    <a href="blog-2-column-left-sidebar.html" class="mainmenu__link">Блог</a>
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="blog-2-column-left-sidebar.html">Blog Two Column Left Sidebar</a>
@@ -209,7 +137,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="mainmenu__item"><a href="{{ path('contact_us') }}" class="mainmenu__link">Contact Us</a></li>
+                                <li class="mainmenu__item"><a href="{{ path('contact_us') }}" class="mainmenu__link">Напишите нам!</a></li>
                             </ul>
                             <!-- Mainmenu End -->
                         </nav>
@@ -228,9 +156,6 @@
     <!-- Header area End -->
 
     <!-- Category area Start -->
-        {% block Categories %}
-
-        {% endblock %}
     <!-- Category area Start -->
 
     <!-- Body area Start -->
@@ -239,36 +164,6 @@
     <!-- Body area Start -->
 
     {% block footer %}
-    <!-- Clients area Start -->
-    <div class="clients-area pt--40 pb--80">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="client-carousel client-carousel--3 owl-carousel">
-                        <div class="single-client">
-                            <img src="{{ asset('img/1.jpg') }}" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="{{ asset('img/2.jpg') }}" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="{{ asset('img/3.jpg') }}" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="{{ asset('img/3.jpg') }}" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="{{ asset('img/4.jpg') }}" alt="client">
-                        </div>
-                        <div class="single-client">
-                            <img src="{{ asset('img/5.jpg') }}" alt="client">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Clients area End -->
 
     <!-- Footer area Start -->
     <footer class="footer footer--3">
@@ -282,8 +177,8 @@
                                 <i class="fa fa-paper-plane-o"></i>
                             </div>
                             <div class="method-box__content">
-                                <h4>Free Delivery</h4>
-                                <p>On Orders Of $200+</p>
+                                <h4>Бесплатная доставка</h4>
+                                <p>На заказы от $200</p>
                             </div>
                         </div>
                     </div>
@@ -296,8 +191,7 @@
                                 <i class="fa fa-credit-card"></i>
                             </div>
                             <div class="method-box__content">
-                                <h4>Cod</h4>
-                                <p>Cash On Delivery</p>
+                                <h4>Наложенный платёж</h4>
                             </div>
                         </div>
                     </div>
@@ -310,8 +204,8 @@
                                 <i class="fa fa-gift"></i>
                             </div>
                             <div class="method-box__content">
-                                <h4>Free Gift Box</h4>
-                                <p>Buy A Gift</p>
+                                <h4>Подарочная упаковка</h4>
+
                             </div>
                         </div>
                     </div>
@@ -324,8 +218,7 @@
                                 <i class="fa fa-support"></i>
                             </div>
                             <div class="method-box__content">
-                                <h4>Free Support 24/7</h4>
-                                <p>Online 24hrs A Day</p>
+                                <h4>Поддержка 24/7</h4>
                             </div>
                         </div>
                     </div>
@@ -337,25 +230,7 @@
                         <hr class="line line-black">
                     </div>
                 </div>
-                <div class="row ptb--30 justify-content-center">
-                    <div class="col-xl-9 col-md-8">
-                        <!-- Newsletter Form Start -->
-                        <div class="newsletter newsletter--2">
-                            <p class="newsletter__desc text-center mb--30">
-                                Trade Alert - Delivering the latest product trends and industry news straight to your inbox. We’ll never share your email address with a third-party.
-                            </p>
-                            <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="newsletter-form popup-subscribe-form validate newsletter-form--2" target="_blank" novalidate="">
-                                <div class="newsletter-form__group">
-                                    <input type="email" name="email" id="email" class="newsletter-form__input" placeholder="Your Email Address">
-                                    <button type="submit" class="newsletter-form__btn form-btn form-btn--3">
-                                        <i class="fa fa-envelope"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Newsletter Form End -->
-                    </div>
-                </div>
+
                 <div class="row">
                     <div class="col-12">
                         <hr class="line line-black">
@@ -365,7 +240,7 @@
                     <!-- Footer Widget Start -->
                     <div class="col-lg-4">
                         <div class="footer-widget">
-                            <h3 class="widget-title widget-title--2">Contact Us</h3>
+                            <h3 class="widget-title widget-title--2">Cвяжитесь с нами</h3>
                             <div class="address-widget address-widget--2">
                                 <p><i class="fa fa-map-marker"></i> The Barn, Ullenhall, Henley-in-Arden B578 5CC, England</p>
                                 <p><i class="fa fa-phone"></i> +123.456.789 +123.456.678</p>
@@ -616,13 +491,15 @@
 </div>
     {% endblock %}
     
-        {% block javascripts %}
+        {% block javascripts %} {% endblock %}
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
             integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
             crossorigin="anonymous"></script>
+
 
     <!-- Bootstrap JS -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -633,8 +510,13 @@
     <!-- Main JS -->
     <script src="{{ asset('js/main.js') }}"></script>
 
-    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
+            <!-- modernizr JS
+                ============================================ -->
+            <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
 
-    {% endblock %}
+</body>
 </html>
+
+

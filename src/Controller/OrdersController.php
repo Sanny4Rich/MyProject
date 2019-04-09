@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\OrderItem;
 use App\Entity\Product;
 use App\Form\OrderType;
+use App\Repository\ImagesRepository;
 use App\Repository\OrderRepository;
+use App\Repository\ProductRepository;
 use App\Service\OrdersService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Cookie;
@@ -19,7 +21,7 @@ class OrdersController extends AbstractController
      */
     public function index()
     {
-        return $this->render('orders/index.html.twig', [
+        return $this->render('order/index.html.twig', [
             'controller_name' => 'OrdersController',
         ]);
     }
@@ -59,7 +61,7 @@ class OrdersController extends AbstractController
 
     public function cart(OrdersService $ordersService)
     {
-        return $this->render('orders/index.html.twig', [
+        return $this->render('orders/cart.html.twig', [
             'cart' => $ordersService->getOrderFromRequest()
         ]);
     }
@@ -102,11 +104,10 @@ class OrdersController extends AbstractController
         $order = $ordersService->prepareOrder($this->getUser());
         $form = $this->createForm(OrderType::class, $order);
         $form->handleRequest($request);
-
         if($form->isSubmitted() && $form->isValid()) {
             $ordersService->sendOrder($order);
 
-            $response = $this->redirectToRoute('payments_make_payment', ['id' =>$order->getId()]);
+            $response = $this->redirectToRoute('orders_thanks', ['id' =>$order->getId()]);
             $response->headers->clearCookie('orderId');
 
             return $response;

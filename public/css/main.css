@@ -132,7 +132,6 @@ p {
   .section-title h2 {
     position: relative;
     display: inline-block;
-    text-transform: capitalize;
     line-height: 3rem;
     padding: 0 2.5rem 0 0;
     font-size: 2.4rem;
@@ -316,7 +315,6 @@ Banner Box
     color: #fff;
     font-size: 3.6rem;
     line-height: 1.5;
-    text-transform: capitalize;
     position: absolute;
     top: 30px;
     left: 30px;
@@ -1888,7 +1886,6 @@ a, button, .category-list li, .category-list li:before, .custom-checkbox__label:
         text-overflow: ellipsis;
         white-space: nowrap;
         color: #666666;
-        text-transform: capitalize;
         font-size: 1.6rem;
         font-weight: 400; }
         .header-cart__item--content h4 a:hover {
@@ -2144,7 +2141,6 @@ a, button, .category-list li, .category-list li:before, .custom-checkbox__label:
   display: inline-block;
   padding: 0 1.5rem;
   border-left: 1px solid #a6a6a6;
-  text-transform: capitalize;
   line-height: 1.2;
   font-size: 1.3rem;
   color: #606060; }
@@ -2210,7 +2206,6 @@ a, button, .category-list li, .category-list li:before, .custom-checkbox__label:
   .footer-menu__link {
     font-size: 1.4rem;
     color: #b6becb;
-    text-transform: capitalize;
     display: inline-block; }
 
 .footer--1 a:hover {
@@ -2300,13 +2295,11 @@ a, button, .category-list li, .category-list li:before, .custom-checkbox__label:
       transition: all 0.3s ease-in; }
   .method-box__content h4 {
     font-size: 1.6rem;
-    text-transform: capitalize;
     font-weight: 600;
     line-height: 1;
     margin-bottom: 5px; }
   .method-box__content p {
     font-size: 1.4rem;
-    text-transform: capitalize;
     line-height: 1;
     color: #fff;
     margin: 0; }
@@ -2342,7 +2335,6 @@ a, button, .category-list li, .category-list li:before, .custom-checkbox__label:
       color: #2c2e3d; }
     .method-box--2 .method-box__content h4 {
       font-size: 1.6rem;
-      text-transform: capitalize;
       font-weight: 600;
       line-height: 1;
       margin-bottom: 5px; }
@@ -2359,8 +2351,7 @@ a, button, .category-list li, .category-list li:before, .custom-checkbox__label:
   font-size: 1.8rem;
   font-weight: 600;
   color: #fff;
-  margin: 0 0 2rem 0;
-  text-transform: capitalize; }
+  margin: 0 0 2rem 0;}
   .widget-title--2 {
     color: #2c2e3d; }
 
@@ -2387,7 +2378,6 @@ a, button, .category-list li, .category-list li:before, .custom-checkbox__label:
   .menu-widget ul li a {
     font-size: 1.4rem;
     color: #b6becb;
-    text-transform: capitalize;
     display: inline-block;
     font-weight: 400; }
 
@@ -2468,7 +2458,6 @@ Shop Pages Sidebar
   background-color: #2874f0;
   color: #fff;
   padding: 1.5rem 2rem;
-  text-transform: capitalize;
   font-size: 2rem;
   margin-bottom: 0; }
 
@@ -2606,7 +2595,6 @@ Category Navigation
   .category-nav__title {
     color: #ffffff;
     margin: 0;
-    text-transform: capitalize;
     cursor: pointer; }
     .category-nav__title span {
       display: block;
@@ -2755,7 +2743,6 @@ Category Navigation
           padding: 0; } }
     .category-nav__submenu__title {
       color: #2874f0;
-      text-transform: capitalize;
       font-size: 1.4rem;
       margin-bottom: 1.5rem; }
     .category-nav__submenu ul li a {
@@ -3046,8 +3033,7 @@ Main Navigation
     padding: 1.2rem 2rem;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #2c2e3d;
-    text-transform: capitalize; }
+    color: #2c2e3d;}
     .mainmenu li a:hover {
       color: #f5a623; }
   .mainmenu .sub-menu {
@@ -3819,7 +3805,6 @@ Form
   line-height: 4rem;
   right: 1.5rem;
   top: 0;
-  text-transform: capitalize;
   border-radius: 0;
   background: #b6becb;
   cursor: pointer;
@@ -4484,8 +4469,7 @@ User Dashboard tab
     border-bottom: 1px solid #ededed;
     font-size: 2.4rem;
     margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    text-transform: capitalize; }
+    padding-bottom: 1.5rem;}
   .user-dashboard-tab__content table {
     width: 100%; }
     .user-dashboard-tab__content table th {
@@ -4535,7 +4519,6 @@ Product Box
     min-height: 4rem; }
   .product-box__category {
     font-size: 1.2rem;
-    text-transform: capitalize;
     color: #2874f0;
     display: inline-block; }
   .product-box__sticker {
@@ -4571,7 +4554,6 @@ Product Box
     color: #2c2e3d;
     font-weight: 400;
     display: block;
-    text-transform: capitalize;
     margin-bottom: 1.5rem; }
   .product-box .sale-price {
     font-size: 1.6rem; }
@@ -4794,7 +4776,6 @@ Product Category
       -o-transition: all 0.8s ease-in-out;
       transition: all 0.8s ease-in-out; }
   .product-category__title {
-    text-transform: capitalize;
     color: #2c2e3d;
     font-size: 1.6rem;
     display: block;
@@ -4818,7 +4799,6 @@ Product Title
   color: #2c2e3d;
   margin-bottom: 1.5rem;
   font-weight: 600;
-  text-transform: capitalize;
   font-size: 2.4rem; }
 
 /**********************
@@ -5536,7 +5516,6 @@ Blog
 .single-blog__title {
   color: #2c2e3d;
   font-size: 1.4rem;
-  text-transform: capitalize;
   font-weight: 600;
   display: block;
   line-height: 1.4; }
@@ -5724,7 +5703,6 @@ Blog
       min-height: 10rem; } }
 
 .page-title {
-  text-transform: capitalize;
   font-size: 2.8rem;
   letter-spacing: 2px;
   margin: 0; }
@@ -5772,7 +5750,6 @@ Product Pagination
       justify-content: center; } }
   .product-pagintaion .showing-product {
     color: #2c2e3d;
-    text-transform: capitalize;
     font-size: 1.4rem;
     margin-bottom: 0; }
     @media (max-width: 47.94em) {
@@ -6033,8 +6010,7 @@ Blog Pagination
       display: inline-block;
       font-size: 1.3rem;
       font-weight: 600;
-      color: #606060;
-      text-transform: capitalize; }
+      color: #606060;}
       .blog-comments .comment-list .single-comment .reply:hover {
         color: #333333; }
 
@@ -6057,7 +6033,6 @@ Blog Pagination
   padding: 1.5rem; }
 
 .cart-table table th {
-  text-transform: capitalize;
   white-space: -moz-nowrap;
   white-space: nowrap;
   border-bottom: none; }
@@ -6093,7 +6068,6 @@ Blog Pagination
   font-size: 1.6rem; }
 
 .compare-table table th {
-  text-transform: capitalize;
   border-bottom: none; }
 
 .compare-table table td {
@@ -6154,7 +6128,6 @@ Blog Pagination
 .quick-links {
   text-align: center;
   font-size: 1.3rem;
-  text-transform: capitalize;
   padding: 2rem 0; }
   .quick-links span {
     color: #2c2e3d;
@@ -6221,8 +6194,7 @@ Blog Pagination
             color: #fff; }
   .shop-toolbar__product-count {
     font-size: 1.4rem;
-    color: #2c2e3d;
-    text-transform: capitalize; }
+    color: #2c2e3d;}
   .shop-toolbar__shorter {
     display: -webkit-box;
     display: -webkit-flex;
@@ -6238,8 +6210,7 @@ Blog Pagination
       font-size: 1.4rem;
       margin-right: 2rem;
       margin-bottom: 0;
-      color: #2c2e3d;
-      text-transform: capitalize; }
+      color: #2c2e3d;}
 
 .main-shop-wrapper {
   border: 1px solid #ededed;
@@ -6275,7 +6246,6 @@ Blog Pagination
 
 .single-product__name {
   color: #2c2e3d;
-  text-transform: capitalize;
   font-size: 2.4rem;
   line-height: 1;
   font-weight: 600;
@@ -6424,7 +6394,6 @@ Blog Pagination
       padding: 0; }
       .group-product-table tbody tr td.product-name a {
         color: #2c2e3d;
-        text-transform: capitalize;
         font-size: 1.8rem;
         line-height: 1.4; }
     .group-product-table tbody tr td.product-price {

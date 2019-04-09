@@ -32,7 +32,8 @@ class CategoryAdmin extends AbstractAdmin{
     {
         $form
             ->add('name')
-            ->add('parent');
+            ->add('parent')
+            ->add('attributes');
     }
 
 

@@ -61,7 +61,7 @@ class Categories
     private $products;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Atributes", inversedBy="categories")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Attribute", inversedBy="categories")
      */
     private $attributes;
 
@@ -208,14 +208,14 @@ class Categories
     }
 
     /**
-     * @return Collection|Atributes[]
+     * @return Collection|Attribute[]
      */
     public function getAttributes(): Collection
     {
         return $this->attributes;
     }
 
-    public function addAttribute(Atributes $attribute): self
+    public function addAttribute(Attribute $attribute): self
     {
         if (!$this->attributes->contains($attribute)) {
             $this->attributes[] = $attribute;
@@ -224,7 +224,7 @@ class Categories
         return $this;
     }
 
-    public function removeAttribute(Atributes $attribute): self
+    public function removeAttribute(Attribute $attribute): self
     {
         if ($this->attributes->contains($attribute)) {
             $this->attributes->removeElement($attribute);

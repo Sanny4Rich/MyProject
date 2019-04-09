@@ -1,12 +1,132 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ category.name }}{% endblock %}
+{% block title %}{{ categories.name }}{% endblock %}
 
 {% block body %}
-    <h1>{{ category }}</h1>
-
-    <div class="row">
-        {{ include('product/_productList.html.twig', {'products': category.products }) }}
+    <div class="breadcumb-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="breadcumb">
+                        <li class="breadcumb__list"><a class="breadcumb__link" href="{{ path('home_page') }}">Home</a>
+                        </li>
+                        <li class="breadcumb__list"><a class="breadcumb__link current"
+                                                       href="{{ path('shop') }}">Shop</a></li>
+                        <li class="breadcumb__list"><a class="breadcumb__link current"
+                                                       href="{{ path('category_item', {'id': categories.id}) }}">{{ categories.name }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
+
+
+    <div class="main-content-wrapper">
+        <div class="shop-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 order-lg-1 order-2">
+                        <!-- Sidebar Start -->
+                        <aside class="sidebar shop-sidebar">
+                            <div class="search-filter">
+                                <div class="search-filter__single section-title section-title--3 mb--30">
+                                    <h2>Filter By</h2>
+                                </div>
+                                {{ form_start(filterForm) }}
+                                {% for attribute in categories.attributes %}
+                                    <div class="form custom">
+                                        <h5>{{ attribute.name }}</h5>
+                                        {% if attribute.isInt  %}
+                                        <div class="md-form">
+                                            <div class="form-group col-6">
+                                                {{ form_label(filterForm['attr_min_' ~ attribute.id], 'от') }}
+                                                <br>
+                                                {{ form_widget(filterForm['attr_min_' ~ attribute.id]) }}
+                                            </div>
+                                            <div class="form-group col-6">
+                                                {{ form_label(filterForm['attr_max_' ~ attribute.id], 'до') }}
+                                                {{ form_widget(filterForm['attr_max_' ~ attribute.id]) }}
+                                            </div>
+                                        </div>
+                                        {% elseif attribute.isList %}
+                                        <ul class="search-filter__list">
+                                            <li class="custom-control custom-checkbox mr-sm-2">
+                                                {{ form_widget(filterForm['attr_' ~ attribute.id]) }}
+                                            </li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                {% endfor %}
+
+                                <button type="submit" class="btn btn-primary">Применить</button>
+
+                                {{ form_end(filterForm) }}
+                            </div>
+                        </aside>
+                        <!-- Product Box Small End -->
+                    </div>
+
+
+    <div class="col-lg-9 order-lg-2 order-1 mb-md--30">
+        <div class="shop-toolbar d-flex flex-md-row flex-column justify-content-between align-items-md-center">
+            <div class="shop-toolbar__grid-list">
+                <span class="shop-toolbar__product-count">Товаров на странице:  {{ products|length }}</span>
+            </div>
+            <div class="shop-toolbar__shorter">
+                <label>Short By:</label>
+                <select class="short-select">
+                    <option value="1">Relevance</option>
+                    <option value="2">Name, A to Z</option>
+                    <option value="3">Name, Z to A</option>
+                    <option value="4">Price, low to high</option>
+                    <option value="5">Price, high to low</option>
+                </select>
+            </div>
+        </div>
+        <!-- Shop Layout Start -->
+        <div class="main-shop-wrapper">
+            <div class="tab-content" id="myTabContent-2">
+                <div class="tab-pane show active" id="grid">
+                    <div class="product-grid-view">
+                        <div class="row no-gutters">
+
+
+                            <!-- Best Seller Product Area End -->
+
+
+                            {{ include('product/_productList.html.twig', {'products': products}) }}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-pagintaion d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+            {% set thispage = app.request.get('page') %}
+            {% set leftBorderPage = thispage-1 %}
+            {% set rightBorderPage = thispage+1 %}
+            {% set currentPath = path(app.request.attributes.get('_route'),
+                app.request.attributes.get('_route_params')) %}
+            {% set numPages = products.getTotalItemCount %}
+            <p class="showing-product">Всего {{ products.getTotalItemCount }} товаров</p>
+            <ul class="page-list">
+                {% if leftBorderPage >= 1 %}
+                    <li class="prev"><a href="{{ currentPath~'?page='~leftBorderPage }}"><i class="fa fa-angle-left"></i>Предыдущая</a></li>
+                    <li><a href="{{ currentPath~'?page='~leftBorderPage }}">{{ leftBorderPage }}</a></li>
+                {% endif %}
+                <li class="current">{{ app.request.get('page') }}<a href="{{ currentPath~'?page='~thispage }}"></a></li>
+                <li><a href="{{ currentPath~'?page='~rightBorderPage }}">{{ rightBorderPage }}</a></li>
+                <li class="next"><a href="{{ currentPath~'?page='~rightBorderPage }}">Следующая<i class="fa fa-angle-right"></i> </a></li>
+            </ul>
+        </div>
+        <!-- Shop Layout End -->
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 {% endblock %}
+
