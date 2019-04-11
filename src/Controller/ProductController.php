@@ -15,11 +15,14 @@ class ProductController extends AbstractController
     public function item($id, ProductRepository $productRepository)
     {
         $product = $productRepository->find($id);
+        $relatedProductsCat = $product->getCategories();
+        $relatedProducts = $productRepository->findBy(['categories'=>$relatedProductsCat, 'isTop'=> true ] );
         if (!$product) {
             throw $this->$this->createNotFoundException('Товар #' . $id . ' не найден');
         }
         return $this->render('product/item.html.twig', [
             'product'=>$product,
+            'relatedProducts' => $relatedProducts
             ]);
     }
 }

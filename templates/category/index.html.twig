@@ -7,15 +7,18 @@
 
     <div class="row">
         {% for category in categories %}
+            {% if category.level == 1 %}
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ category.name }}</h5>
+
                         <a href="{{ path('category_item', {'id': category.id}) }}" class="btn btn-primary ">Подробнее</a>
                         </a>
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}

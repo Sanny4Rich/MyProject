@@ -33,7 +33,7 @@
                     {% for category in categories %}
                         {% if category.level == 0 and category.left != (category.right-1)%}
                         <li class="category-nav__menu__item has-children">
-                            <a class="category-nav__menu" href="{{ path('category', {'id': category.id}) }}">{{ category.name }}</a>
+                            <a class="category-nav__menu" href="">{{ category.name }}</a>
                             <div class="category-nav__submenu">
                             {% for subMenu in categories %}
                                 {% if subMenu.left > category.left and subMenu.right < category.right and subMenu.level == 1 %}

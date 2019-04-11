@@ -5,9 +5,9 @@
             <h5>{{ product.realPrice|localizedcurrency('UAH') }}</h5>
         </div>
         <div class="d-flex w-100 justify-content-lg-between">
-            {% if (vich_uploader_asset( product.images[0], 'imageFile')) %}
+            {% if product.images is not empty %}
             <img src="{{ vich_uploader_asset( product.images[0], 'imageFile')|imagine_filter('search_thumbnail') }}" alt="{{ product.name }}">
-            {% endif %}
+            {% endif %}    
             </div>
         <p class="mb-1">{{ product.description|truncate(50) }}</p>
     </a>

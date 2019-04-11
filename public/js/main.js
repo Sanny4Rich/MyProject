@@ -250,11 +250,6 @@
     	}
 	});
 
-	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-		var currentID = e.target.getAttribute('href');
-		$(currentID).find('.owl-item').trigger('refresh.owl.carousel');
-		$(currentID).find('.owl-item').resize();
-	});
 
 
 	/**********************

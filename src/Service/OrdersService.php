@@ -64,7 +64,6 @@ class OrdersService
     {
         $order = null;
         $orderId = $this->request->cookies->get('orderId');
-
         if ($orderId){
             $order = $this->ordersRepository->find($orderId);
         }

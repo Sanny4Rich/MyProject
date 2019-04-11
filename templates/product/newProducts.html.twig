@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shop{% endblock %}
+
+{% block body %}
+
+    <!-- Page Header Start -->
+    <section class="page-header">
+        <h2 class="page-title color--white">Новинки</h2>
+    </section>
+    <!-- Page Header End -->
+
+    <!-- Breadcumb area Start -->
+    <div class="breadcumb-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="breadcumb">
+                        <li class="breadcumb__list"><a class="breadcumb__link" href="{{ path('home_page') }}">Главная</a></li>
+                        <li class="breadcumb__list"><a class="breadcumb__link current" href="{{ path('shop') }}">Новинки</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcumb area End -->
+
+    <!-- Main content wrapper Start -->
+    <div class="main-content-wrapper">
+        <div class="shop-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 order-lg-1 order-2">
+                        <!-- Sidebar Start -->
+                        <aside class="sidebar shop-sidebar">
+
+
+                            <!-- Best Seller Product Area Start -->
+                            <div class="best-seller-product">
+                                <div class="section-title section-title--3">
+                                    <h2>Популярные</h2>
+                                </div>
+                                <div class="best-seller-product__carousel--4 owl-carousel js-best-seller-carousel-2">
+                                    <div class="best-seller-product__group--2">
+
+                                        <!-- Product Box Small Start -->
+                                        {% for product in products %}
+                                            {% if product.isTop == 1 %}
+                                                <div class="product-box product-box--small variable-product">
+                                                    <div class="product-box__left">
+                                                        <div class="product-box__image">
+                                                            {% set break = false %}
+                                                            {% for image in product.images if not break%}
+                                                                {% if loop.index == 1 %}
+                                                                    <img src="{{ vich_uploader_asset(image, 'imageFile') }}" alt="" class="primary_image">
+                                                                {% endif %}
+                                                                {% if loop.index == 2 %}
+                                                                    <img src="{{ vich_uploader_asset(image, 'imageFile') }}" alt="" class="secondary_image">
+                                                                    {% set break = true %}
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-box__right">
+                                                        <div class="product-box__desc">
+                                                            <a href="{{ path('products_item', {'id': product.id }) }}" class="product-box__title">{{ product.name }}</a>
+                                                            <p class="product-box__price">
+                                                                {% if product.salePrice %}
+                                                                    <span class="sale-price">{{ product.realSalePrice }}</span>
+                                                                    <span class="regular-price">{{ product.realPrice }}</span>
+                                                                {% endif %}
+                                                                {% if product.salePrice == null %}
+                                                                    <span class="sale-price">{{ product.realPrice }}</span>
+                                                                {% endif %}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <!-- Product Box Small End -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Best Seller Product Area End -->
+                        </aside>
+                        <!-- Sidebar End -->
+                    </div>
+                    <div class="col-lg-9 order-lg-2 order-1 mb-md--30">
+                        <div class="shop-toolbar d-flex flex-md-row flex-column justify-content-between align-items-md-center">
+                            <div class="shop-toolbar__grid-list">
+                                <span class="shop-toolbar__product-count">Товаров на странице {{ products|length }}</span>
+                            </div>
+                        </div>
+                        <!-- Shop Layout Start -->
+                        <div class="main-shop-wrapper">
+                            <div class="tab-content" id="myTabContent-2">
+                                <div class="tab-pane show active" id="grid">
+                                    <div class="product-grid-view">
+                                        <div class="row no-gutters">
+
+                                            {{ include('product/_productList.html.twig', {'products': products}) }}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Shop Layout End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main content wrapper End -->
+
+{% endblock %}

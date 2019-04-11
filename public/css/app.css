@@ -206,6 +206,7 @@
     width: 100%;
     margin: 0 auto;
     background: white;
+    z-index: 99999;
 }
 
 .form-check{
@@ -220,3 +221,4 @@
     margin: 20px 100px;
     position: relative;
 }
+

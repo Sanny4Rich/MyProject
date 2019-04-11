@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-8">
+                <div class="col-lg-6 col-md-6">
                     <div class="form-box">
                         <div class="section-title">
                             <h2>Свяжитесь с нами</h2>
@@ -64,25 +64,28 @@
                                 </div>
                             {% endfor %}
 
-                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline form-horizontal'}}) }}
                                     <div class="form__group row">
-                                        <div class="col-lg-7 col-12">
-                                            {{ form_row(form.name, {'label': 'Имя', 'attr': {'class': 'form-control input-lg'}}) }}
+                                        <div class="col-lg-8 col-12 ">
+                                            {{ form_row(form.name, {'label': 'Имя', 'label_attr':{'class': 'control-label col-sm-3'}, 'attr':{'class': 'col-9'} }) }}
                                         </div>
-                                        <div class="col-lg-7 col-12">
-                                    {{ form_row(form.Email, {'label': 'Email'}) }}
+                                        <br><br><br>
+                                        <div class="col-lg-8 col-12">
+                                    {{ form_row(form.Email, {'label': 'Email', 'label_attr':{'class': 'control-label col-sm-3'}, 'attr':{'class': 'col-9'}}) }}
                                         </div>
-                                            <div class="col-lg-7 col-12">
-                                    {{ form_row(form.subject, {'label': 'Товар'}) }}
+                                        <br><br><br>
+                                            <div class="col-lg-8 col-12">
+                                    {{ form_row(form.subject, {'label': 'Товар', 'label_attr':{'class': 'control-label col-sm-3'}, 'attr':{'class': 'col-9'}}) }}
                                             </div>
-                                                <div class="col-lg-7 col-12">
-                                    {{ form_row(form.massage, {'label': 'Сообщение'}) }}
+                                        <br><br><br>
+                                                <div class="col-lg-8 col-12">
+                                    {{ form_row(form.massage, {'label': 'Сообщение', 'label_attr':{'class': 'control-label col-sm-3'}, 'attr':{'class': 'col-9'}})}}
                                 </div>
                             </div>
                             {{ form_widget(form) }}
                             <div class="form-group row">
-                            <div class="col-sm-10 offset-sm-2">
-                                <button type="submit" class="btn add-to-cart btn-style-2">Отправить</button>
+                            <div class="col-12 offset-sm-11">
+                                <button type="submit" class="btn add-to-cart btn-style-7">Отправить</button>
                             </div>
 
                             {{ form_end(form) }}

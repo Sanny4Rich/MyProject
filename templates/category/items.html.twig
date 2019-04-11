@@ -8,10 +8,10 @@
             <div class="row">
                 <div class="col-12">
                     <ul class="breadcumb">
-                        <li class="breadcumb__list"><a class="breadcumb__link" href="{{ path('home_page') }}">Home</a>
+                        <li class="breadcumb__list"><a class="breadcumb__link" href="{{ path('home_page') }}">Главная</a>
                         </li>
                         <li class="breadcumb__list"><a class="breadcumb__link current"
-                                                       href="{{ path('shop') }}">Shop</a></li>
+                                                       href="{{ path('shop') }}">Магазин</a></li>
                         <li class="breadcumb__list"><a class="breadcumb__link current"
                                                        href="{{ path('category_item', {'id': categories.id}) }}">{{ categories.name }}</a>
                         </li>
@@ -32,7 +32,7 @@
                         <aside class="sidebar shop-sidebar">
                             <div class="search-filter">
                                 <div class="search-filter__single section-title section-title--3 mb--30">
-                                    <h2>Filter By</h2>
+                                    <h2>Фильтр</h2>
                                 </div>
                                 {{ form_start(filterForm) }}
                                 {% for attribute in categories.attributes %}
@@ -74,16 +74,6 @@
             <div class="shop-toolbar__grid-list">
                 <span class="shop-toolbar__product-count">Товаров на странице:  {{ products|length }}</span>
             </div>
-            <div class="shop-toolbar__shorter">
-                <label>Short By:</label>
-                <select class="short-select">
-                    <option value="1">Relevance</option>
-                    <option value="2">Name, A to Z</option>
-                    <option value="3">Name, Z to A</option>
-                    <option value="4">Price, low to high</option>
-                    <option value="5">Price, high to low</option>
-                </select>
-            </div>
         </div>
         <!-- Shop Layout Start -->
         <div class="main-shop-wrapper">
@@ -111,6 +101,10 @@
             {% set currentPath = path(app.request.attributes.get('_route'),
                 app.request.attributes.get('_route_params')) %}
             {% set numPages = products.getTotalItemCount %}
+            {% set lastPage = products.getTotalItemCount/12 %}
+            {% if lastPage|round != lastPage %}
+            {% set lastPage = lastPage+1 %}
+            {% endif %}
             <p class="showing-product">Всего {{ products.getTotalItemCount }} товаров</p>
             <ul class="page-list">
                 {% if leftBorderPage >= 1 %}
@@ -118,8 +112,13 @@
                     <li><a href="{{ currentPath~'?page='~leftBorderPage }}">{{ leftBorderPage }}</a></li>
                 {% endif %}
                 <li class="current">{{ app.request.get('page') }}<a href="{{ currentPath~'?page='~thispage }}"></a></li>
-                <li><a href="{{ currentPath~'?page='~rightBorderPage }}">{{ rightBorderPage }}</a></li>
-                <li class="next"><a href="{{ currentPath~'?page='~rightBorderPage }}">Следующая<i class="fa fa-angle-right"></i> </a></li>
+                {% if thispage != lastPage %}
+                    <li><a href="{{ currentPath~'?page='~rightBorderPage }}">{{ rightBorderPage }}</a></li>
+                    {% if thispage+2 < lastPage %}
+                        <li> . . . <a href="{{ currentPath~'?page='~lastPage|round }}">{{ lastPage|round }}</a></li>
+                    {% endif %}
+                    <li class="next"><a href="{{ currentPath~'?page='~rightBorderPage }}">Следующая<i class="fa fa-angle-right"></i> </a></li>
+                {% endif %}
             </ul>
         </div>
         <!-- Shop Layout End -->
