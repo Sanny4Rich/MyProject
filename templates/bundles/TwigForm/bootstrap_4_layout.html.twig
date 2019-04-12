@@ -156,14 +156,14 @@
 
 {% block checkbox_widget -%}
     {%- set parent_label_class = parent_label_class|default(label_attr.class|default('')) -%}
-    {%- if 'checkbox-custom' in parent_label_class -%}
-        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' custom-control-input')|trim}) -%}
+    {%- if 'custom-checkbox' in parent_label_class -%}
+        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' custom-checkbox__input')|trim}) -%}
         <div class="custom-checkbox__input{{ 'checkbox-inline' in parent_label_class ? ' custom-control-inline' }}">
             {{- form_label(form, null, { widget: parent() }) -}}
         </div>
     {%- else -%}
-        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-check-input')|trim}) -%}
-        <div class="form-check{{ 'checkbox-inline' in parent_label_class ? ' form-check-inline' }}">
+        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' custom-checkbox__input')|trim}) -%}
+        <div class="custom-checkbox{{ 'checkbox-inline' in parent_label_class ? ' form-check-inline' }}">
             {{- form_label(form, null, { widget: parent() }) -}}
         </div>
     {%- endif -%}

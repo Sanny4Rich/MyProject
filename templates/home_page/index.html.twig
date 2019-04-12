@@ -72,9 +72,9 @@
                                     <div class="row">
                                         <div class="col-xl-8 col-md-11">
                                             <div class="slider-content slider-content--2">
-                                                <h1 class="heading-primary heading-primary--2" data-animation="fadeInUp" data-delay=".2s" data-duration="1s">BAG FULL OF GROCERY PRODUCTS</h1>
-                                                <p class="slider-content__text" data-animation="fadeInLeft" data-delay=".4s" data-duration="1.2s">FROZEN &amp; CHILLED FOOD PRODUCTS FRESH FRUIT &amp; VEGETABLES</p>
-                                                <a href="" class="btn slider-btn btn-style-6" data-animation="fadeInDown" data-delay=".5s" data-duration="1.4s">Магазин</a>
+                                                <h1 class="heading-primary heading-primary--2" data-animation="fadeInUp" data-delay=".2s" data-duration="1s">Заголовок #1</h1>
+                                                <p class="slider-content__text" data-animation="fadeInLeft" data-delay=".4s" data-duration="1.2s">Контент #1</p>
+                                                <a href="{{ path('shop') }}" class="btn slider-btn btn-style-6" data-animation="fadeInDown" data-delay=".5s" data-duration="1.4s">Магазин</a>
                                             </div>
                                         </div>
                                     </div>
@@ -89,9 +89,9 @@
                                     <div class="row">
                                         <div class="col-xl-8 col-md-11">
                                             <div class="slider-content slider-content--2">
-                                                <h1 class="heading-primary heading-primary--2" data-animation="fadeInUp" data-delay=".2s" data-duration="1s">BAG FULL OF GROCERY PRODUCTS</h1>
-                                                <p class="slider-content__text" data-animation="fadeInLeft" data-delay=".4s" data-duration="1.2s">FROZEN &amp; CHILLED FOOD PRODUCTS FRESH FRUIT &amp; VEGETABLES</p>
-                                                <a href="" class="btn slider-btn btn-style-6" data-animation="fadeInDown" data-delay=".5s" data-duration="1.4s">Магазин</a>
+                                                <h1 class="heading-primary heading-primary--2" data-animation="fadeInUp" data-delay=".2s" data-duration="1s">Заголовок #2</h1>
+                                                <p class="slider-content__text" data-animation="fadeInLeft" data-delay=".4s" data-duration="1.2s">Контент #2</p>
+                                                <a href="{{ path('shop') }}" class="btn slider-btn btn-style-6" data-animation="fadeInDown" data-delay=".5s" data-duration="1.4s">Магазин</a>
                                             </div>
                                         </div>
                                     </div>
@@ -110,29 +110,7 @@
 
     <!-- Banner area End -->
 
-    <!-- Banner area End -->
-    <!-- Banner Box area Start -->
-    <div class="banner-box-area section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-sm--30">
-                    <div class="banner-box">
-                        <a href="{{ path('home_page') }}">
-                            <img src="{{ asset('img/1_3.jpg') }}" alt="promo">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="banner-box">
-                        <a href="{{ path('home_page') }}">
-                            <img src="{{ asset('img/2_3.jpg') }}" alt="promo">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Banner Box area End -->
+
 
     <!-- Tanding Product area Start  -->
 
@@ -173,8 +151,8 @@
                                 <div class="product-box__desc">
                                     <a href="single-product.html" class="product-box__title">{{ product.name }}</a>
                                     <p class="product-box__price">
-                                        <span class="sale-price">{{ product.realSalePrice }}</span>
-                                        <span class="regular-price">{{ product.realPrice }}</span>
+                                        <span class="sale-price">{{ product.realSalePrice|localizedcurrency('UAH') }}</span>
+                                        <span class="regular-price">{{ product.realPrice|localizedcurrency('UAH') }}</span>
                                     </p>
                                 </div>
                                 <div class="product-box__links">

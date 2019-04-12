@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ categories.name }}{% endblock %}
+{% form_theme filterForm 'bundles/TwigForm/bootstrap_4_layout.html.twig' %}
 
 {% block body %}
     <div class="breadcumb-area section-padding">
@@ -53,7 +54,7 @@
                                         {% elseif attribute.isList %}
                                         <ul class="search-filter__list">
                                             <li class="custom-control custom-checkbox mr-sm-2">
-                                                {{ form_widget(filterForm['attr_' ~ attribute.id]) }}
+                                                {{ form_widget(filterForm['attr_' ~ attribute.id] ) }}
                                             </li>
                                             {% endif %}
                                         </ul>

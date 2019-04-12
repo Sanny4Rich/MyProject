@@ -20,6 +20,8 @@
                                         <a href="{{ vich_uploader_asset(product.images[0], 'imageFile') }}" class="single-product__img--popup popup-link">
                                             <i class="fa fa-search-plus"></i>
                                         </a>
+                                            {% else %}
+                                                <img src="{{ asset('img/No_image_available.jpg')|imagine_filter('squared_thumbnail') }}" alt="product image" class="primary_image">
                                         {% endif %}
                                     </div>
                                 </div>
@@ -162,7 +164,9 @@
                                 <div class="product-box variable-product">
                                     <div class="product-box__meta">
                                         <a href="{{ path('products_item', {'id': product.id}) }}" class="product-box__category">обзор</a>
+                                        {% if product.realSalePrice is null %}
                                         <span class="product-box__sticker product-box__sticker--discount">{{ (100 - (product.realPrice/product.realSalePrice)*100)|round }}%</span>
+                                        {% endif %}
                                     </div>
                                     <div class="product-box__image">
                                         {% if products.images is not empty %}

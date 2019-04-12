@@ -1,0 +1,61 @@
+{% block body %}
+<section class="page-header">
+    <h2 class="page-title color--white">Заказы</h2>
+</section>
+<div class="breadcumb-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="breadcumb">
+                    <li class="breadcumb__list"><a class="breadcumb__link" href="index.html">Главная</a></li>
+                    <li class="breadcumb__list"><a class="breadcumb__link current" href="about-us.html">Заказы</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <!-- Cart Area Start -->
+        <form action="#" class="form form--cart">
+            <div class="cart-table table-content table-responsive">
+                <table class="table mb--30">
+                    <thead>
+                    <tr>
+                        <th>Номер заказа</th>
+                        <th>Дата заказа</th>
+                        <th>Сумма заказа</th>
+                        <th>Товаров в заказе</th>
+                        <th>Статус</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in user.orders %}
+                    <tr>
+                        <td>{{ order.id }}</td>
+                        <td>{{ order.createdAt|date|localizeddate }}</td>
+                        <td class="cart-product-price"><h3>{{ order.orderPrice|money }}</h3></td>
+                        <td><strong>{{ order.items|length }}</strong></td>
+                        {% if order.status == 1 %}
+                        <td>Новый заказ</td>
+                        {% elseif order.status == 2 %}
+                        <td>Заказ в обработке</td>
+                        {% elseif order.status == 3 %}
+                        <td>Заказ отправлен</td>
+                        {% elseif order.status == 4 %}
+                        <td>Заказ получе</td>
+                        {% endif %}
+            </tr>
+            {% endfor %}
+
+            </tbody>
+            </table>
+    </div>
+    </form>
+    <!-- Cart Area End -->
+</div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,241 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}О нас{% endblock %}
+
+{% block body %}
+    <section class="page-header">
+        <h2 class="page-title color--white">О нас</h2>
+    </section>
+    <div class="breadcumb-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="breadcumb">
+                        <li class="breadcumb__list"><a class="breadcumb__link" href="index.html">Главная</a></li>
+                        <li class="breadcumb__list"><a class="breadcumb__link current" href="about-us.html">О нас</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content-wrapper">
+        <!-- About Us wrapper Start -->
+        <section class="about-area pb--80 pt--40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h2>About Us</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about">
+                            <h3>Our Company</h3>
+                            <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididun. Lorem ipsum dolor sit <strong>amet conse ctetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet conse ctetur adipisicing elit.</p>
+                            <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididun. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet conse ctetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="about-list">
+                            <li class="about-list__item">Top quality products</li>
+                            <li class="about-list__item">Best customer service</li>
+                            <li class="about-list__item">30-days money back guarantee</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Us wrapper End -->
+        <!-- Team area Start -->
+        <section class="team-area ptb--80 bg--gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title section-title--2">
+                            <h2>Наша команда</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 mb-sm--30">
+                        <div class="team-member">
+                            <div class="team-member__thumb">
+                                <img src="{{ asset('img/team-4.jpg')}}" alt="team">
+                                <div class="team-member__social">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                            <h3 class="team-member__name">Анна Петрова</h3>
+                            <p class="team-member__designation">Web Designer</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-sm--30">
+                        <div class="team-member">
+                            <div class="team-member__thumb">
+                                <img src="{{ asset('img/team-1.jpg') }}" alt="team">
+                                <div class="team-member__social">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                            <h3 class="team-member__name">Елена Головач</h3>
+                            <p class="team-member__designation">Web Designer</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-xsm--30">
+                        <div class="team-member">
+                            <div class="team-member__thumb">
+                                <img src="{{ asset('img/team-3.jpg') }}" alt="team">
+                                <div class="team-member__social">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                            <h3 class="team-member__name">Marcos Polo</h3>
+                            <p class="team-member__designation">Web Designer</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="team-member">
+                            <div class="team-member__thumb">
+                                <img src="{{ asset('img/team-2.jpg') }}" alt="team">
+                                <div class="team-member__social">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-instagram"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                            <h3 class="team-member__name">Иван Иваныч</h3>
+                            <p class="team-member__designation">Web Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Team area End -->
+
+        <!-- Testimonial area Start -->
+        <section class="testimonial-area pt--80 pb--40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h2>Отзывы</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-xl-8">
+                        <div class="testimonial-carousel owl-carousel owl-loaded owl-drag">
+
+
+
+                            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1540px, 0px, 0px); transition: all 0s ease 0s; width: 5390px;"><div class="owl-item cloned" style="width: 770px;"><div class="testimonial">
+                                            <div class="testimonial__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, quis corporis? Amet facilis, saepe repudiandae ea! Esse facere enim deleniti.</p>
+                                            </div>
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author-img">
+                                                    <img src="{{ asset('img/testimonial1.png') }}" alt="author">
+                                                </div>
+                                                <div class="testimonial__author-content">
+                                                    <h5>Jane Doe</h5>
+                                                    <p>demo@hastech.com</p>
+                                                </div>
+                                            </div>
+                                        </div></div><div class="owl-item cloned" style="width: 770px;"><div class="testimonial">
+                                            <div class="testimonial__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, quis corporis? Amet facilis, saepe repudiandae ea! Esse facere enim deleniti.</p>
+                                            </div>
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author-img">
+                                                    <img src="{{ asset('img/testimonial1.png') }}" alt="author">
+                                                </div>
+                                                <div class="testimonial__author-content">
+                                                    <h5>Jane Doe</h5>
+                                                    <p>demo@hastech.com</p>
+                                                </div>
+                                            </div>
+                                        </div></div><div class="owl-item active" style="width: 770px;"><div class="testimonial">
+                                            <div class="testimonial__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, quis corporis? Amet facilis, saepe repudiandae ea! Esse facere enim deleniti.</p>
+                                            </div>
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author-img">
+                                                    <img src="{{ asset('img/testimonial1.png') }}" alt="author">
+                                                </div>
+                                                <div class="{{ asset('img/testimonial1.png') }}">
+                                                    <h5>Jane Doe</h5>
+                                                    <p>demo@hastech.com</p>
+                                                </div>
+                                            </div>
+                                        </div></div><div class="owl-item" style="width: 770px;"><div class="testimonial">
+                                            <div class="testimonial__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, quis corporis? Amet facilis, saepe repudiandae ea! Esse facere enim deleniti.</p>
+                                            </div>
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author-img">
+                                                    <img src="{{ asset('img/testimonial1.png') }}" alt="author">
+                                                </div>
+                                                <div class="testimonial__author-content">
+                                                    <h5>Jane Doe</h5>
+                                                    <p>demo@hastech.com</p>
+                                                </div>
+                                            </div>
+                                        </div></div><div class="owl-item" style="width: 770px;"><div class="testimonial">
+                                            <div class="testimonial__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, quis corporis? Amet facilis, saepe repudiandae ea! Esse facere enim deleniti.</p>
+                                            </div>
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author-img">
+                                                    <img src="{{ asset('img/testimonial1.png') }}" alt="author">
+                                                </div>
+                                                <div class="testimonial__author-content">
+                                                    <h5>Jane Doe</h5>
+                                                    <p>demo@hastech.com</p>
+                                                </div>
+                                            </div>
+                                        </div></div><div class="owl-item cloned" style="width: 770px;"><div class="testimonial">
+                                            <div class="testimonial__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, quis corporis? Amet facilis, saepe repudiandae ea! Esse facere enim deleniti.</p>
+                                            </div>
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author-img">
+                                                    <img src="{{ asset('img/testimonial1.png') }}" alt="author">
+                                                </div>
+                                                <div class="testimonial__author-content">
+                                                    <h5>Jane Doe</h5>
+                                                    <p>demo@hastech.com</p>
+                                                </div>
+                                            </div>
+                                        </div></div><div class="owl-item cloned" style="width: 770px;"><div class="testimonial">
+                                            <div class="testimonial__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, quis corporis? Amet facilis, saepe repudiandae ea! Esse facere enim deleniti.</p>
+                                            </div>
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author-img">
+                                                    <img src="{{ asset('img/testimonial1.png') }}" alt="author">
+                                                </div>
+                                                <div class="testimonial__author-content">
+                                                    <h5>Jane Doe</h5>
+                                                    <p>demo@hastech.com</p>
+                                                </div>
+                                            </div>
+                                        </div></div></div></div><div class="owl-nav disabled"><div class="owl-prev"><i class="fa fa-angle-left"></i></div><div class="owl-next"><i class="fa fa-angle-right"></i></div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonial area End -->
+    </div>
+{% endblock %}

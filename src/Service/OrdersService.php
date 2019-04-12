@@ -110,6 +110,7 @@ class OrdersService
     {
         $order = $this->getOrderFromRequest();
         if($user) {
+            $order->setUser($user);
             $order->setName($user->getName());
             $order->setEmail($user->getEmail());
             $order->setPhoneNumber($user->getPhoneNumber());

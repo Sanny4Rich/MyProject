@@ -16,7 +16,9 @@
                                             <img src="{{ vich_uploader_asset( product.images[1], 'imageFile')|imagine_filter('squared_thumbnail') }}" alt="product image" class="secondary_image">
                                         {% else %}
                                             <img src="{{ asset('img/No_image_available.jpg')|imagine_filter('squared_thumbnail') }}">
-                                        {% endif %}                                                    </div>
+                                        {% endif %}
+                                        <a href="" data-toggle="modal" data-target="#productModal{{ product.id }}" class="quick-view"> <i class="fa fa-eye"></i> </a>
+                                    </div>
                                     <div class="product-box__footer">
                                         <div class="product-box__desc">
                                             <a href="{{ path('products_item', {'id': product.id}) }}" class="product-box__title">{{ product.name }}</a>
@@ -38,4 +40,6 @@
 
                                 <!-- Product Box End -->
                             </div>
+
+                            {{ include('product/productModal.html.twig', {'product':product}) }}
                         {% endfor %}

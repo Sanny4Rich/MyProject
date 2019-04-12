@@ -11,6 +11,7 @@
 	***********************/ 
 
 	$('#js-cat-nav').slicknav({
+		label: '',
 		duration: 1000,
 		label: 'Category',
 		showChildren: 'false',
@@ -250,6 +251,11 @@
     	}
 	});
 
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		var currentID = e.target.getAttribute('href');
+		$(currentID).find('.owl-item').trigger('refresh.owl.carousel');
+		$(currentID).find('.owl-item').resize();
+	});
 
 
 	/**********************
@@ -517,6 +523,37 @@
     	}
 	});
 
+	/**********************
+	*Client Carousel Activation
+	***********************/
+
+	$('.client-carousel').owlCarousel({
+		items: 5,
+	    loop: true,
+	    nav: true,
+	    dots: false,
+	    autoplay: false,
+	    autoplayTimeout: 5000,
+	    navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
+	    responsive:{
+	        0:{
+	            items:1,
+	        },
+	        450:{
+	            items:2,
+	        },
+	        600:{
+	            items:3,
+	        },
+	        992:{
+	            items:4,
+	        },
+	        1200:{
+	            items:5,
+	        }
+    	}
+	});
+
 
 
 
@@ -542,18 +579,18 @@
 	$('.modal').on('shown.bs.modal', function (e) {
 	    $('.thumb-menu-item').resize();
 	})
-
+	    
 	$('.thumb-menu-item a').on('click',function(e){
 	      e.preventDefault();
-
+	     
 	      var $href = $(this).attr('href');
-
+	     
 	      $('.thumb-menu-item a').removeClass('active');
 	      $(this).addClass('active');
-
+	     
 	      $('.product-thumb-large .tab-pane').removeClass('active show');
 	      $('.product-thumb-large '+ $href ).addClass('active show');
-
+	     
 	});
 
 	/**********************
@@ -577,7 +614,7 @@
 	            }
 	        }
 	        $button.parent().find("input").val(newVal);
-	    });
+	    });		
 	}
 
 
@@ -608,6 +645,17 @@
 		}); 
 
     }
+
+	/**********************
+	* Countdown Activation
+	***********************/
+	
+	$('[data-countdown]').each(function() {
+		var $this = $(this), finalDate = $(this).data('countdown');
+		$this.countdown(finalDate, function(event) {
+			$this.html(event.strftime('<div class="single-countdown"><span class="single-countdown__time">%D</span><span class="single-countdown__text">Days</span></div><div class="single-countdown"><span class="single-countdown__time">%H</span><span class="single-countdown__text">Hours</span></div><div class="single-countdown"><span class="single-countdown__time">%M</span><span class="single-countdown__text">Minutes</span></div><div class="single-countdown"><span class="single-countdown__time">%S</span><span class="single-countdown__text">Seconds</span></div>'));
+		});
+	}); 
 
 	/**********************
 	* Nice Select Activation

@@ -43,13 +43,39 @@ class ShopController extends AbstractController
             $products->addSelect('a')
                         ->leftJoin('q.images', 'a');
                 $products->getQuery()->getResult();
-//        $qb = $entityManager->createQueryBuilder();
-//        $em = $qb->select('p')
-//                    ->from('Products', 'p')
-//                    ->where('p.updatedAt BETWEEN >= '.$currentDate.' AND '.$currentDate->setTime($currentDate - ''))
         $pagination = $paginator->paginate($products, $request->get('page', 1), 12);
          return $this->render('product/newProducts.html.twig', [
              'products' => $pagination,
               ]);
     }
+
+    /**
+     * @Route("/priceDrop", name="priceDrop")
+     */
+    public function priceDporProducts(ProductRepository $productRepository, Request $request, PaginatorInterface $paginator){
+        $products = $productRepository->createQueryBuilder('q')
+            ->where('q.salePrice IS NOT NULL');
+        $products->addSelect('a')
+            ->leftJoin('q.images', 'a');
+        $products->getQuery()->getResult();
+        $pagination = $paginator->paginate($products, $request->get('page', 1), 12);
+        return $this->render('product/priceDrop.html.twig', [
+            'products' => $pagination,
+        ]);
+    }
+    /**
+     * @Route("/bestsale", name="bestSale")
+     */
+    public function bestSale(ProductRepository $productRepository, Request $request, PaginatorInterface $paginator){
+        $products = $productRepository->createQueryBuilder('q')
+            ->where('q.isTop = 1');
+        $products->addSelect('a')
+            ->leftJoin('q.images', 'a');
+        $products->getQuery()->getResult();
+        $pagination = $paginator->paginate($products, $request->get('page', 1), 12);
+        return $this->render('product/bestSale.html.twig', [
+            'products' => $pagination,
+        ]);
+    }
+
 }

@@ -30,6 +30,8 @@ class ProductRepository extends ServiceEntityRepository
             ->setParameter('query', '%' . $query. '%')
             ->orderBy('p.name', 'ASC')
             ->setMaxResults(10)
+            ->addSelect('a')
+            ->leftJoin('p.images', 'a')
             ->getQuery()
             ->getResult()
             ;
@@ -81,6 +83,8 @@ class ProductRepository extends ServiceEntityRepository
         $queryBuilder = $this->createQueryBuilder('p');
         return $queryBuilder
             ->where($queryBuilder->expr()->in('p.id', $productIds))
+            ->addSelect('i')
+            ->leftJoin('p.images', 'i')
             ->andWhere('p.categories = :categories')
             ->setParameter('categories', $category)
             ->getQuery()

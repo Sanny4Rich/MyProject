@@ -76,7 +76,6 @@ class CategoryController extends AbstractController
                         'choice_attr' => function($value, $key, $choiceValue){
                             return ['class' => 'custom-control-input'];
                         },
-//                        'choice_label' => true,
                     ]);
                     break;
             }
