@@ -598,11 +598,11 @@
 	***********************/
 
 	function customQantity(){
-	    $(".quantity").append('<div class="dec qtybutton"><i class="fa fa-angle-down"></i></div><div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>');
+		$('body').on("click", '.qtybutton', function () {
 
-	    $(".qtybutton").on("click", function () {
 	        var $button = $(this);
 	        var oldValue = $button.parent().find("input").val();
+
 	        if ($button.hasClass("inc")) {
 	            var newVal = parseFloat(oldValue) + 1;
 	        } else {
@@ -614,8 +614,26 @@
 	            }
 	        }
 	        $button.parent().find("input").val(newVal);
-	    });		
+			console.log(oldValue);
+			$.post($(this).parent().find("input").data('href'), {'count': $(this).parent().find("input").val()}, function (data) {
+				cartItems.html(data);
+				cartInHeader.html(data);
+
+			})
+
+		});
 	}
+
+	$('body').on('input', '.js-item-quantity', function (event) {
+		var target = $(event.currentTarget);
+
+		setTimeout(function () {
+			$.post(target.data('href'), {'count': target.val()}, function (data) {
+				cartItems.html(data);
+				cartInHeader.load(cartInHeader.data('refresh-url'));
+			});
+		}, 500);
+	});
 
 
 	/**********************

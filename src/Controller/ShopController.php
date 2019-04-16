@@ -21,7 +21,6 @@ class ShopController extends AbstractController
      */
     public function index(ProductRepository $productRepository,Request $request,  CategoriesRepository $categoriesRepository, PaginatorInterface $paginator)
     {
-
         $products = $productRepository->createQueryBuilder('q');
         $products->addSelect('a')
             ->leftJoin('q.images', 'a');

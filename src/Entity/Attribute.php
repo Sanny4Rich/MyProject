@@ -45,6 +45,11 @@ class Attribute
      */
     private $choices = [];
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $dimension;
+
     public function __construct()
     {
         $this->type = self::TYPE_INT;
@@ -156,6 +161,18 @@ class Attribute
     public function setChoices(?array $choices): self
     {
         $this->choices = $choices;
+
+        return $this;
+    }
+
+    public function getDimension(): ?string
+    {
+        return $this->dimension;
+    }
+
+    public function setDimension(?string $dimension): self
+    {
+        $this->dimension = $dimension;
 
         return $this;
     }

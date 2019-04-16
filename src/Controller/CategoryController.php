@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Attribute;
 use App\Entity\Categories;
+use App\Entity\Product;
 use App\Repository\CategoriesRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,7 +50,9 @@ class CategoryController extends AbstractController
     private function getFilterForm(Categories $category){
         $formBuilder = $this->createFormBuilder();
         $formBuilder->setMethod('get');
-        foreach ($category->getAttributes() as $attribute){
+        $cat = $category->getAttributes();
+        $prods = $category->getProducts();
+        foreach ($cat as $attribute) {
             switch ($attribute->getType()) {
                 case Attribute::TYPE_INT:
                     $formBuilder->add('attr_min_' . $attribute->getId(), NumberType::class, ['required' => false]);
@@ -58,17 +61,18 @@ class CategoryController extends AbstractController
 
                 case Attribute::TYPE_LIST:
                     $getChoices = [];
-                    foreach ($category->getProducts() as $items){
+                    foreach ($prods as $items) {
                         foreach ($items->getAttributeValues() as $attsVal){
                             if((integer)$attsVal->getAttribute()->getId() == (integer)$attribute->getId()){
                                 $attrChoice = $attribute->getChoices();
                                 $attrChoice = $attrChoice[$attsVal->getValue()];
                                 $attrChoiceId = array_flip($attribute->getChoices());
                                 $attrChoiceId = $attrChoiceId[$attrChoice];
-                                $getChoices += [ $attrChoiceId=> $attrChoice];
+                                $getChoices += [$attrChoiceId => ($attrChoice)];
                             }
                         }
                     }
+
                     $formBuilder->add('attr_' . $attribute->getId(), ChoiceType::class,[
                         'multiple'=> true,
                         'expanded' =>true,
@@ -83,4 +87,5 @@ class CategoryController extends AbstractController
 
         return $formBuilder->getForm();
     }
+
 }

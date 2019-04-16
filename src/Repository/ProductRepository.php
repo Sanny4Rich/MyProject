@@ -5,6 +5,7 @@ use App\Entity\AttributeValues;
 use App\Entity\Categories;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use function Sodium\add;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 /**
  * @method Product|null find($id, $lockMode = null, $lockVersion = null)
@@ -44,7 +45,8 @@ class ProductRepository extends ServiceEntityRepository
             ->from(AttributeValues::class, 'v')
             ->groupBy('v.product');
         $usedAttributesCount = 0;
-        foreach ($category->getAttributes() as $attribute) {
+        $cats = $category->getAttributes();
+        foreach ($cats as $attribute) {
             if ($attribute->isInt()) {
                 $minValue = $filter['attr_min_' . $attribute->getId()];
                 $maxValue = $filter['attr_max_' . $attribute->getId()];
@@ -83,8 +85,6 @@ class ProductRepository extends ServiceEntityRepository
         $queryBuilder = $this->createQueryBuilder('p');
         return $queryBuilder
             ->where($queryBuilder->expr()->in('p.id', $productIds))
-            ->addSelect('i')
-            ->leftJoin('p.images', 'i')
             ->andWhere('p.categories = :categories')
             ->setParameter('categories', $category)
             ->getQuery()

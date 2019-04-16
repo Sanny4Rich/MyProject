@@ -42,16 +42,6 @@ $('body').on('click', '.js-remove-item', function (event) {
 
 
 
-$('body').on('input', '.js-item-quantity', function(event) {
-    var target = $(event.currentTarget);
-
-    $.post(target.data('href'), {'count': target.val()}, function (data) {
-        cartItems.html(data);
-        cartInHeader.load(cartInHeader.data('refresh-url'));
-
-    })
-});
-
 var headerSearchForm = $('#header-search-form');
 var headerSearchResults = $('#header-search-result');
 var resultClicked = false;

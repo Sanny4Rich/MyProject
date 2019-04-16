@@ -30,8 +30,8 @@
                                                 <div class="quantity">
                                                     <input type="number" value="{{ item.count }}" min="1"  class="quantity-input js-item-quantity"
                                                            data-href="{{ path('orders_set_item_count', {'id': item.id}) }}">
-                                                    <button class="dec qtybutton"></button>
-                                                    <button class="inc qtybutton"></button>
+                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                                 </div>
                                                 </div>
                                             </td>
@@ -46,6 +46,22 @@
                             <!-- Cart Area End -->
                         </div>
                     </div>
+                    <div class="row justify-content-md-end">
+                        <div class="col-md-5">
+                            <div class="cart-page-total">
+                                <h2>Всего </h2>
+                                <ul>
+                                    <li>
+                                        <span>К оплате :</span>
+                                        <span>{{ cart.orderPrice|money }}</span>
+                                    </li>
+                                </ul>
+                                <a class="btn btn--small btn-style-3"
+                                   href="{{ path('orders_create_order') }}">Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+
 
 
 <!-- Main content wrapper end -->

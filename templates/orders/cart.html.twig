@@ -39,20 +39,7 @@
     <div id="cartItems">
     {{ include('orders/cartItems.html.twig', {'cart': cart })}}
     </div>
-                    <div class="row justify-content-md-end">
-                        <div class="col-md-5">
-                            <div class="cart-page-total">
-                                <h2>Всего </h2>
-                                <ul>
-                                    <li>
-                                        <span>К оплате :</span>
-                                        <span>{{ cart.orderPrice|money }}</span>
-                                    </li>
-                                </ul>
-                                <a class="btn btn--small btn-style-3" href="{{ path('orders_create_order') }}">Заказать</a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 </div>

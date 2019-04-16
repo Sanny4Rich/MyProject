@@ -54,7 +54,7 @@
                                         {% elseif attribute.isList %}
                                         <ul class="search-filter__list">
                                             <li class="custom-control custom-checkbox mr-sm-2">
-                                                {{ form_widget(filterForm['attr_' ~ attribute.id] ) }}
+                                                {{ form_widget(filterForm['attr_' ~ attribute.id]) }}
                                             </li>
                                             {% endif %}
                                         </ul>
