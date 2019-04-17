@@ -18,7 +18,8 @@ class ProductController extends AbstractController
     {
         $product = $productRepository->find($id);
         $attributes = [];
-        foreach ($product->getAttributeValues() as $attributeValues) {
+        $prod = $product->getAttributeValues();
+        foreach ($prod as $attributeValues) {
 
             switch ($attributeValues->getAttribute()->getType()) {
                 case Attribute::TYPE_INT:

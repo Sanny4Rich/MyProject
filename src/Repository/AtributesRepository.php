@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Attribute;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Entity\Category;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -19,6 +20,12 @@ class AtributesRepository extends ServiceEntityRepository
         parent::__construct($registry, Attribute::class);
     }
 
+//    public function getProductsAttributesFromCategory(Category $category){
+//        $test = $this->_em->createQueryBuilder()
+//            ->select('*')
+//            ->from(AttributeValuesRepository::class, 'a')
+//            ->leftJoin('products', 'p','ON', 'a.product.id = p.product_id' )
+//    }
     // /**
     //  * @return Attribute[] Returns an array of Attribute objects
     //  */

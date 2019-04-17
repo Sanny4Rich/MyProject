@@ -5,8 +5,11 @@ namespace App\Controller;
 use App\Entity\Attribute;
 use App\Entity\Categories;
 use App\Entity\Product;
+use App\Repository\AtributesRepository;
+use App\Repository\AttributeValuesRepository;
 use App\Repository\CategoriesRepository;
 use App\Repository\ProductRepository;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -30,10 +33,21 @@ class CategoryController extends AbstractController
     /**
      * @Route("/category/{id}", name="category_item")
      */
-    public function item(Categories $category, Request $request, ProductRepository $productRepository, PaginatorInterface $paginator){
+    public function item(Categories $category, Request $request, ProductRepository $productRepository, PaginatorInterface $paginator, AttributeValuesRepository $attributeValuesRepository)
+    {
+
+        $test = $attributeValuesRepository->createQueryBuilder('a')
+            ->innerJoin(Product::class, 'p', 'WITH', 'a.product = p.id')
+            ->leftJoin(Attribute::class, 'i', 'WITH', 'a.attribute = i.id')
+            ->where('p.categories = :category')
+            ->setParameter('category', $category)
+            ->getQuery()
+            ->getResult();
 
         $form = $this->getFilterForm($category);
         $form->handleRequest($request);
+
+
         if($form->isSubmitted() && $form->isValid()){
             $products =$productRepository->findByAttributes($category, $form->getData());
         }else{
@@ -44,6 +58,7 @@ class CategoryController extends AbstractController
             ['categories' => $category,
                 'filterForm' => $form->createView(),
                 'products' => $pagination,
+                'test' => $test
                 ]);
     }
 

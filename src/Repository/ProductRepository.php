@@ -44,6 +44,7 @@ class ProductRepository extends ServiceEntityRepository
             ->select('IDENTITY(v.product) as id, COUNT(v.attribute) AS matched')
             ->from(AttributeValues::class, 'v')
             ->groupBy('v.product');
+        var_dump($attributeQueryBuilder);
         $usedAttributesCount = 0;
         $cats = $category->getAttributes();
         foreach ($cats as $attribute) {

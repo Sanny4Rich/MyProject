@@ -8,11 +8,15 @@ use App\Entity\Categories;
 use App\Entity\Product;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping\Entity;
+use Knp\Menu\ItemInterface as MenuItemInterface;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\AdminType;
+use Sonata\AdminBundle\Form\Type\Filter\ChoiceType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\Form\Type\CollectionType;
 use Liip\ImagineBundle\Form\Type\ImageType;
@@ -54,14 +58,23 @@ class ProductAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $form)
     {
         $cacheManager = $this->cacheManager;
+        //Вкладка с товарами
         $form
-            -> add('name')
-            -> add('description')
-            -> add('price')
-            -> add('salePrice')
-            -> add('categories')
-            -> add('isTop' )
-            -> add('images',
+            ->tab('Товар')
+            ->with('Товар')
+            ->add('name')
+            ->add('description')
+            ->add('price')
+            ->add('salePrice')
+            ->add('categories')
+            ->add('isTop')
+            ->end()
+            ->end();
+        //Вкладка с картинками
+        $form
+            ->tab('Картинки')
+            ->with('Картинки')
+            ->add('images',
                 CollectionType::class,
                 ['by_reference' => false
                 ],
@@ -69,8 +82,11 @@ class ProductAdmin extends AbstractAdmin
                     'edit' => 'inline',
                     'inline' => 'table'
                 ]
-            );
+            )
+            ->end()
+            ->end();
     }
+
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->add('attributes', $this->getRouterIdParameter(). '/attributes', [
