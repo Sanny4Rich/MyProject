@@ -44,7 +44,7 @@ class CategoryController extends AbstractController
             ->getQuery()
             ->getResult();
 
-        $form = $this->getFilterForm($category);
+        $form = $this->getFilterForm($test);
         $form->handleRequest($request);
 
 
@@ -62,33 +62,30 @@ class CategoryController extends AbstractController
                 ]);
     }
 
-    private function getFilterForm(Categories $category){
+    private function getFilterForm($test)
+    {
         $formBuilder = $this->createFormBuilder();
         $formBuilder->setMethod('get');
-        $cat = $category->getAttributes();
-        $prods = $category->getProducts();
-        foreach ($cat as $attribute) {
-            switch ($attribute->getType()) {
+        foreach ($test as $attribute) {
+            switch ($attribute->getAttribute()->getType()) {
                 case Attribute::TYPE_INT:
-                    $formBuilder->add('attr_min_' . $attribute->getId(), NumberType::class, ['required' => false]);
-                    $formBuilder->add('attr_max_' . $attribute->getId(), NumberType::class, ['required' => false]);
+                    $formBuilder->add('attr_min_' . $attribute->getAttribute()->getId(), NumberType::class, ['required' => false]);
+                    $formBuilder->add('attr_max_' . $attribute->getAttribute()->getId(), NumberType::class, ['required' => false]);
                     break;
 
                 case Attribute::TYPE_LIST:
                     $getChoices = [];
-                    foreach ($prods as $items) {
-                        foreach ($items->getAttributeValues() as $attsVal){
-                            if((integer)$attsVal->getAttribute()->getId() == (integer)$attribute->getId()){
-                                $attrChoice = $attribute->getChoices();
-                                $attrChoice = $attrChoice[$attsVal->getValue()];
-                                $attrChoiceId = array_flip($attribute->getChoices());
-                                $attrChoiceId = $attrChoiceId[$attrChoice];
-                                $getChoices += [$attrChoiceId => ($attrChoice)];
+                    foreach ($test as $atrs) {
+                        if ($atrs->getAttribute()->getId() == $attribute->getAttribute()->getId()) {
+                            $choiceId = $atrs->getValue();
+                            $attrChoice = $atrs->getAttribute()->getChoices();
+                            $attrChoice = $attrChoice[$choiceId];
+                            $getChoices += [$choiceId => ($attrChoice)];
                             }
                         }
-                    }
 
-                    $formBuilder->add('attr_' . $attribute->getId(), ChoiceType::class,[
+
+                    $formBuilder->add('attr_' . $attribute->getAttribute()->getId(), ChoiceType::class, [
                         'multiple'=> true,
                         'expanded' =>true,
                         'choices' => array_flip($getChoices),
