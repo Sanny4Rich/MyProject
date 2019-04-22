@@ -118,10 +118,16 @@
                                                     <li><a href="{{ currentPath~'?page='~leftBorderPage }}">{{ leftBorderPage }}</a></li>
                                                 {% endif %}
                                                 <li class="current">{{ app.request.get('page') }}<a href="{{ currentPath~'?page='~thispage }}"></a></li>
+
                                                 {% if thispage != lastPage %}
                                                 <li><a href="{{ currentPath~'?page='~rightBorderPage }}">{{ rightBorderPage }}</a></li>
+                                                    {% if thispage == null %}
+                                                        <li><a href="{{ currentPath~'?page='~2 }}">2</a></li>
+                                                        <li><a href="{{ currentPath~'?page='~3 }}">3</a></li>
+                                                    {% endif %}
                                                     {% if thispage+2 < lastPage %}
-                                                        <li> . . . <a href="{{ currentPath~'?page='~lastPage|round }}">{{ lastPage|round }}</a></li>
+                                                        <li> . . . <a href="{{ currentPath~'?page='~lastPage|round }}">&nbsp;&nbsp;&nbsp; {{ lastPage|round }}</a>
+                                                        </li>
                                                     {% endif %}
                                                 <li class="next"><a href="{{ currentPath~'?page='~rightBorderPage }}">Следующая<i class="fa fa-angle-right"></i> </a></li>
                                                 {% endif %}

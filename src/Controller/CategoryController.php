@@ -37,9 +37,10 @@ class CategoryController extends AbstractController
      */
     public function item(Categories $category, CategoriesRepository $categoryRepository, Request $request, ProductRepository $productRepository, PaginatorInterface $paginator, AttributeValuesRepository $attributeValuesRepository)
     {
-        $filter = $attributeValuesRepository->createQueryBuilder('a')
-            ->innerJoin(Product::class, 'p', 'WITH', 'a.product = p.id')
-            ->leftJoin(Attribute::class, 'i', 'WITH', 'a.attribute = i.id')
+        $filter = $attributeValuesRepository->getFilterByAttributes($category);
+
+        $productsFromCategory = $productRepository->createQueryBuilder('p')
+            ->leftJoin('p.images', 'i')
             ->where('p.categories = :category')
             ->setParameter('category', $category)
             ->getQuery()
@@ -51,7 +52,7 @@ class CategoryController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $products =$productRepository->findByAttributes($category, $form->getData());
         }else{
-            $products = $category->getProducts();
+            $products = $productsFromCategory;
         };
         $pagination = $paginator->paginate($products, $request->get('page', 1), 12);
         return $this->render('category/items.html.twig',

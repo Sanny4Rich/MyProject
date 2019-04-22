@@ -3,6 +3,7 @@ namespace App\Repository;
 
 use App\Entity\AttributeValues;
 use App\Entity\Categories;
+use App\Entity\Images;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use function Sodium\add;
@@ -84,6 +85,7 @@ class ProductRepository extends ServiceEntityRepository
         }
         $queryBuilder = $this->createQueryBuilder('p');
         return $queryBuilder
+            ->innerJoin(Images::class, 'i', 'p.images = i')
             ->where($queryBuilder->expr()->in('p.id', $productIds))
             ->andWhere('p.categories = :categories')
             ->setParameter('categories', $category)

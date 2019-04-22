@@ -4,6 +4,7 @@ namespace App\Admin;
 
 
 use App\Entity\Attribute;
+use App\Entity\AttributeValues;
 use App\Entity\Categories;
 use App\Entity\Product;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -57,7 +58,6 @@ class ProductAdmin extends AbstractAdmin
     }
     protected function configureFormFields(FormMapper $form)
     {
-        $cacheManager = $this->cacheManager;
         //Вкладка с товарами
         $form
             ->tab('Товар')

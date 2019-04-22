@@ -2,8 +2,12 @@
 
 namespace App\Repository;
 
+use App\Entity\Attribute;
 use App\Entity\AttributeValues;
+use App\Entity\Categories;
+use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Entity\Category;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -19,6 +23,17 @@ class AttributeValuesRepository extends ServiceEntityRepository
         parent::__construct($registry, AttributeValues::class);
     }
 
+    public function getFilterByAttributes(Categories $category)
+    {
+        $filter = $this->createQueryBuilder('a')
+            ->innerJoin(Product::class, 'p', 'WITH', 'a.product = p.id')
+            ->leftJoin(Attribute::class, 'i', 'WITH', 'a.attribute = i.id')
+            ->where('p.categories = :category')
+            ->setParameter('category', $category)
+            ->getQuery()
+            ->getResult();
+        return $filter;
+    }
     // /**
     //  * @return AttributeValues[] Returns an array of AttributeValues objects
     //  */

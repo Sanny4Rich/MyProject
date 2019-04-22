@@ -5,7 +5,8 @@
                                 <!-- Product Box Start -->
                                 <div class="product-box variable-product">
                                     <div class="product-box__meta">
-                                        <a href="{{ path('products_item', {'id': product.id}) }}" class="product-box__category">Обзор</a>
+                                        <a href="{{ path('products_item', {'id': product.id}) }}"
+                                           class="product-box__category">Подробнее</a>
                                         {% if product.realSalePrice %}
                                             {% set discount = (100 - (product.realPrice/product.realSalePrice)*100) %}
                                             <span class="product-box__sticker product-box__sticker--discount">{{ discount|round }}%</span>

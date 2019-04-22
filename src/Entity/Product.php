@@ -267,12 +267,6 @@ class Product
         return $this;
     }
 
-    /**
-     * Remove image
-     *
-     * @param Images $image
-     */
-
     public function removeImage(Images $images): self
     {
         if ($this->images->contains($images)) {

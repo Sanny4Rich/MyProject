@@ -219,7 +219,8 @@ p {
   display: block; }
 
 .section-padding {
-  padding: 4rem 0; }
+    padding: 1rem;
+}
 
 .owl-carousel .owl-item img {
   width: auto; }
@@ -341,7 +342,9 @@ Banner Box
   box-shadow: 0 0 7.2px 0.8px rgba(0, 0, 0, 0.1);
   right: 0 !important;
   left: auto !important;
-  min-width: 12rem; }
+    min-width: 12rem;
+    text-decoration-color: #097aff
+}
 
 .banner-box:hover img, .product-category__thumb img:hover {
   -webkit-transform: scale3d(1.05, 1.05, 1.05);
@@ -3112,7 +3115,7 @@ Mobile Menu
   background-color: transparent; }
   .mobile-menu .mean-bar:before {
     position: absolute;
-    content: "Menu";
+      content: "Меню";
     left: 0;
     top: 15px;
     font-size: 2rem;
@@ -3583,7 +3586,8 @@ Custom Checkbox
     height: 1.5rem;
     border: 1px solid #606060;
     font-family: fontAwesome;
-    color: #2c2e3d; }
+      color: dodgerblue;
+  }
 
 .custom-checkbox__input {
   display: none; }
@@ -4143,7 +4147,8 @@ a.create-account-link {
     .form-btn--2:hover {
       background-color: #e66205; }
   .form-btn--3 {
-    background-color: #f5a623; }
+      background-color: #097aff;
+  }
     .form-btn--3 i.fa {
       color: #fff; }
     .form-btn--3:hover {
@@ -5295,12 +5300,15 @@ Quick View Modal
   padding-right: 0 !important; }
 
 .modal.show {
-  z-index: 1050; }
+    z-index: 1050;
+    padding-top: 6rem;
+}
 
 #productModal .modal-dialog {
   max-width: 100rem;
   width: 96rem;
-  margin: 5% auto; }
+    margin: 5% auto;
+}
   @media (max-width: 61.94em) {
     #productModal .modal-dialog {
       max-width: 100%;
@@ -6148,8 +6156,8 @@ Blog Pagination
       color: #51aa1b; }
 
 .banner-slide-wrapper {
-  background: #fff;
-  padding: 3rem; }
+    background: #fff;
+}
 
 /*****************************
 41. Shop CSS
@@ -6623,3 +6631,9 @@ Blog Pagination
     font-size: 1.8rem;
     line-height: 1.6;
     margin-bottom: 3rem; }
+
+.header-user__icon {
+    font-size: 3.2rem;
+    font-weight: 400;
+    padding-right: 2.5rem;
+}
