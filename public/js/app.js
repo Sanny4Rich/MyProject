@@ -61,7 +61,7 @@ headerSearchForm.on('submit',function (event) {
 });
 
 
-window.onload = function () {
+function atrfind() {
     document.getElementById('attributeForm').onclick = function () {
         document.getElementById('attributeForm-submit').submit();
         return false;
