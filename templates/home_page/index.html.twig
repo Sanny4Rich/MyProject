@@ -134,7 +134,7 @@
                         <!-- Tranding Product box Start -->
                         <div class="product-box variable-product product-box--3">
                             <div class="product-box__meta">
-                                <a href="shop.html" class="product-box__category">Подробнее</a>
+                                <a href="{{ path('products_item',{'id': product.id}) }}" class="product-box__category">Подробнее</a>
                                 {% set discount = (100 - product.salePrice/product.realPrice)|round  %}
                                 <span class="product-box__sticker product-box__sticker--discount">-{{ discount }}%</span>
                             </div>

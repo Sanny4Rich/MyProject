@@ -5,14 +5,12 @@ addToCartButtons = $('.js-add-to-cart');
 removeFromCartButtons = $('.js-remove-item');
 cartItems = $('#cartItems');
 
-addToCartButtons.on('click', function(event) {
+addToCartButtons.on('click', function (event) {
     event.preventDefault();
-    mask();
     console.log('Button pressed.');
 
     $.get(event.target.href, function (data) {
         cartInHeader.html(data);
-        unmask();
     });
 
 });
@@ -60,10 +58,6 @@ headerSearchForm.on('submit',function (event) {
 
 });
 
-
-function atrfind() {
-    document.getElementById('attributeForm').onclick = function () {
-        document.getElementById('attributeForm-submit').submit();
-        return false;
-    }
-};
+$('#attributeForm').on('change', function () {
+    $('#attributeForm').submit();
+});
