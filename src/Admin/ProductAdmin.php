@@ -85,6 +85,21 @@ class ProductAdmin extends AbstractAdmin
             )
             ->end()
             ->end();
+
+        $form
+            ->tab('Атрибуты')
+            ->with('Атрибуты')
+            ->add('attributeValues',
+                CollectionType::class,
+                ['by_reference' => false
+                ],
+                [
+                    'edit' => 'inline',
+                    'inline' => 'table'
+                ]
+            )
+            ->end()
+            ->end();
     }
 
     protected function configureRoutes(RouteCollection $collection)
