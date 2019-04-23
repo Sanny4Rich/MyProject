@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Review;
+use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
+use App\Form\ReviewType;
 use App\Repository\UserRepository;
 use FOS\UserBundle\Model\UserInterface;
-use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -29,6 +31,24 @@ class UserController extends AbstractController
         $usr = $userRepository->find($user->getId());
         return $this->render('user/userOrders.html.twig',[
             'user' => $usr,
+        ]);
+    }
+
+    public function renderReview(Request $request)
+    {
+        $review = new Review();
+        $form = $this->createForm(ReviewType::class, $review);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($review);
+            $manager->flush();
+
+            $this->addFlash('info', 'Спасибо за обращение, мы с Вами свяжемся');
+        }
+        return $this->render('user/reviewInput.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }

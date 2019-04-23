@@ -98,6 +98,9 @@ class OrdersController extends AbstractController
 
     /**
      * @Route("/orders/create", name="orders_create_order")
+     * @param OrdersService $ordersService
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function createOrder(OrdersService $ordersService, Request $request)
     {
@@ -106,7 +109,6 @@ class OrdersController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
             $ordersService->sendOrder($order);
-
             $response = $this->redirectToRoute('home_page');
             $response->headers->clearCookie('orderId');
 

@@ -121,7 +121,7 @@
 
                                                 {% if thispage != lastPage %}
                                                 <li><a href="{{ currentPath~'?page='~rightBorderPage }}">{{ rightBorderPage }}</a></li>
-                                                    {% if thispage == null %}
+                                                    {% if thispage == null and lastPage >= 4 %}
                                                         <li><a href="{{ currentPath~'?page='~2 }}">2</a></li>
                                                         <li><a href="{{ currentPath~'?page='~3 }}">3</a></li>
                                                     {% endif %}

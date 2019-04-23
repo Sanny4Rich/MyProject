@@ -78,7 +78,6 @@ class Product
 
 
 
-
     public function __construct()
     {
         $this->isTop = false;
@@ -291,4 +290,6 @@ class Product
 
         return $this;
     }
+
+
 }

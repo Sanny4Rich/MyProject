@@ -17,7 +17,11 @@ class HomePageController extends AbstractController
     public function index(ProductRepository $productRepository, CategoriesRepository $categoryRepository)
     {
         $categories = $categoryRepository->findAll();
-        $products = $productRepository->findBy(array('isTop'=> 1));
+        $products = $productRepository->createQueryBuilder('q');
+        $products->addSelect('a')
+            ->leftJoin('q.images', 'a')
+            ->where('q.isTop = 1');
+        $products->getQuery()->getResult();
 
 //        $categories = $this->prepareCategories();
 //        var_dump($categories);

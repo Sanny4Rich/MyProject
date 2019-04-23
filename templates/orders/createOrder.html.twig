@@ -34,7 +34,6 @@
                                     </div>
                                     {{ form_start(form) }}
                                     <div class="checkout-form">
-                                        <form action="#" class="form">
                                             <div class="form-row mb--30">
                                                 <div class="form__group col-md-12">
                                                     {{ form_row(form.name, {'label': 'Имя *' , 'attr':{'class':'form__input'}, 'label_attr':{'class': 'form__label'}}) }}
@@ -43,6 +42,7 @@
                                             <div class="form-row mb--30">
                                                 <div class="form__group col-md-12">
                                                     {{ form_row(form.email, {'label': 'Email', 'attr':{'class':'form__input'}, 'label_attr':{'class': 'form__label'}})  }}
+
                                                 </div>
                                             </div>
                                             <div class="form-row mb--30">
@@ -55,10 +55,10 @@
                                                     {{ form_widget(form.adress, {'label': 'Адрес' ,
                                                         'attr':{'class':'form__input form__input--textarea', 'placeholder': 'Введите адресс'},
                                                         'label_attr':{'class':'form__label'}}) }}
-
+                                                    {{ form_errors(form.adress) }}
                                                 </div>
                                             </div>
-                                        </form>
+
                                     </div>
                                 </div>
                                 <div class="col-lg-5 mt-md--30">
@@ -90,9 +90,8 @@
                                             </tr>
                                             </tfoot>
                                         </table>
-                                        <button type="submit" class="btn btn-style-3 btn--fullwidth">Закзазать</button>
-
-                                                    {{ form_end(form) }}
+                                        <button class="btn btn-style-3 btn--fullwidth" type="submit">Закзазать</button>
+                                        {{ form_end(form) }}
 
                                     </div>
                                 </div>

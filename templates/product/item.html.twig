@@ -80,8 +80,6 @@
                             <!-- Single Product Content Start -->
                             <div class="single-product__content">
                                 <h2 class="single-product__name">{{ product.name }}</h2>
-                                <a class="single-product__review-btn" data-toggle="modal" data-target="#reviewModal"><i
-                                            class="fa fa-pencil"></i> Оставить отзыв</a>
                                 <div class="single-product__price">
                                     {% if product.realSalePrice != null %}
                                     <span class="regular-price">{{ product.realPrice|localizedcurrency('UAH') }}</span>
@@ -97,7 +95,6 @@
                                         Добавить в корзину
                                     </a>
                                 </div>
-                                <p class="product-availability"><i class="fa fa-check"></i> In Stock</p>
                                     <span>Поделиться через : </span>
                                     <br>
                                     <br>
@@ -126,8 +123,8 @@
                                    role="tab" aria-controls="nav-desc" aria-selected="true">Описание</a>
                                 <a class="nav-item nav-link" id="nav-details-tab" data-toggle="tab" href="#nav-details"
                                    role="tab" aria-controls="nav-details" aria-selected="true">Характеристики</a>
-                                <a class="nav-item nav-link" id="nav-review-tab" data-toggle="tab" href="#nav-review"
-                                   role="tab" aria-controls="nav-review" aria-selected="true">Отзывы</a>
+                                {#<a class="nav-item nav-link" id="nav-review-tab" data-toggle="tab" href="#nav-review"#}
+                                {#role="tab" aria-controls="nav-review" aria-selected="true">Отзывы</a>#}
                             </div>
                             <div class="single-product-tab__content tab-content">
                                 <div class="tab-pane fade show active" id="nav-desc" role="tabpanel" aria-labelledby="nav-desc-tab">
@@ -153,10 +150,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane" role="tabpanel" id="nav-review" aria-labelledby="nav-review-tab">
-                                    <a class="review-btn" data-toggle="modal" data-target="#reviewModal">Будьте первым
-                                        кто оставит отзыв!</a>
-                                </div>
+                                {#<div class="tab-pane" role="tabpanel" id="nav-review" aria-labelledby="nav-review-tab">#}
+                                {#{{ include('user/_reviews.html.twig', {'product' : product}) }}#}
+                                {#{{ include('user/reviewInput.html.twig') }}#}
+                                {#</div>#}
                             </div>
                         </div>
                     </div>
@@ -181,7 +178,8 @@
                                 {% for products in relatedProducts %}
                                 <div class="product-box variable-product">
                                     <div class="product-box__meta">
-                                        <a href="{{ path('products_item', {'id': product.id}) }}" class="product-box__category">обзор</a>
+                                        <a href="{{ path('products_item', {'id': product.id}) }}"
+                                           class="product-box__category">Подробнее</a>
                                         {% if product.realSalePrice is null %}
                                         <span class="product-box__sticker product-box__sticker--discount">{{ (100 - (product.realPrice/product.realSalePrice)*100)|round }}%</span>
                                         {% endif %}

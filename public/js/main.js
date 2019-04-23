@@ -3,21 +3,6 @@
 	'use strict';
 
 	// Variables
-
-	var window_width = $(window).width();
-
-	/**********************
-	*Category Nav Activation
-	***********************/ 
-
-	$('#js-cat-nav').slicknav({
-		label: '',
-		duration: 1000,
-		label: 'Category',
-		showChildren: 'false',
-		prependTo:'.category-moble-menu'
-	});
-	
 	/**********************
 	*Mobile Menu Activatin
 	***********************/ 

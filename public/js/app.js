@@ -17,15 +17,6 @@ addToCartButtons.on('click', function(event) {
 
 });
 
-
-function mask() {
-    $('body').append('<div class="lmask"><div>')
-}
-
-function unmask() {
-    $('.lmask').remove();
-}
-
 $('body').on('click', '.js-remove-item', function (event) {
     event.preventDefault();
 
@@ -68,3 +59,11 @@ headerSearchForm.on('submit',function (event) {
     })
 
 });
+
+
+window.onload = function () {
+    document.getElementById('attributeForm').onclick = function () {
+        document.getElementById('attributeForm-submit').submit();
+        return false;
+    }
+};

@@ -39,12 +39,12 @@ class CategoryController extends AbstractController
     {
         $filter = $attributeValuesRepository->getFilterByAttributes($category);
 
-        $productsFromCategory = $productRepository->createQueryBuilder('p')
-            ->leftJoin('p.images', 'i')
-            ->where('p.categories = :category')
-            ->setParameter('category', $category)
-            ->getQuery()
-            ->getResult();
+        $productsFromCategory = $productRepository->createQueryBuilder('q');
+        $productsFromCategory->addSelect('a')
+            ->leftJoin('q.images', 'a')
+            ->where('q.categories = :category')
+            ->setParameter('category', $category);
+        $productsFromCategory->getQuery()->getResult();
 
         $form = $this->getFilterForm($filter);
         $form->handleRequest($request);
@@ -83,8 +83,8 @@ class CategoryController extends AbstractController
                             $getChoices += [$choiceId => ($attrChoice)];
                             }
                         }
-
-
+                    krsort($getChoices);
+                    reset($getChoices);
                     $formBuilder->add('attr_' . $attribute->getAttribute()->getId(), ChoiceType::class, [
                         'multiple'=> true,
                         'expanded' =>true,

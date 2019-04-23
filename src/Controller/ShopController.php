@@ -25,11 +25,9 @@ class ShopController extends AbstractController
         $products->addSelect('a')
             ->leftJoin('q.images', 'a');
         $products->getQuery()->getResult();
-             $categories = $categoriesRepository->findAll();
         $pagination = $paginator->paginate($products, $request->get('page', 1), 12);
         return $this->render('shop/index.html.twig', [
             'products' => $pagination,
-            'categories' => $categories
         ]);
     }
 

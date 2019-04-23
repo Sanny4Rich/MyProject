@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    {% for reviews in product.reviews %}
+        <div class="owl-item" style="width: auto;">
+            <div class="testimonial">
+                <div class="testimonial__desc">
+                    <p></p>
+                </div>
+                <div class="testimonial__author">
+                    <div class="testimonial__author-img">
+                        <img src="/img/testimonial1.png" alt="author">
+                    </div>
+                    <div class="/img/testimonial1.png">
+                        <h5>{{ reviews.user.name }}</h5>
+                        <p>demo@hastech.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
